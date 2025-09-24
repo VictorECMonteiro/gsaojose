@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Gothic+A1&family=Wix+Madefor+Text:ital,wght@0,400..800;1,400..800&display=swap');
+.transparentLink{
+    font-size: clamp(0.5rem, 0.9vw, 2rem);
+    color: #E41700;
+    text-decoration: none;
+    font-weight: bold;
+    font-family: "Wix Madefor Text";
+}
+.transparentLink:hover{
+    color: #A1653A;
+}
+
+.redBackgroundButton{
+    padding: 1.5% 5.5%;
+    background-color: #E41700;
+    border-radius: 0.5em;
+    color: #FFFF;
+    font-family: "Wix Madefor Text";
+    font-weight: 400;
+    text-decoration: none;
+    transition-duration: .3s;
+}
+
+.redBackgroundButton:hover{
+    background-color: #A1653A;
+    transition-duration: .3s;
+}
