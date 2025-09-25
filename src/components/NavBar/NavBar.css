@@ -1,7 +1,7 @@
 .containerNav{
     display: flex;
-    position: absolute;
-    top: 1vh;
+    position: sticky;
+    top: 0;
     
     transform: translateX(50%); 
     
@@ -15,7 +15,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 1vh 4vw 1vh 4vw;
-    
+    z-index: 5;
    
 }
 .hidden{
