@@ -1,24 +1,125 @@
-.containerNav{
+*{
+    margin: 0;
+    padding: 0;
+}
+.containerItens {
     display: flex;
-    position: sticky;
-    top: 0;
-    
-    transform: translateX(50%); 
-    
-    width: 40vw;
-    height: 8vh;
+    width: 50%;
+    height: 100%;
     background-color: #FEFAEF;
-    transition: cubic-bezier(0,.66,1,.88);
-    transition-duration: .09s;
-    
-    border-radius: 1em;
+
+    border-radius: 0.5em;
     justify-content: space-between;
     align-items: center;
-    padding: 1vh 4vw 1vh 4vw;
+    padding: 2vh 4vw ;
     z-index: 5;
-   
+    overflow-y: hidden;
 }
-.hidden{
-    transform: translateY(-10vh);
-    transform: translateX(50%); 
+.containerItens>a>img {
+    object-fit: contain;
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.containerNav {
+    position: fixed; /* better than absolute so it stays visible everywhere */
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    transition: transform 0.3s cubic-bezier(0, .66, 1, .88);
+}
+
+.hidden {
+    transform: translateY(-100%); /* hide entire navbar */
+}
+
+.closed{
+    /* width: 0; */
+    transform:translateX(-100vw);
+    transition: cubic-bezier(0, .66, 1, .88);
+    transition-duration: .09s;
+}
+
+.logo {
+    width: 8vw;
+    height: auto;
+    /* background-color: red; */
+}
+
+.collapsed-hamburguer {
+    display: none;
+}
+.container-side{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 70vw;
+    height: 100%;
+    background-color: #FFF;
+    transition: cubic-bezier(0, .66, 1, .88);
+    transition-duration: .09s;
+    z-index: 10;
+}
+.content-side{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    /* width: 10; */
+    height: 100vh;
+    background-color: #FFF;
+    overflow-y: hidden;
+}
+.logo-side{
+    width: 100px;
+    height: 100px;
+    margin: 5vh 0;
+}
+.anchor-side{
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    height: 60%;
+    /* background-color: blue; */
+
+}
+.anchor-side>*{
+    margin-top: 5vh;
+    /* margin: auto; */
+    font-size: clamp(1rem, 5vw, 2rem);
+}
+/* .anchor-side>*{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 2vh;
+    background-color: blue;
+
+} */
+
+
+@media (max-width: 1000px) {
+    .collapsed-hamburguer {
+        display: block;
+    }
+    .containerItens>.transparentLink, .containerItens>.redBackgroundButton{
+        display: none;
+    }
+    
+
+    .logo {
+        height: 80%;
+        width: 35%;
+        margin: auto;
+    }
+
+
+
+
+
 }

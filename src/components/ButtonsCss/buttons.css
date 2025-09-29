@@ -11,12 +11,13 @@
 }
 
 .redBackgroundButton{
-    padding: 1.5% 5.5%;
+    padding: 1em 3em;
     background-color: #E41700;
     border-radius: 0.5em;
     color: #FFFF;
     font-family: "Wix Madefor Text";
     font-weight: 400;
+    font-size: clamp(0.5rem, 0.9vw, 2rem);
     text-decoration: none;
     transition-duration: .3s;
 }
