@@ -11,20 +11,20 @@ export default function Carrossel({ children }: { children: React.ReactNode }) {
         infinite: true,
         speed: 500,
         variableWidth: true,
-        // centerMode: true,
+        centerMode: true,
 
         responsive: [
             {
                 breakpoint: 1600,
                 settings: {
-                    centerMode: true,
+                    // centerMode: true,
                     variableWidth: true,
                 }
             },
             {
                 breakpoint: 1400,
                 settings: {
-                    centerMode: true,
+                    // centerMode: true,
                     variableWidth: false,
                     slidesToShow: 4,
                     slidesToScroll: 1,
@@ -33,7 +33,7 @@ export default function Carrossel({ children }: { children: React.ReactNode }) {
             {
                 breakpoint: 1200,
                 settings: {
-                    centerMode: true,
+                    // centerMode: true,
                     variableWidth: false,
                     slidesToShow: 3,
                     slidesToScroll: 1,
@@ -62,6 +62,17 @@ export default function Carrossel({ children }: { children: React.ReactNode }) {
                 settings: {
                     centerMode: false,
                     variableWidth: false,
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    arrows: false, // optional
+                    dots: true,    // optional
+                }
+            },
+            {
+                breakpoint: 375, // covers 412px and other mid-size phones
+                settings: {
+                    // centerMode: false,
+                    // variableWidth: false,
                     slidesToShow: 1,
                     slidesToScroll: 1,
                     arrows: false, // optional

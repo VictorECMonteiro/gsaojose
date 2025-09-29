@@ -16,33 +16,45 @@
 .imageNews {
     display: flex;
     flex-wrap: nowrap;
-    height: 60vh;
+
     /* overflow-y: hidden; */
-    width: 95vw;
+    width: 90vw;
     /* height: 100vh; */
     /* margin-top: 10%; */
     /* background-color: red; */
-    /* border-radius: 1em; */
-    margin: 4vh auto;
     border-radius: 1em;
+    margin: auto;
+    margin-top: 6vh;
 }
 
 .imageNewsIten {
-    overflow-y: hidden;
+    overflow: hidden;
     width: 100vw;
-    height: 75vh;
-    background-color: blue;
-    /* margin-top: 1em; */
-    /* border-radius: 1em; */
+    height: 95vh; /* defines the "box" for the image */
+    /* background-color: blue; */
+    display: flex; /* center image inside */
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }
+
+.imageNewsIten img {
+    margin: auto;
+    height: 100%;
+    width: auto;       /* keep proportions */
+    object-fit: cover; /* or cover, depending on the effect you want */
+}
+
 
 .section-apresentacao {
     display: flex;
     /* justify-content: center; */
     align-items: center;
     flex-direction: column;
-    /* height: 100vh; */
+    min-height: 75vh;
     background-color: #FEFAEF;
+    /* flex: 1 1 500px; */
+    padding: 10vh 0vh 0vh 0vh;
 
 }
 
@@ -56,31 +68,68 @@
 .itens {
     /* position: sticky; */
     /* top: 5vh; */
-    
     display: flex;
     flex-wrap: wrap;
+    /* flex-direction: row; */
     justify-content: space-around;
     /* z-index: 5; */
+    /* width: 100%; */
+    /* flex: 1 1 10vw; */   
+    /* height: fit-content; */
+    /* background-color: red; */
+    
 }
 
 .itens>div {
-    animation: fade-in ease;
-    animation-timeline: scroll();
     display: flex;
     flex-direction: column;
     align-items: center;
-    flex: 1 1 500px;
+    justify-content: center;
+    /* background-color: red; */
+    width: 10vw;
+    height: 40vh;
     margin: 2vh;
     border-radius: 1rem;
     transition-duration: .5s;
-
-
+    transform: translateY();
+    padding: 5vh;
+    /* flex-grow: 2; */
+    
+}
+.itens>div>h1{
+    font-family: "Montserrat";
+    font-weight: 400;
+    font-size: clamp(1rem, 1.2vw, 2rem);
 }
 
+.itens>div>h2{
+    font-family: "Montserrat";
+    font-weight: 400;
+    font-size: clamp(0.5rem, 1vw, 0.9rem);
+}
 .itens>div:hover {
     transform: scale(105%);
     box-shadow: -1px 0px 8px 0px rgba(0, 0, 0, 0.75);
     -webkit-box-shadow: -1px 0px 8px 0px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: -1px 0px 8px 0px rgba(0, 0, 0, 0.75);
+
+}
+
+
+
+
+
+@media (max-width: 500px){
+    .imageNewsIten{
+        display: flex;
+        flex-direction: row;
+        height: 20vh;
+    }
+}
+@media (max-width: 1024px){
+    .itens>div{
+        flex-basis: 30%;
+        flex-shrink: 2;
+    }
 
 }

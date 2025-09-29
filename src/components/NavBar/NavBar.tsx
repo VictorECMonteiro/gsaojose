@@ -29,16 +29,16 @@ export default function NavBar() {
     }
   }, [])
 
-  useEffect(() => {
-    if (isOpen) {
-      containerSideRef.current?.classList.remove("closed")
-    }
-    else {
-      containerSideRef.current?.classList.add("closed")
+useEffect(() => {
+  if (isOpen) {
+    document.body.style.overflowY = "hidden";
+    containerSideRef.current?.classList.remove("closed");
+  } else {
+    document.body.style.overflowY = "auto"; // reset scroll
+    containerSideRef.current?.classList.add("closed");
+  }
+}, [isOpen]);
 
-    }
-
-  }, [isOpen])
 
 
 
