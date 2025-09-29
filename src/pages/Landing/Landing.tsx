@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import SaoJoseLogo from "../../assets/logosaojosenav.png"
 import asset1 from "../../assets/01.png"
 import asset2 from "../../assets/02.png"
@@ -21,20 +21,21 @@ import { StrapiGet } from '../../configuration/strapiApi'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { HomePageCarrossels } from '../../types/StrapiTypes'
+import paisagem1Png from "../../assets/apresentacaoImg/paisagem1.png"
 import Carrossel from '../../components/Carrossel/Carrossel'
-let baseUrl = import.meta.env.VITE_StrapiAdress
+// const baseUrl = import.meta.env.VITE_StrapiAdress
 
 
-
-
+//Não excluir estas 2 linhas, elas garantem que nao de erro no build do VITE
+console.log(SaoJoseLogo)
+console.log(paisagem1Png)
 
 export default function Landing() {
-  const [carrosselLanding, setCarroselLanding] = useState<any>({})
   const [banners, setBanners] = useState<HomePageCarrossels[]>([])
 
 
   useEffect(() => {
-    StrapiGet("Homepage-Carrossels").then((res: any) => {
+    StrapiGet("homepage-carrossels").then((res: any) => {
       setBanners(res.data)
       console.log(res.data)
     })
@@ -56,7 +57,6 @@ export default function Landing() {
               <img src={`${url}${iten.ImagemVideo.formats.medium?.url}`} alt="Banner" width={"100%"} height={"100%"} style={{ flex: 1, objectFit: 'fill', height: "100%" }} />
               </a>
             </div>
-
           ))}
         </Carrossel>
       </div>
