@@ -47,4 +47,5 @@ export interface HomePageCarrossels {
     publishedAt:string;
     Link?: string | null;
     ImagemVideo: StrapiImage;
+    descricaoImagem: string;
 }

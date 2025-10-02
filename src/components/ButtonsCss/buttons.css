@@ -19,6 +19,7 @@
     font-weight: 400;
     font-size: clamp(0.5rem, 0.9vw, 2rem);
     text-decoration: none;
+    border: none;
     transition-duration: .3s;
 }
 

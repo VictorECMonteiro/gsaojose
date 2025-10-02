@@ -1,20 +1,11 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import SaoJoseLogo from "../../assets/logosaojosenav.png"
 import asset1 from "../../assets/01.png"
 import asset2 from "../../assets/02.png"
 import asset3 from "../../assets/03.png"
 import asset4 from "../../assets/04.png"
 import asset5 from "../../assets/05.png"
-
-
-
-
-
-
-
-
-
-
+import fundoSomos from "../../assets/fundoSomos.avif"
 import NavBar from '../../components/NavBar/NavBar'
 import "./Landing.css"
 import { StrapiGet } from '../../configuration/strapiApi'
@@ -23,6 +14,7 @@ import "slick-carousel/slick/slick-theme.css";
 import { HomePageCarrossels } from '../../types/StrapiTypes'
 import paisagem1Png from "../../assets/apresentacaoImg/paisagem1.png"
 import Carrossel from '../../components/Carrossel/Carrossel'
+import { LandingAnimations } from './LandingAnimations'
 // const baseUrl = import.meta.env.VITE_StrapiAdress
 
 
@@ -30,18 +22,57 @@ import Carrossel from '../../components/Carrossel/Carrossel'
 console.log(SaoJoseLogo)
 console.log(paisagem1Png)
 
+
 export default function Landing() {
   const [banners, setBanners] = useState<HomePageCarrossels[]>([])
+  const [scrollStyles, setScrollStyles] = useState<Record<number, React.CSSProperties>>({});
 
+  LandingAnimations(".itens>div")
 
   useEffect(() => {
     StrapiGet("homepage-carrossels").then((res: any) => {
       setBanners(res.data)
       console.log(res.data)
     })
-
   }, [])
-  console.log(banners)
+  const handleScroll = useCallback(() => {
+    const viewportHeight = window.innerHeight;
+    const viewportCenter = viewportHeight / 2;
+
+    document.querySelectorAll<HTMLElement>(".produtos>div>div").forEach((item, index) => {
+      const rect = item.getBoundingClientRect();
+      const itemCenter = rect.top + rect.height / 2;
+
+      const centerDistance = itemCenter - viewportCenter;
+      const factor = viewportHeight * 0.75;
+      let progress = centerDistance / factor;
+      const clampedProgress = Math.max(-1, Math.min(1, progress));
+
+      const opacity = Math.max(0, 1 - Math.abs(clampedProgress));
+      const scale = 1 - Math.abs(clampedProgress) * 0.15;
+
+      const translateY = clampedProgress * (150 + index * 100);
+      item.style.transform = `translateY(${translateY}px)`;
+
+    });
+  }, []);
+
+
+
+
+  // Attach scroll listener on mount and remove on unmount
+  useEffect(() => {
+    // Run once on load to set initial state
+    handleScroll();
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [handleScroll]); // Dependency on useCallback
+
+  // --- End Scroll Animation Logic ---
+
 
   const url = `${import.meta.env.VITE_StrapiAdress}`;
 
@@ -49,11 +80,11 @@ export default function Landing() {
   return (
     <>
       <NavBar />
-      <div className="imageNews">  
+      <div className="imageNews">
         <Carrossel>
           {banners.map((iten) => (
             <div className='imageNewsIten'>
-              <img src={`${url}${iten.ImagemVideo.formats.medium?.url}`} alt="Banner"/>
+              <img src={`${url}${iten.ImagemVideo.formats.medium?.url}`} alt={iten.descricaoImagem} title='Banners Promocionais' />
             </div>
           ))}
         </Carrossel>
@@ -61,34 +92,98 @@ export default function Landing() {
       <section className='section-apresentacao'>
         <h1>Granjas São José</h1>
         <div className='itens'>
-        <div>
-          <img src={asset1} alt="" width={150} height={"auto"}/>
-          <h1>Sabor e qualidade</h1>
-          <h2>A nutrição do seu dia-a-dia</h2>
-        </div>
-        <div>
-          <img src={asset3} alt=""  width={150} height={"auto"}/>
-          <h1>Criação que faz a diferença</h1>
-          <h2>Mais espaço, mais saúde, mais sabor</h2>
-        </div>
-        <div>
-          <img src={asset2} alt=""  width={150} height={"auto"}/>
-          <h1>Mais que ovos</h1>
-          <h2>É dedicação e compromisso com você</h2>
-        </div>
-        <div>
-          <img src={asset4} alt=""  width={150} height={"auto"}/>
-          <h1>Bem-estar animal</h1>
-          <h2>Responsabilidade em cada etapa</h2>
-        </div>
-        <div>
-          <img src={asset5} alt=""  width={150} height={"auto"}/>
-          <h1>Do campo pra mesa</h1>
-          <h2>produção que reflete carinho e transparência.</h2>
-        </div>
+          <div>
+            <img src={asset1} alt="" width={150} height={"auto"} />
+            <h1>Sabor e qualidade</h1>
+            <h2>A nutrição do seu dia-a-dia</h2>
+          </div>
+          <div>
+            <img src={asset3} alt="" width={150} height={"auto"} />
+            <h1>Criação que faz a diferença</h1>
+            <h2>Mais espaço, mais saúde, mais sabor</h2>
+          </div>
+          <div>
+            <img src={asset2} alt="" width={150} height={"auto"} />
+            <h1>Mais que ovos</h1>
+            <h2>É dedicação e compromisso com você</h2>
+          </div>
+          <div>
+            <img src={asset4} alt="" width={150} height={"auto"} />
+            <h1>Bem-estar animal</h1>
+            <h2>Responsabilidade em cada etapa</h2>
+          </div>
+          <div>
+            <img src={asset5} alt="" width={150} height={"auto"} />
+            <h1>Do campo pra mesa</h1>
+            <h2>produção que reflete carinho e transparência.</h2>
+          </div>
         </div>
       </section>
-  
+
+      <section className='quem-somos'>
+        <img src={fundoSomos} alt="" />
+        <div>
+          <h1>Quem somos</h1>
+          <h2>Uma história feita de trabalho, terra e tradição.</h2>
+          <p>Há mais de 50 anos, as Granjas São José tem se dedicado à produção de ovos de alta qualidade no coração do Ceará, garantindo frescor e excelência em cada produto</p>
+          <button className='redBackgroundButton' style={{ backgroundColor: "#FFF", color: "#A1653A" }}>Ver Mais</button>
+        </div>
+      </section>
+      <section className='produtos'>
+        <h1>Nossos Produtos</h1>
+        <p>Conheça os produtos da Granja, produzidos com responsabilidade para levar até você um alimento fresco e confiável.</p>
+        <div>
+          <div>
+            <div style={{ display: "flex", width: "100%", height: "95%", borderRadius: "1em" }}>
+              <img src="https://static.wixstatic.com/media/dec92a_bd4a508050534f75b9c334c985b07967~mv2.png/v1/fill/w_571,h_632,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/ChatGPT%20Image%2020%20de%20jun_%20de%202025%2C%2013_50_13.png" alt="" style={{
+                height: "auto",
+                objectFit: "cover"
+                // flexGrow: 1
+              }} />
+            </div>
+            <h2>Ovos de codorna São José</h2>
+          </div>
+          <div>
+            <div style={{ display: "flex", width: "100%", height: "95%", borderRadius: "1em" }}>
+              <img src="https://static.wixstatic.com/media/dec92a_5d067d7c4ca54872b8ab159afe32d821~mv2.jpg/v1/fill/w_571,h_631,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Gema%20Pasteurizada%20SJ.jpg" alt="" style={{
+                height: "auto",
+                objectFit: "cover"
+                // flexGrow: 1
+              }}  />
+            </div>
+            <h2>Ovo Integral Líquido</h2>
+          </div>
+          <div>
+            <div style={{ display: "flex", width: "100%", height: "95%", borderRadius: "1em" }}>
+              <img src="https://static.wixstatic.com/media/dec92a_959559f4f19b480faafb198994bea857~mv2.png/v1/fill/w_571,h_632,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/ChatGPT%20Image%2020%20de%20jun_%20de%202025%2C%2013_35_47.png" alt="" style={{
+                height: "auto",
+                objectFit: "cover"
+                // flexGrow: 1
+              }}  />
+            </div>
+            <h2>Ovos Life - Ômega 3</h2>
+          </div>
+        </div>
+        <button className='redBackgroundButton'>Ver Mais</button>
+      </section>
+      <section>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi soluta, esse nobis fugiat odit ipsam dolore et veniam aliquam corporis. Nam aperiam quas nemo tenetur dolores sint odio, eveniet recusandae.
+              Accusantium adipisci qui ducimus magni, deserunt ratione est culpa, sed iusto, cupiditate fuga soluta? Provident tempora pariatur consequuntur nisi aspernatur facere, iure, porro ab vel saepe doloribus nam, dignissimos est!
+              Porro quis amet consequuntur vero illum, assumenda veniam ea a optio nobis, deserunt et laudantium? Quod officiis nemo debitis tempora quam perspiciatis temporibus quos, minus atque earum, aliquam dignissimos placeat!
+              Ratione, rem autem ipsam excepturi laboriosam quibusdam optio? Consequatur ipsum in reiciendis sint placeat animi commodi accusamus itaque vitae quam consequuntur neque explicabo, hic harum ab nemo, nihil provident quo.
+              Eaque est natus quas, numquam animi quaerat, similique totam inventore earum ex incidunt ratione in dignissimos, dolor repellendus blanditiis? Incidunt quos inventore fugit nemo veritatis enim et rem corrupti error?
+              Inventore in repellendus illo error doloremque accusantium unde quas sint dolores. Enim hic cumque suscipit nam obcaecati eligendi deleniti, recusandae nisi nesciunt, iure qui vero vel. Quas cupiditate neque nam!
+              Unde veniam, doloribus voluptates culpa sunt molestiae eos rem necessitatibus provident aperiam ab sequi! Labore, id laudantium. Esse labore dolore asperiores nisi. Voluptate libero, fuga alias quisquam similique magni totam!
+              Illo dignissimos explicabo iste maxime adipisci quis exercitationem earum, error quos sunt dolor consequatur corrupti? Animi id quibusdam ut autem maxime corrupti non, eligendi sunt assumenda blanditiis voluptatibus consequuntur quisquam!
+              Sequi atque dolor maiores repellendus ipsa maxime consequatur! Deserunt quam veniam delectus, voluptates molestias, corporis maxime a voluptatibus ab sapiente obcaecati autem illo inventore, adipisci nostrum id consequatur ullam! Assumenda!
+              Praesentium doloremque officia commodi earum minima temporibus, officiis eaque illo consequuntur alias ducimus blanditiis atque error rerum exercitationem facere tempore accusamus? Explicabo a iure aliquid rem quisquam? Ducimus, labore provident?
+      </section>
+
+
+
+
+
+
 
     </>
 

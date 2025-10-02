@@ -5,6 +5,26 @@
     overflow-x: hidden;
 }
 
+@keyframes cardsAppearLeft {
+    from {
+        opacity: 0;
+        scale: 0.5;
+    }
+
+    to {
+        opacity: 1;
+        scale: 1;
+    }
+
+}
+
+
+
+
+
+
+
+
 .container {
     display: flex;
     width: 100%;
@@ -30,9 +50,11 @@
 .imageNewsIten {
     overflow: hidden;
     width: 100vw;
-    height: 95vh; /* defines the "box" for the image */
+    height: 95vh;
+    /* defines the "box" for the image */
     /* background-color: blue; */
-    display: flex; /* center image inside */
+    display: flex;
+    /* center image inside */
     flex-direction: row;
     align-items: center;
     justify-content: center;
@@ -41,8 +63,10 @@
 .imageNewsIten img {
     margin: auto;
     height: 100%;
-    width: auto;       /* keep proportions */
-    object-fit: cover; /* or cover, depending on the effect you want */
+    width: auto;
+    /* keep proportions */
+    object-fit: cover;
+    /* or cover, depending on the effect you want */
 }
 
 
@@ -74,10 +98,10 @@
     justify-content: space-around;
     /* z-index: 5; */
     /* width: 100%; */
-    /* flex: 1 1 10vw; */   
+    /* flex: 1 1 10vw; */
     /* height: fit-content; */
     /* background-color: red; */
-    
+
 }
 
 .itens>div {
@@ -90,23 +114,34 @@
     height: 40vh;
     margin: 2vh;
     border-radius: 1rem;
-    transition-duration: .5s;
-    transform: translateY();
-    padding: 5vh;
+    /* transition-duration: .1s; */
+    opacity: 0;
+    transform: translateY(-50%);
+    /* start slightly lower */
+    transition: all 0.3s ease-in-out;
+    /* transition-delay: .2s; */
+    padding: 4vh;
     /* flex-grow: 2; */
-    
+
 }
-.itens>div>h1{
+
+.itens>div.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.itens>div>h1 {
     font-family: "Montserrat";
     font-weight: 400;
     font-size: clamp(1rem, 1.2vw, 2rem);
 }
 
-.itens>div>h2{
+.itens>div>h2 {
     font-family: "Montserrat";
     font-weight: 400;
     font-size: clamp(0.5rem, 1vw, 0.9rem);
 }
+
 .itens>div:hover {
     transform: scale(105%);
     box-shadow: -1px 0px 8px 0px rgba(0, 0, 0, 0.75);
@@ -115,21 +150,171 @@
 
 }
 
+.quem-somos {
+    display: flex;
+    justify-self: center;
+    align-items: center;
+    width: 100vw;
+    height: 90vh;
+    /* background-color: #B31E0F; */
+
+}
+
+.quem-somos>img {
+    width: 100%;
+    position: absolute;
+    z-index: -1;
+    object-fit: fill;
+}
+
+.quem-somos>div {
+    display: flex;
+    flex-direction: column;
+    gap: 3vh;
+    padding: 5vh 5vw 0vh 5vw;
+    align-items: center;
+    margin: auto;
+    width: 30%;
+    height: 50%;
+    background-color: #A1653A;
+    z-index: 1;
+    border-radius: 1rem;
+}
+
+.quem-somos>div>h1 {
+    font-size: clamp(3em, 2vw, 4em);
+    font-family: "fraunces";
+    font-weight: 400;
+    color: rgb(254, 250, 239);
+}
+
+.quem-somos>div>h2 {
+    font-size: clamp(1em, 1.5vw, 2em);
+    font-family: "fraunces";
+    font-weight: 400;
+    color: rgb(254, 250, 239);
+    text-align: center;
+}
+
+.quem-somos>div>p {
+    font-size: clamp(0.5em, 1.5vw, 1em);
+    font-family: "fraunces";
+    font-weight: 400;
+    color: rgb(254, 250, 239);
+    text-align: center;
+
+}
+
+.produtos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100vw;
+    /* height: 150vh; */
+    gap: 4vh;
+    padding-top: 4vh;
+    padding-bottom: 6vh;
+    background-color: #FEFAEF;
+}
+
+.produtos>h1 {
+    font-size: clamp(3em, 2vw, 4em);
+    font-family: "fraunces";
+    font-weight: 400;
+    color: #894A28;
+}
+
+.produtos>p {
+    font-size: clamp(2em, 1vw, 3em);
+    font-family: "fraunces";
+    font-weight: 400;
+    color: #894A28;
+    text-align: center;
+    width: 50%;
+
+}
+
+.produtos>div {
+    display: flex;
+    width: 60vw;
+    /* height: auto; */
+    height: 80%;
+    justify-content: center;
+    align-items: center;
+    gap: 2vw;
+    /* margin-top: 5vh; */
+    overflow-y: hidden;
+    /* border-radius: 1em; */
+    /* background-color: blue; */
+}
+
+.produtos>div>div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 70vh;
+    flex-grow: 1;
+    border-radius: 1em;
+    overflow-y: hidden;
+    /* background-color: red; */
+
+}
+
+.produtos>div>div>h2 {
+    font-family: "montserrat";
+    font-weight: 700;
+    color: rgb(103, 66, 46);
+    font-size: clamp(0.5em, 1vw, 1em);
+    margin-top: 2vh;
+
+}
 
 
 
 
-@media (max-width: 500px){
-    .imageNewsIten{
+
+
+@media (max-width: 500px) {
+    .imageNewsIten {
         display: flex;
         flex-direction: row;
         height: 20vh;
     }
 }
-@media (max-width: 1024px){
-    .itens>div{
-        flex-basis: 30%;
-        flex-shrink: 2;
+
+@media (max-width: 1024px) {
+    .itens>div {
+        width: 90%;
+        flex-basis: 50%;
+        flex-shrink: 1;
+        gap: 0vh;
     }
+
+    .produtos>div>div {
+
+        flex-basis: 50%;
+        /* background-color: red; */
+    }
+
+    .produtos>div {
+        width: 90%;
+        flex-wrap: wrap;
+    }
+
+
+    .produtos>div>div>h2 {
+        font-family: "montserrat";
+        font-weight: 700;
+        color: rgb(103, 66, 46);
+        font-size: clamp(0.7em, 1vw, 2em);
+        margin-top: 2vh;
+
+    }
+
+
+
+
 
 }
