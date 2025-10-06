@@ -5,20 +5,16 @@
     overflow-x: hidden;
 }
 
-@keyframes cardsAppearLeft {
+
+@keyframes spin {
     from {
-        opacity: 0;
-        scale: 0.5;
+        transform: rotate(0deg);
     }
 
     to {
-        opacity: 1;
-        scale: 1;
+        transform: rotate(360deg);
     }
-
 }
-
-
 
 
 
@@ -232,7 +228,7 @@
     color: #894A28;
     text-align: center;
     width: 50%;
-
+    transform: tr;
 }
 
 .produtos>div {
@@ -271,8 +267,213 @@
 
 }
 
+.receitas-section {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background-color: #DAE2E4;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    padding-top: 10vh;
+
+}
+
+.receitas-banner {
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    flex-direction: column;
+    position: sticky;
+    top: 0px;
+    width: 80%;
+    height: 90%;
+    background-color: #FFDB4A;
+    border-radius: 1.5em;
+    /* padding: 3% 5%; */
+    margin: auto;
+    z-index: 1;
+    overflow-y: hidden;
+}
+
+.receitas-banner h1 {
+    font-size: clamp(2rem, 2vw, 3rem);
+    font-family: "fraunces";
+    font-weight: 700;
+    color: #894a28;
+}
+
+.receitas-banner p {
+    font-size: clamp(2rem, 2vw, 3rem);
+    font-family: "fraunces";
+    font-weight: 200;
+    /* margin-top: 3vh; */
+    color: #894a28;
+}
+
+.receitas-banner>div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    height: 70%;
+    /* background-color: red; */
+    overflow-y: hidden;
+}
+
+.receitas-omelete {
+    animation: spin 20s linear infinite;
+    height: 80%;
+    overflow-y: hidden;
+    /* background-color: blue; */
+    /* margin-top: 30vh; */
+}
+
+.receitas-omelete>img {
+    overflow-y: hidden;
+    /* background-color: red; */
+}
 
 
+
+.teste {
+    /* display: flex; */
+    width: 80%;
+    height: 90%;
+    position: sticky;
+    top: 0;
+    /* margin-left: auto; */
+    /* margin: auto; */
+    /* top: 50px; */
+    /* left: 25%; */
+    z-index: 2;
+    /* background-color: blue; */
+    border-radius: 2em;
+    transform: translateX(12.5%);
+}
+
+.receitas-item {
+    display: flex;
+    width: 80vw;
+    height: 30%;
+    /* position: absolute; */
+    margin: auto;
+    /* top: 50px; */
+    z-index: 1;
+    /* margin-top: 10px; */
+    background-color: #FEFAEF;
+    overflow-y: hidden;
+
+}
+
+.imagem-receita {
+    display: flex;
+    /* background-color: purple; */
+    width: 50em;
+    height: 5vh;
+    /* height: 20em; */
+    margin: auto;
+}
+
+.receitas-item:nth-child(1) {
+    border-radius: 2em 2em 0em 0em;
+}
+
+.receitas-item:nth-last-child(1) {
+    border-radius: 0em 0em 2em 2em;
+    /* background-color: red; */
+
+}
+
+
+
+.carrossel-receitas {
+    /* position: sticky; */
+    /* top: 0px; */
+    height: 50%;
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* position: sticky; */
+
+    /* background-color: red; */
+}
+
+.receitas-item>div {
+
+    width: 50%;
+    /* background-color: blue; */
+    padding: 5vw;
+    /* top: 0px; */
+    overflow-y: hidden;
+}
+
+.receitas-item>div>h1 {
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    font-family: "fraunces";
+    font-weight: 400;
+    color: #67422e;
+    overflow-y: hidden;
+}
+
+.receitas-item>div>p {
+    padding: 2vh 0vh;
+    font-size: clamp(.5rem, 2vw, .9rem);
+    font-family: "montserrat";
+    color: #67422e;
+    overflow-y: hidden;
+}
+
+.contato-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: sticky;
+    /* top: 200vh;l */
+    top: 0%;
+    width: 80%;
+    height: 90%;
+    background-color: #894A28;
+    border-radius: 1.5em;
+    margin: auto;
+    z-index: 4;
+    overflow-y: hidden;
+}
+.contato-group{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60vw;
+    height: 70vh;
+    margin: auto;
+}
+.contato-group input{
+    display: block;
+    width: 50vw;
+    height: 5vh;
+    margin-top: 1vh; 
+    margin-bottom: 1vh;
+    border-radius: 1em;
+    /* background-color: red; */
+}
+.contato-group label{
+    font-size: clamp(0.5rem, 1vw, 0.5rem);
+   
+    font-family: "Montserrat";
+    font-weight: lighter;
+    color: #FEFAEF;
+    padding-left: 2vw;
+    
+}
+.video-institucional{
+    position: sticky;
+    top: 0%;
+    width: 80%;
+    height: 90%;
+    background-color: orange;
+    z-index: 5;
+    margin: auto;
+    overflow-y: hidden;
+}
 
 
 

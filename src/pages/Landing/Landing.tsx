@@ -6,6 +6,8 @@ import asset3 from "../../assets/03.png"
 import asset4 from "../../assets/04.png"
 import asset5 from "../../assets/05.png"
 import fundoSomos from "../../assets/fundoSomos.avif"
+import zezinho from "../../assets/zezin.png"
+import zezinho2 from "../../assets/zezin2.png"
 import NavBar from '../../components/NavBar/NavBar'
 import "./Landing.css"
 import { StrapiGet } from '../../configuration/strapiApi'
@@ -25,6 +27,7 @@ console.log(paisagem1Png)
 
 export default function Landing() {
   const [banners, setBanners] = useState<HomePageCarrossels[]>([])
+  const [receitas, setReceitas] = useState<any[]>([{}])
   const [scrollStyles, setScrollStyles] = useState<Record<number, React.CSSProperties>>({});
 
   LandingAnimations(".itens>div")
@@ -33,6 +36,10 @@ export default function Landing() {
     StrapiGet("homepage-carrossels").then((res: any) => {
       setBanners(res.data)
       console.log(res.data)
+    })
+    StrapiGet("Receitas-Sao-Joses").then((res: any) => {
+      console.log(res.data)
+      setReceitas(res.data)
     })
   }, [])
   const handleScroll = useCallback(() => {
@@ -55,7 +62,26 @@ export default function Landing() {
       item.style.transform = `translateY(${translateY}px)`;
 
     });
+
+    document.querySelectorAll<HTMLElement>(".quem-somos>div").forEach((item, index) => {
+      const rect = item.getBoundingClientRect();
+      const itemCenter = rect.top + rect.height / 2;
+
+      const centerDistance = itemCenter - viewportCenter;
+      const factor = viewportHeight * 0.75;
+      let progress = centerDistance / factor;
+      const clampedProgress = Math.max(-1, Math.min(1, progress));
+
+      const opacity = Math.max(0, 1 - Math.abs(clampedProgress));
+      const scale = 1 - Math.abs(clampedProgress) * 0.15;
+      item.style.scale = `${scale}`
+      // const translateY = clampedProgress * (150 + index * 100);
+      // item.style.transform = `translateZ(${translateY}px)`;
+
+    });
   }, []);
+
+
 
 
 
@@ -149,7 +175,7 @@ export default function Landing() {
                 height: "auto",
                 objectFit: "cover"
                 // flexGrow: 1
-              }}  />
+              }} />
             </div>
             <h2>Ovo Integral Líquido</h2>
           </div>
@@ -159,24 +185,88 @@ export default function Landing() {
                 height: "auto",
                 objectFit: "cover"
                 // flexGrow: 1
-              }}  />
+              }} />
             </div>
             <h2>Ovos Life - Ômega 3</h2>
           </div>
         </div>
         <button className='redBackgroundButton'>Ver Mais</button>
       </section>
-      <section>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi soluta, esse nobis fugiat odit ipsam dolore et veniam aliquam corporis. Nam aperiam quas nemo tenetur dolores sint odio, eveniet recusandae.
-              Accusantium adipisci qui ducimus magni, deserunt ratione est culpa, sed iusto, cupiditate fuga soluta? Provident tempora pariatur consequuntur nisi aspernatur facere, iure, porro ab vel saepe doloribus nam, dignissimos est!
-              Porro quis amet consequuntur vero illum, assumenda veniam ea a optio nobis, deserunt et laudantium? Quod officiis nemo debitis tempora quam perspiciatis temporibus quos, minus atque earum, aliquam dignissimos placeat!
-              Ratione, rem autem ipsam excepturi laboriosam quibusdam optio? Consequatur ipsum in reiciendis sint placeat animi commodi accusamus itaque vitae quam consequuntur neque explicabo, hic harum ab nemo, nihil provident quo.
-              Eaque est natus quas, numquam animi quaerat, similique totam inventore earum ex incidunt ratione in dignissimos, dolor repellendus blanditiis? Incidunt quos inventore fugit nemo veritatis enim et rem corrupti error?
-              Inventore in repellendus illo error doloremque accusantium unde quas sint dolores. Enim hic cumque suscipit nam obcaecati eligendi deleniti, recusandae nisi nesciunt, iure qui vero vel. Quas cupiditate neque nam!
-              Unde veniam, doloribus voluptates culpa sunt molestiae eos rem necessitatibus provident aperiam ab sequi! Labore, id laudantium. Esse labore dolore asperiores nisi. Voluptate libero, fuga alias quisquam similique magni totam!
-              Illo dignissimos explicabo iste maxime adipisci quis exercitationem earum, error quos sunt dolor consequatur corrupti? Animi id quibusdam ut autem maxime corrupti non, eligendi sunt assumenda blanditiis voluptatibus consequuntur quisquam!
-              Sequi atque dolor maiores repellendus ipsa maxime consequatur! Deserunt quam veniam delectus, voluptates molestias, corporis maxime a voluptatibus ab sapiente obcaecati autem illo inventore, adipisci nostrum id consequatur ullam! Assumenda!
-              Praesentium doloremque officia commodi earum minima temporibus, officiis eaque illo consequuntur alias ducimus blanditiis atque error rerum exercitationem facere tempore accusamus? Explicabo a iure aliquid rem quisquam? Ducimus, labore provident?
+      <section className='receitas-section'>
+        <div className='receitas-banner'>
+          <h1>Receitas com ovos São José</h1>
+          <p>Qualidade de sabor, ingrediente do seu dia</p>
+          <div>
+            <img src={zezinho} alt="" height={"80%"} />
+            <div className='receitas-omelete'>
+              <img src="https://static.wixstatic.com/media/dec92a_9c1a6f83fb0945fd80d8175e944912ba~mv2.png/v1/fill/w_620,h_620,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/delicious-savory-omelette-with-cilantro-garnish.png" alt="" height={"100%"} />
+            </div>
+            <img src={zezinho2} alt="" height={"80%"} />
+          </div>
+          {/* <div className='carrossel-receitas'>
+          {receitas.map((iten, index) => (
+            <div className='receitas-item'>
+              <div>
+                <h1>{iten.Titulo}</h1>
+                <p>{iten.Descricao}</p>
+              </div>
+              <img src="" alt="" width={"40%"}/>
+            </div>
+          ))}</div> */}
+        </div>
+
+        <div className='teste'>
+          {receitas.map((iten, index) => (
+            <div className='receitas-item'>
+              <div>
+                //Lembrar de colocar o link pra receitas e mais receitas
+                <h1>{iten.Titulo}</h1>
+                <p>{iten.Descricao}</p>
+              </div>
+              <div className='imagem-receita'>
+                <img src={`${url}${iten.Imagem?.formats?.thumbnail?.url}`} alt="" style={{ objectFit: "fill" }} />
+              </div>
+            </div>
+          ))}
+
+        </div>
+        <div className='contato-section'>
+          <div className='contato-group'>
+            <form action="#">
+              <h1>Fale conosco</h1>
+              <div>
+                <label htmlFor="nome">
+                  <h1>Nome Completo</h1>
+                </label>
+                <input type="text" name='nome' />
+                <label htmlFor="endereco">
+                  <h1>Endereço Completo</h1>
+                </label>
+                <input type="text" name='endereco' />
+              </div>
+              <label htmlFor="telefone">
+                <h1>Telefone</h1>
+              </label>
+              <input type="number" name='telefone' />
+              <label htmlFor="email">
+                <h1>E-mail</h1>
+              </label>
+              <input type="text" name='email' />
+              <label htmlFor="mensagem">
+                <h1>Mensagem</h1>
+              </label>
+              <input type="text" name='mensagem' />
+              <button>Enviar</button>
+            </form>
+
+          </div>
+        </div>
+        <div className='video-institucional'>
+          <video src={`${url}/uploads/SAO_JOSE_PRODUCAO_1920x1080_d0246710b2.mp4`} style={{ objectFit: "cover" }} width={"100%"} height={"100%"} controls></video>
+
+        </div>
+
+
       </section>
 
 
