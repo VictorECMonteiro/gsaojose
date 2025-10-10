@@ -110,7 +110,13 @@ export default function Landing() {
         <Carrossel>
           {banners.map((iten) => (
             <div className='imageNewsIten'>
-              <img src={`${url}${iten.ImagemVideo.formats.medium?.url}`} alt={iten.descricaoImagem} title='Banners Promocionais' />
+              {iten.Link ?
+                <a href={iten.Link}>
+                  <img src={`${url}${iten.ImagemVideo.formats.medium?.url}`} alt={iten.descricaoImagem} title='Banners Promocionais' />
+                </a>
+                :
+                <img src={`${url}${iten.ImagemVideo.formats.medium?.url}`} alt={iten.descricaoImagem} title='Banners Promocionais' />
+              }
             </div>
           ))}
         </Carrossel>
@@ -219,12 +225,12 @@ export default function Landing() {
           {receitas.map((iten, index) => (
             <div className='receitas-item'>
               <div>
-                //Lembrar de colocar o link pra receitas e mais receitas
+                {/* //Lembrar de colocar o link pra receitas e mais receitas */}
                 <h1>{iten.Titulo}</h1>
                 <p>{iten.Descricao}</p>
               </div>
               <div className='imagem-receita'>
-                <img src={`${url}${iten.Imagem?.formats?.thumbnail?.url}`} alt="" style={{ objectFit: "fill" }} />
+                <img src={`${url}${iten.Imagem?.formats?.thumbnail?.url}`} alt="" />
               </div>
             </div>
           ))}
@@ -236,44 +242,56 @@ export default function Landing() {
               <h1>Fale conosco</h1>
               <div>
                 <label htmlFor="nome">
-                  <h1>Nome Completo</h1>
+                  <h1>Nome Completo*</h1>
                 </label>
                 <input type="text" name='nome' />
                 <label htmlFor="endereco">
-                  <h1>Endereço Completo</h1>
+                  <h1>Endereço Completo*</h1>
                 </label>
                 <input type="text" name='endereco' />
               </div>
               <label htmlFor="telefone">
-                <h1>Telefone</h1>
+                <h1>Telefone*</h1>
               </label>
               <input type="number" name='telefone' />
               <label htmlFor="email">
-                <h1>E-mail</h1>
+                <h1>E-mail*</h1>
               </label>
               <input type="text" name='email' />
               <label htmlFor="mensagem">
-                <h1>Mensagem</h1>
+                <h1>Mensagem*</h1>
               </label>
               <input type="text" name='mensagem' />
-              <button>Enviar</button>
+              <button className='transparentButton'>Enviar</button>
             </form>
 
           </div>
         </div>
         <div className='video-institucional'>
-          <video src={`${url}/uploads/SAO_JOSE_PRODUCAO_1920x1080_d0246710b2.mp4`} style={{ objectFit: "cover" }} width={"100%"} height={"100%"} controls></video>
+          <video src={`${url}/uploads/SAO_JOSE_PRODUCAO_1920x1080_d0246710b2.mp4`} style={{ objectFit: "cover" }} width={"100%"} height={"100%"} controls
+            aria-orientation='horizontal'
+
+          ></video>
 
         </div>
 
 
       </section>
+      <section className='location-section'>
+        {/* <iframe src="https://maps.app.goo.gl/NqhQxH11raCSVvgVA"></iframe> */}
+        <div>
+          a
 
+        </div>
+        <div>
+          <h1>Onde estamos</h1>
+          <h2>O escritório da Granjas São José se localiza no centro de horizonte no Ceará</h2>
+          <p>
+            Pipipipopopo, 1234.
+            Horizonte</p>
+        </div>
 
-
-
-
-
+      </section>
 
     </>
 

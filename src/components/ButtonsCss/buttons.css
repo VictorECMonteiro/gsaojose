@@ -27,3 +27,22 @@
     background-color: #A1653A;
     transition-duration: .3s;
 }
+
+.transparentButton{
+    padding: 1em 5em;
+    background-color: transparent;
+    border-radius: 0.5em;
+    color: #FFFF;
+    font-family: "Wix Madefor Text";
+    font-weight: 400;
+    font-size: clamp(0.5rem, 0.9vw, 2rem);
+    text-decoration: none;
+    border: 1px solid #FFF;
+    transition-duration: .3s;
+
+}
+.transparentButton:hover{
+    background-color: #FFF;
+    color: #A1653A;
+    transition-duration: .3s;
+}
