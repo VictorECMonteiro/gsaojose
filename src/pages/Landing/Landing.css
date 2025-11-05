@@ -3,8 +3,9 @@
     padding: 0;
     /* overflow-y: hidden; */
     overflow-x: hidden;
+    /* position: absolute; */
 }
-
+                                                                                                                                                                                                                                 
 
 @keyframes spin {
     from {
@@ -292,7 +293,9 @@
 }
 
 .receitas-section {
-    position: relative;
+    /* position: sticky; */
+    /* top: 0; */
+    /* overflow-y: hidden; */
     width: 100vw;
     height: 100vh;
     background-color: #DAE2E4;
@@ -309,7 +312,7 @@
     /* justify-content: center; */
     flex-direction: column;
     position: sticky;
-    top: 0px;
+    top: 0;
     width: 80%;
     height: 90%;
     background-color: #FFDB4A;
@@ -317,7 +320,7 @@
     /* padding: 3% 5%; */
     margin: auto;
     z-index: 2;
-    overflow-y: hidden;
+    /* overflow-y: hidden; */
 }
 
 .receitas-banner h1 {
@@ -364,8 +367,8 @@
     /* display: flex; */
     width: 80%;
     /* height: auto; */
-    position: static;
-    top: 0;
+    /* position: static; */
+    /* top: 0; */
     /* margin-left: auto; */
     /* margin: auto; */
     /* top: 50px; */
@@ -386,7 +389,7 @@
     /* height: 30vh; */
     min-height: 40vh;
     align-items: center;
-    position: sticky;
+    /* position: sticky; */
     margin: auto;
     /* top: 0; */
     z-index: 3;
@@ -544,7 +547,7 @@
     width: 100%;
     height: 80vh;
     background-color: #E41700;
-    border-radius: 1em;
+    /* border-radius: 1em; */
 }
 .location-section>div{  
     width: 45%;
@@ -552,7 +555,112 @@
     background-color: #FFF;
     
 }
+.location-section>div:nth-child(2){
+    /* padding-top: 10vh; */
+    /* padding: 10vh; */
+    background-color: #FEFAEF;
+    border-radius: 0em 1em 1em 0em;
+}
+.location-section>div:nth-child(2)>h1{
+    font-family: "fraunces";
+    font-weight: 400;
+    color: #67422e;
+    font-size: clamp(1rem, 3vw, 3rem);
+    margin-top: 8vh;
+    margin-left: 3vw;
+}
+.location-section>div:nth-child(2)>h2{
+    margin-left: 3vw;
+    margin-top: 3vh;
+    font-size: clamp(1rem, 2vw, 1.3rem);
+    font-family: "montserrat";
+    font-weight: 400;
+    color: #67422e;
 
+}
+.location-section>div:nth-child(2)>p{
+    font-family: "montserrat";
+    font-weight: normal;
+    margin-top: 5vh;
+    margin-left: 3vw;
+    color: #67422e;
+
+}
+.location-map{
+    overflow-y: hidden;
+    border-radius: 1em 0em 0em 1em;
+}
+footer{
+    width: 100%;
+    height: 120vh;
+    background-color: #A1653A;
+}
+.sempre-com-voce{
+    width: 90%;
+    height: 50vh;
+    background: url("https://static.wixstatic.com/media/dec92a_b5c4927bc4b947388062dab1d4c59bbf~mv2.png/v1/fill/w_1704,h_455,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/FAZENDA%20IMAGEM-01.png");
+    margin: auto;
+    margin-top: 10vh;
+    border-radius: 3em;
+    background-color: #FEFAEF;
+    padding: 1em;
+}
+.sempre-com-voce>h1{
+    margin: 1em;
+    font-size: clamp(1rem, 2.5vw, 3rem);
+    font-family: "fraunces";
+    font-weight: 400;
+    color: #67422e;
+}
+.footerInfo{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 40%;
+    /* background-color: red; */
+}
+.privacidade>div{
+    display: flex;
+    /* justify-content: space-between; */
+    /* padding-left: 5vw; */
+}
+.privacidade>div>p{
+    margin-left: 2vw;
+    font-size: 1em;
+    /* background-color: red; */
+}
+.privacidade{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 5vw;
+    padding-left: 5vw;
+    /* width: 100%; */
+    height: 5vh;
+    /* background-color: red; */
+    font-size: 1.1em;
+}
+.footerInfo>div>h2{
+    margin-bottom: 4vh;
+    font-family: "montserrat";
+    font-weight: 300;
+    color: #FFF;
+}
+.footerInfo>div>p{
+    font-size: 1.1em;
+    color: #FFF;
+    margin: 2vh 0vh;
+    font-family: "montserrat";
+}
+.footerInfo>div>p>a{
+    color: #FFF;
+    text-decoration: none;
+}
+
+.privacidade p{
+    color: #FFF;
+    font-family: "montserrat";
+}
 
 @media (max-width: 500px) {
     .imageNewsIten {
@@ -650,7 +758,7 @@
     }
     .produtos>div>div{
         height: auto;
-        background-color: red;
+        /* background-color: red; */
         /* padding: 0px; */
         /* margin: 0px; */
 
@@ -727,7 +835,7 @@
         /* min-height: fit-content; */
         /* max-height: none; */
         /* margin: auto; */
-        background-color: red;
+        /* background-color: red; */
     }
 
     .receitas-item {
@@ -807,5 +915,46 @@
         border-radius: 1em;
 
     }
+
+    .location-section{
+        padding: 1vh 0vh;
+        /* width: 90%; */
+        flex-direction: column;
+    }
+    .location-section>div:nth-child(1){
+        border-radius: 1em 1em 0em 0em;
+        width: 90%;
+    }
+    .location-section>div:nth-child(2){
+        width: 90%;
+        border-radius: 0em 0em 1em 1em;
+    }
+    footer{
+        height: auto;
+    }
+    .footerInfo{
+        display: block;
+        padding: 0vh 5vw;
+        /* flex-direction: column; */
+    }
+    .privacidade{
+        display: block;
+        height: auto;
+        /* background-color: red; */
+    }
+    .privacidade>div{
+        /* padding: 1vh 0vh; */
+        margin: auto;
+    }
+    .privacidade p {
+        margin: auto;
+    }
+    
+
+
+
+
+
+
 
 }

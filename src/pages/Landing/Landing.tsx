@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from 'react'
 import SaoJoseLogo from "../../assets/logosaojosenav.png"
+import SaoJoseLogoBranco from "../../assets/logobranco.png"
 import asset1 from "../../assets/01.png"
 import asset2 from "../../assets/02.png"
 import asset3 from "../../assets/03.png"
@@ -198,7 +199,7 @@ export default function Landing() {
         </div>
         <button className='redBackgroundButton'>Ver Mais</button>
       </section>
-      <section className='receitas-section'>
+      {/* <section className='receitas-section'> */}
         <div className='receitas-banner'>
           <h1>Receitas com ovos São José</h1>
           <p>Qualidade de sabor, ingrediente do seu dia</p>
@@ -276,22 +277,58 @@ export default function Landing() {
         </div>
 
 
-      </section>
+      {/* </section> */}
       <section className='location-section'>
         {/* <iframe src="https://maps.app.goo.gl/NqhQxH11raCSVvgVA"></iframe> */}
-        <div>
-          a
-
+        <div className='location-map'>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3979.6044575074543!2d-38.49724372430287!3d-4.10061289587316!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7b8b004c5523b17%3A0x194e41840628a217!2zR3JhbmphIFPDo28gSm9zw6k!5e0!3m2!1spt-BR!2sbr!4v1760354327266!5m2!1spt-BR!2sbr" width="100%" height="100%" loading="lazy" ></iframe>
         </div>
         <div>
           <h1>Onde estamos</h1>
           <h2>O escritório da Granjas São José se localiza no centro de horizonte no Ceará</h2>
           <p>
             Pipipipopopo, 1234.
-            Horizonte</p>
+            <br />
+            Horizonte
+          </p>
         </div>
 
       </section>
+      <footer>
+          <div className='sempre-com-voce'>
+            <h1>Sempre com você!</h1>
+          </div>
+          <div className="footerInfo">
+            <img src={SaoJoseLogoBranco} alt="" width={"20%"} height={"auto"}/>
+            <div className="local">
+              <h2>Local</h2>
+              <p>RUA EDGAR BELCHIOR XIMENES, 630 - Sala 01</p>
+              <p>
+                85910101010
+              </p>
+              <p>email@gmail.com</p>
+            </div>
+            <div className="menu">
+              <h2>Menu</h2>
+              <p><a href="">Página Principal</a></p>
+              <p><a href="">Sobre Nós</a></p>
+              <p><a href="">Produtos</a></p>
+            </div>
+            <div className="social">
+              <h2>Social</h2>
+              <p><a href="">Facebook</a></p>
+              <p><a href="">Instagram</a></p>
+              <p><a href="">LinkedIn</a></p>
+            </div>
+          </div>
+          <div className='privacidade'>
+            <div>
+              <p>Politica de Privacidade</p>
+              <p>Acessibilidade</p>
+            </div>
+            <p>© Grupo Tijuca Alimentos LTDA</p>
+          </div>
+      </footer>
 
     </>
 
