@@ -47,7 +47,7 @@ useEffect(() => {
       <div  className='containerItens'>
         <a href="/" className='logo'><img src={SaoJoseLogo} alt=""
         /></a>
-        <a href="#" className='transparentLink'>Sobre nós</a>
+        <a href="/quemsomos" className='transparentLink'>Sobre nós</a>
         <a href="#" className='transparentLink'>Produtos</a>
         <a href="#" className='redBackgroundButton'>Contato</a>
         <div className='collapsed-hamburguer'>
