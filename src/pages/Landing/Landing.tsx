@@ -105,18 +105,18 @@ export default function Landing() {
 
 
   return (
-    <>
+    <div className='container'>
       <NavBar />
       <div className="imageNews">
         <Carrossel>
-          {banners.map((iten) => (
-            <div className='imageNewsIten'>
+          {banners.map((iten, index) => (
+            <div className='imageNewsIten' key={index}>
               {iten.Link ?
                 <a href={iten.Link}>
-                  <img src={`${url}${iten.ImagemVideo.formats.medium?.url}`} alt={iten.descricaoImagem} title='Banners Promocionais' />
+                  <img src={`${url}${iten.ImagemVideo.url}`} alt={iten.descricaoImagem} title='Banners Promocionais' />
                 </a>
                 :
-                <img src={`${url}${iten.ImagemVideo.formats.medium?.url}`} alt={iten.descricaoImagem} title='Banners Promocionais' />
+                <img src={`${url}${iten.ImagemVideo.url}`} alt={iten.descricaoImagem} title='Banners Promocionais' />
               }
             </div>
           ))}
@@ -199,7 +199,7 @@ export default function Landing() {
         </div>
         <button className='redBackgroundButton'>Ver Mais</button>
       </section>
-      {/* <section className='receitas-section'> */}
+      <section className='receitas-section'>
         <div className='receitas-banner'>
           <h1>Receitas com ovos São José</h1>
           <p>Qualidade de sabor, ingrediente do seu dia</p>
@@ -231,7 +231,7 @@ export default function Landing() {
                 <p>{iten.Descricao}</p>
               </div>
               <div className='imagem-receita'>
-                <img src={`${url}${iten.Imagem?.formats?.thumbnail?.url}`} alt="" />
+                <img src={`${url}${iten.Imagem?.url}`} alt="" />
               </div>
             </div>
           ))}
@@ -277,7 +277,7 @@ export default function Landing() {
         </div>
 
 
-      {/* </section> */}
+      </section>
       <section className='location-section'>
         {/* <iframe src="https://maps.app.goo.gl/NqhQxH11raCSVvgVA"></iframe> */}
         <div className='location-map'>
@@ -329,8 +329,8 @@ export default function Landing() {
             <p>© Grupo Tijuca Alimentos LTDA</p>
           </div>
       </footer>
-
-    </>
+          </div>
+    
 
   )
 }

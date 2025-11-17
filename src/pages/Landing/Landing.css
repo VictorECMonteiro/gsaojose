@@ -1,7 +1,7 @@
 * {
     margin: 0;
     padding: 0;
-    /* overflow-y: hidden; */
+    overflow-y: visible;
     overflow-x: hidden;
     /* position: absolute; */
 }
@@ -23,8 +23,9 @@
 
 
 .container {
-    display: flex;
+    /* position: absolute; */
     width: 100%;
+    /* height: fit-content; */
     /* background-color: blue; */
     /* align-items: center; */
     /* justify-content: center; */
@@ -32,7 +33,10 @@
 
 .imageNews {
     display: flex;
-    flex-wrap: nowrap;
+    flex-direction:column;
+    /* justify-content: center; */
+    /* align-items: center; */
+    /* flex-wrap: nowrap; */
 
     /* overflow-y: hidden; */
     width: 90vw;
@@ -48,13 +52,15 @@
     overflow: hidden;
     width: 100vw;
     height: 95vh;
+    margin: auto;
     /* defines the "box" for the image */
     /* background-color: blue; */
-    display: flex;
     /* center image inside */
+    /* display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: center; */
+    
 }
 
 .imageNewsIten img {
@@ -293,12 +299,13 @@
 }
 
 .receitas-section {
-    /* position: sticky; */
-    /* top: 0; */
+    position: sticky;
+    top: 0px;
     /* overflow-y: hidden; */
     width: 100vw;
     height: 100vh;
     background-color: #DAE2E4;
+    /* background-color: red; */
     justify-content: center;
     align-items: center;
     margin: auto;
@@ -307,6 +314,7 @@
 }
 
 .receitas-banner {
+    /* display: none; */
     display: flex;
     align-items: center;
     /* justify-content: center; */
@@ -340,6 +348,7 @@
 
 .receitas-banner>div {
     display: flex;
+    /* display: none; */
     align-items: center;
     justify-content: center;
     width: 90%;
@@ -348,13 +357,11 @@
     overflow-y: hidden;
 }
 
-.receitas-omelete {
+/* .receitas-omelete {
     animation: spin 20s linear infinite;
     height: 80%;
     overflow-y: hidden;
-    /* background-color: blue; */
-    /* margin-top: 30vh; */
-}
+} */
 
 .receitas-omelete>img {
     overflow-y: hidden;
@@ -364,17 +371,19 @@
 
 
 .teste {
-    /* display: flex; */
+    display: flex;
+    /* display: none; */
+    flex-direction: column;
     width: 80%;
-    /* height: auto; */
-    /* position: static; */
-    /* top: 0; */
+    height: 90vh;
+    position: sticky;
+    top: 0;
     /* margin-left: auto; */
     /* margin: auto; */
     /* top: 50px; */
     /* left: 25%; */
     z-index: 3;
-    background-color: #FEFAEF;
+    /* background-color: red; */
     border-radius: 2em;
     margin: auto;
     /* padding: 5em 0em; */
@@ -384,20 +393,23 @@
 
 .receitas-item {
     display: flex;
-    width: 80vw;
+    width: 90vw;
     flex: 1;
     /* height: 30vh; */
-    min-height: 40vh;
+    /* min-height: 25vh; */
+    flex-grow: 1;
     align-items: center;
-    /* position: sticky; */
+    position: sticky;
     margin: auto;
-    /* top: 0; */
+    top: 0;
     z-index: 3;
     /* pad: 10em; */
     
     /* padding-top: 5vh 0vw; */
     /* margin-top: 10px; */
     background-color: #FEFAEF;
+    /* background-color: red; */
+    /* border: solid 1px #000; */
     overflow-y: hidden;
     justify-content: space-between;
 
@@ -405,18 +417,19 @@
 
 .imagem-receita {
     display: flex;
+    /* display: none; */
     /* flex: 1; */
     /* width: 40vw; */
     /* width: ; */
     /* min-height: fit-content; */
-    height: 30vh;
+    height: 25vh;
     /* background-color: blue; */
     /* background-color: red; */
     
 }
 
 .imagem-receita>img {
-    object-fit: fill;
+    object-fit: cover;
     width: 30vw;
     height: auto;
     border-radius: 1em;
@@ -476,11 +489,12 @@
 
 .contato-section {
     display: flex;
+    /* display: none; */
     align-items: center;
     justify-content: center;
     position: sticky;
     /* top: 200vh;l */
-    top: 0px;
+    /* top: 0px; */
     width: 80%;
     height: 90%;
     background-color: #894A28;
@@ -492,6 +506,7 @@
 
 .contato-group {
     display: flex;
+    /* display: none; */
     justify-content: center;
     align-items: center;
     width: 60vw;
@@ -530,8 +545,9 @@
 }
 
 .video-institucional {
+    /* display: none; */
     position: sticky;
-    top: 0%;
+    /* top: 0%; */
     width: 80%;
     height: 90%;
     background-color: orange;
@@ -546,7 +562,7 @@
     justify-content: center;
     width: 100%;
     height: 80vh;
-    background-color: #E41700;
+    background-color: #E3BD5B;
     /* border-radius: 1em; */
 }
 .location-section>div{  
@@ -800,7 +816,7 @@ footer{
     }
 
     .receitas-banner>div>img:nth-child(1) {
-        display: none;
+        /* display: none; */
         /* background-color: red; */
         /* height: 50%; */
     }
@@ -825,7 +841,7 @@ footer{
     }
 
     .receitas-omelete {
-        display: none;
+        
     }
 
     .teste {
