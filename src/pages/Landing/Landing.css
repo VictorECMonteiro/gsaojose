@@ -1,11 +1,13 @@
 * {
     margin: 0;
     padding: 0;
-    overflow-y: visible;
-    overflow-x: hidden;
+    /* overflow-y: visible; */
+    /* overflow-x: hidden; */
+    box-sizing: border-box;
+
     /* position: absolute; */
 }
-                                                                                                                                                                                                                                 
+
 
 @keyframes spin {
     from {
@@ -23,7 +25,7 @@
 
 
 .container {
-    /* position: absolute; */
+    position: relative;
     width: 100%;
     /* height: fit-content; */
     /* background-color: blue; */
@@ -31,18 +33,32 @@
     /* justify-content: center; */
 }
 
+.stickyBox {
+    position: sticky;
+    top: 0;
+    width: 100vw;
+    height: 50vh;
+}
+
+.box1 {
+    background: #1e90ff;
+    z-index: 0;
+}
+
+
+
 .imageNews {
     display: flex;
-    flex-direction:column;
+    flex-direction: column;
     /* justify-content: center; */
     /* align-items: center; */
     /* flex-wrap: nowrap; */
 
     /* overflow-y: hidden; */
     width: 90vw;
-    /* height: 100vh; */
+    height: 100vh;
     /* margin-top: 10%; */
-    /* background-color: red; */
+    background-color: red;
     border-radius: 1em;
     margin: auto;
     margin-top: 6vh;
@@ -60,7 +76,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: center; */
-    
+
 }
 
 .imageNewsIten img {
@@ -74,18 +90,21 @@
 
 
 .section-apresentacao {
+    width: 100%;
+    /* height: 100vh; */
     display: flex;
     /* justify-content: center; */
     align-items: center;
     flex-direction: column;
-    min-height: 75vh;
+    /* min-height: 75vh; */
     background-color: #FEFAEF;
     /* flex: 1 1 500px; */
-    padding: 10vh 0vh 0vh 0vh;
+    padding: 10vh 0vh 10vh 0vh;
 
 }
 
 .section-apresentacao>h1 {
+    display: block;
     font-size: clamp(2rem, 6vw, 3rem);
     font-family: "Fraunces", serif;
     font-weight: 400;
@@ -97,59 +116,71 @@
     /* top: 5vh; */
     display: flex;
     flex-wrap: wrap;
-    /* flex-direction: row; */
+    /* flex-direction: column; */
     justify-content: space-around;
     /* z-index: 5; */
-    /* width: 100%; */
+    width: 100%;
+    gap: 10px;
+
+    /* height: fit-content;     */
+
     /* flex: 1 1 10vw; */
     /* height: fit-content; */
     /* background-color: red; */
+    /* opacity: 1;
+    animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+    transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1); */
 
 }
 
 .itens>div {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    flex: 1 1 30vw;
     justify-content: center;
-    /* background-color: red; */
-    width: 10vw;
-    height: 40vh;
-    margin: 2vh;
-    border-radius: 1rem;
-    /* transition-duration: .1s; */
+    align-items: center;
+    margin-top: 1vh;
+    padding: 1vh;
     opacity: 0;
-    transform: translateY(-50%);
-    /* start slightly lower */
-    transition: all 0.3s ease-in-out;
-    /* transition-delay: .2s; */
-    padding: 4vh;
-    /* flex-grow: 2; */
+    transform: translateY(200px);
+    /* background-color: red; */
 
 }
 
 .itens>div.visible {
     opacity: 1;
     transform: translateY(0);
+    transition: transform cubic-bezier(0.075, 0.82, 0.165, 1);
+
 }
 
 .itens>div>h1 {
     font-family: "Montserrat";
-    font-weight: 400;
-    font-size: clamp(1rem, 1.2vw, 2rem);
+    font-weight: 600;
+    font-size: clamp(1.1rem, 1.2vw, 2rem);
+    color:
+        rgb(103, 66, 46);
+    width: 100%;
+    text-align: center;
 }
 
 .itens>div>h2 {
     font-family: "Montserrat";
     font-weight: 400;
-    font-size: clamp(0.5rem, 1vw, 0.9rem);
+    font-size: clamp(0.5rem, .9vw, 0.9rem);
+    color:
+        rgb(103, 66, 46);
+    width: 100%;
+    text-align: center;
+
 }
 
 .itens>div:hover {
-    transform: scale(105%);
+    /* background-color: red; */
+    /* transform: scale(105%);
     box-shadow: -1px 0px 8px 0px rgba(0, 0, 0, 0.75);
     -webkit-box-shadow: -1px 0px 8px 0px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: -1px 0px 8px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: -1px 0px 8px 0px rgba(0, 0, 0, 0.75); */
 
 }
 
@@ -158,8 +189,8 @@
     justify-self: center;
     align-items: center;
     width: 100vw;
-    height: 90vh;
-    /* background-color: #B31E0F; */
+    height: 100vh;
+    background-color: #B31E0F;
 
 }
 
@@ -171,15 +202,17 @@
 }
 
 .quem-somos>div {
+    position: absolute;
     display: flex;
+    left: 10%;
     flex-direction: column;
     gap: 3vh;
-    padding: 5vh 5vw 0vh 5vw;
+    /* padding: 5vh 5vw 0vh 5vw; */
     align-items: center;
-    margin: auto;
+    /* margin: auto; */
     width: 30%;
-    height: 50%;
-    background-color: #A1653A;
+    /* height: 50%; */
+    /* background-color: #A1653A; */
     z-index: 1;
     border-radius: 1rem;
 }
@@ -207,6 +240,100 @@
     text-align: center;
 
 }
+
+.box1 {
+    width: 100%;
+    height: 100vh;
+    background-color: antiquewhite;
+}
+
+.box2 {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    flex-direction: column;
+    width: 100%;
+    height: 150vh;
+    /* background-color: aquamarine; */
+    padding-top: 5vh;
+    /* padding-bottom: 5vh; */
+}
+
+.box2 h1 {
+    font-size: clamp(2rem, 4vw, 5rem);
+    font-family: fraunces;
+    font-weight: 400;
+    color: #894a28;
+
+
+}
+
+.box2 p {
+    width: 70%;
+    font-family: montserrat;
+    font-size: clamp(1rem, 2vw, 2rem);
+    font-weight: 400;
+    text-align: center;
+    color: #894a28;
+    padding-bottom: 5vh;
+
+}
+
+.box2>div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    height: 70%;
+    /* background-color: chocolate; */
+    gap: 1vw;
+    /* padding-top: 5vh; */
+    /* margin-top: 10vh; */
+}
+
+.boxprod {
+    /* position: relative; */
+    width: 25%;
+    /* flex: 1 1; */
+    height: 80%;
+    /* background-color: brown; */
+
+    /* transform: translateY(20vh); */
+    /* transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+    transition-duration: 0.1s; */
+}
+
+.boxprod h2 {
+    font-family: montserrat;
+    font-weight: 700;
+    color: #894a28;
+    font-size: clamp(0.5rem, 1.2vw, 1.5rem);
+    margin-left: 10%;
+
+}
+
+.boxprod img {
+    width: 100%;
+    height: 90%;
+    border-radius: 1em;
+    object-fit: cover;
+}
+
+.boxprod:hover {
+    /* position: relative; */
+    width: 35%;
+
+    scale: 1.1;
+    padding-left: 5vw;
+    padding-right: 5vw;
+    /* left: 50%; */
+    transition-duration: 0.2s;
+    transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+    /* transition-delay: ease; */
+    /* background-color: blue; */
+
+}
+
 
 .produtos {
     display: flex;
@@ -262,10 +389,11 @@
     border-radius: 1em;
     overflow-y: hidden;
     /* scale: 1; */
-    /* background-color: red; */
+    background-color: red;
     transition: scale cubic-bezier(0.075, 0.82, 0.165, 1) ease;
 }
-.produtos>div>div:hover{
+
+.produtos>div>div:hover {
     /* flex: none; */
     /* display: none; */
     width: 40vw;
@@ -281,10 +409,11 @@
     transition-duration: 0.2s;
     transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
     transition-delay: ease;
-    
-    
+
+
 }
-.produtos>div>div>div>img{
+
+.produtos>div>div>div>img {
     /* flex: none; */
     border-radius: 1em;
 }
@@ -321,18 +450,19 @@
     flex-direction: column;
     position: sticky;
     top: 0;
-    width: 80%;
-    height: 90%;
+    width: 95%;
+    height: 100vh;
     background-color: #FFDB4A;
     border-radius: 1.5em;
     /* padding: 3% 5%; */
     margin: auto;
     z-index: 2;
+    padding-top: 5vh;
     /* overflow-y: hidden; */
 }
 
 .receitas-banner h1 {
-    font-size: clamp(2rem, 2vw, 3rem);
+    font-size: clamp(2rem, 4vw, 3rem);
     font-family: "fraunces";
     font-weight: 700;
     color: #894a28;
@@ -351,17 +481,17 @@
     /* display: none; */
     align-items: center;
     justify-content: center;
-    width: 90%;
+    width: 100%;
     height: 70%;
     /* background-color: red; */
     overflow-y: hidden;
 }
 
-/* .receitas-omelete {
+.receitas-omelete {
     animation: spin 20s linear infinite;
     height: 80%;
     overflow-y: hidden;
-} */
+}
 
 .receitas-omelete>img {
     overflow-y: hidden;
@@ -374,12 +504,14 @@
     display: flex;
     /* display: none; */
     flex-direction: column;
-    width: 80%;
+    justify-content: center;
+    align-items: center;
+    width: 95%;
     height: 90vh;
-    position: sticky;
+    /* position: sticky; */
     top: 0;
     /* margin-left: auto; */
-    /* margin: auto; */
+    margin: auto;
     /* top: 50px; */
     /* left: 25%; */
     z-index: 3;
@@ -393,7 +525,7 @@
 
 .receitas-item {
     display: flex;
-    width: 90vw;
+    /* width: 90vw; */
     flex: 1;
     /* height: 30vh; */
     /* min-height: 25vh; */
@@ -404,7 +536,7 @@
     top: 0;
     z-index: 3;
     /* pad: 10em; */
-    
+
     /* padding-top: 5vh 0vw; */
     /* margin-top: 10px; */
     background-color: #FEFAEF;
@@ -425,7 +557,7 @@
     height: 25vh;
     /* background-color: blue; */
     /* background-color: red; */
-    
+
 }
 
 .imagem-receita>img {
@@ -433,8 +565,8 @@
     width: 30vw;
     height: auto;
     border-radius: 1em;
-    
-    
+
+
     /* height: 20vh; */
 }
 
@@ -495,13 +627,14 @@
     position: sticky;
     /* top: 200vh;l */
     /* top: 0px; */
-    width: 80%;
+    width: 95%;
     height: 90%;
     background-color: #894A28;
     border-radius: 1.5em;
     margin: auto;
     z-index: 4;
     overflow-y: hidden;
+    padding: 10vh 0vh;
 }
 
 .contato-group {
@@ -510,7 +643,8 @@
     justify-content: center;
     align-items: center;
     width: 60vw;
-    height: 70vh;
+    height: 80vh;
+
     margin: auto;
 }
 
@@ -548,36 +682,43 @@
     /* display: none; */
     position: sticky;
     /* top: 0%; */
-    width: 80%;
-    height: 90%;
+    width: 95%;
+    height: 90vh;
     background-color: orange;
     z-index: 5;
     margin: auto;
     overflow-y: hidden;
     border-radius: 1em;
 }
-.location-section{
+
+.location-section {
+    position: sticky;
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
     height: 80vh;
     background-color: #E3BD5B;
+    z-index: 7;
+    padding-bottom: 5vh;
     /* border-radius: 1em; */
 }
-.location-section>div{  
+
+.location-section>div {
     width: 45%;
     height: 90%;
     background-color: #FFF;
-    
+
 }
-.location-section>div:nth-child(2){
+
+.location-section>div:nth-child(2) {
     /* padding-top: 10vh; */
     /* padding: 10vh; */
     background-color: #FEFAEF;
     border-radius: 0em 1em 1em 0em;
 }
-.location-section>div:nth-child(2)>h1{
+
+.location-section>div:nth-child(2)>h1 {
     font-family: "fraunces";
     font-weight: 400;
     color: #67422e;
@@ -585,7 +726,8 @@
     margin-top: 8vh;
     margin-left: 3vw;
 }
-.location-section>div:nth-child(2)>h2{
+
+.location-section>div:nth-child(2)>h2 {
     margin-left: 3vw;
     margin-top: 3vh;
     font-size: clamp(1rem, 2vw, 1.3rem);
@@ -594,7 +736,8 @@
     color: #67422e;
 
 }
-.location-section>div:nth-child(2)>p{
+
+.location-section>div:nth-child(2)>p {
     font-family: "montserrat";
     font-weight: normal;
     margin-top: 5vh;
@@ -602,16 +745,21 @@
     color: #67422e;
 
 }
-.location-map{
+
+.location-map {
     overflow-y: hidden;
     border-radius: 1em 0em 0em 1em;
 }
-footer{
+
+footer {
+    position: sticky;
     width: 100%;
     height: 120vh;
     background-color: #A1653A;
+    z-index: 9;
 }
-.sempre-com-voce{
+
+.sempre-com-voce {
     width: 90%;
     height: 50vh;
     background: url("https://static.wixstatic.com/media/dec92a_b5c4927bc4b947388062dab1d4c59bbf~mv2.png/v1/fill/w_1704,h_455,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/FAZENDA%20IMAGEM-01.png");
@@ -621,31 +769,36 @@ footer{
     background-color: #FEFAEF;
     padding: 1em;
 }
-.sempre-com-voce>h1{
+
+.sempre-com-voce>h1 {
     margin: 1em;
     font-size: clamp(1rem, 2.5vw, 3rem);
     font-family: "fraunces";
     font-weight: 400;
     color: #67422e;
 }
-.footerInfo{
+
+.footerInfo {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     height: 40%;
     /* background-color: red; */
 }
-.privacidade>div{
+
+.privacidade>div {
     display: flex;
     /* justify-content: space-between; */
     /* padding-left: 5vw; */
 }
-.privacidade>div>p{
+
+.privacidade>div>p {
     margin-left: 2vw;
     font-size: 1em;
     /* background-color: red; */
 }
-.privacidade{
+
+.privacidade {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -656,321 +809,123 @@ footer{
     /* background-color: red; */
     font-size: 1.1em;
 }
-.footerInfo>div>h2{
+
+.footerInfo>div>h2 {
     margin-bottom: 4vh;
     font-family: "montserrat";
     font-weight: 300;
     color: #FFF;
 }
-.footerInfo>div>p{
+
+.footerInfo>div>p {
     font-size: 1.1em;
     color: #FFF;
     margin: 2vh 0vh;
     font-family: "montserrat";
 }
-.footerInfo>div>p>a{
+
+.footerInfo>div>p>a {
     color: #FFF;
     text-decoration: none;
 }
 
-.privacidade p{
+.privacidade p {
     color: #FFF;
     font-family: "montserrat";
 }
 
-@media (max-width: 500px) {
+
+
+
+
+
+
+
+
+
+
+
+/* @media (max-width: 500px) {
     .imageNewsIten {
         display: flex;
         flex-direction: row;
         height: 20vh;
     }
+} */
+@media (max-width: 400px) {
+    .imageNewsIten {
+        display: flex;
+        flex-direction: row;
+        height: 20vh;
+    }
+
+    .box2 {
+        flex-direction: column;
+        height: 220vh;
+        /* background-color: red; */
+    }
+
+    .box2>div {
+        flex-direction: column;
+        gap: 0;
+        /* height: 300vh; */
+        /* background-color: blue; */
+
+    }
+
+    .boxprod {
+        /* display: block; */
+        flex-direction: column;
+        /* flex: 1 1 100%; */
+        width: 100%;
+        height: 100vh;
+        /* background-color: brown; */
+        transform: translateY(30vh);
+    }
+
+    .box2>button {
+        width: 30%;
+        height: 3%;
+        background-color: red;
+        margin-top: auto;
+        margin-bottom: 10%;
+
+    }
 }
 
-@media (max-width: 1024px) {
-    .quem-somos {
-        display: flex;
-        justify-self: center;
-        align-items: center;
-        width: 100vw;
-        /* height: 90vh; */
-        /* background-color: #B31E0F; */
+@media (min-width: 401px) and (max-width:900px) {
 
-    }
-
-    .quem-somos>img {
-        /* width: auto; */
-        height: 70%;
-        position: absolute;
-        z-index: -1;
-        object-fit: fill;
-        /* margin: auto; */
-        /* margin: auto; */
-        /* background-color: red; */
-    }
-
-    .quem-somos>div {
-        display: flex;
+    .box2 {
         flex-direction: column;
-        gap: 3vh;
-        padding: 2vh 5vw 0vh 5vw;
-        align-items: center;
-        justify-content: center;
-        margin: auto;
-        width: 60%;
-        height: 50%;
-        /* background-color: red; */
-        z-index: 1;
-        border-radius: 1rem;
-    }
-
-    .quem-somos>div>h1 {
-        /* width: 100%; */
-        font-size: clamp(2em, 2vw, 3.2em);
-        font-family: "fraunces";
-        font-weight: 400;
-        color: rgb(254, 250, 239);
+        height: 150vh;
         /* background-color: red; */
     }
 
-    .quem-somos>div>h2 {
-        font-size: clamp(1em, 1.5vw, 2em);
-        font-family: "fraunces";
-        font-weight: 400;
-        color: rgb(254, 250, 239);
-        text-align: center;
-    }
-
-    .quem-somos>div>p {
-        font-size: clamp(0.5em, 1.5vw, 1em);
-        font-family: "fraunces";
-        font-weight: 400;
-        color: rgb(254, 250, 239);
-        text-align: center;
-
-    }
-
-
-
-    .itens>div {
-        width: 90%;
-        flex-basis: 50%;
-        flex-shrink: 1;
-        gap: 0vh;
-    }
-    .produtos{
-        /* gap: calc(123); */
-    }
-    .produtos>div>div>h2{
-        margin-top: 0px;
-        /* background-color: red; */
-    }
-    .produtos>div>div {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        /* flex-basis: 50%; */
-        gap: 0px;
-        /* background-color: red; */
-    }
-    .produtos>div>div{
-        height: auto;
-        /* background-color: red; */
-        /* padding: 0px; */
-        /* margin: 0px; */
-
-    }
-    .produtos>div>div>div {
-        display: flex;
-        width: 50vw;
-        /* margin: auto; */
-        justify-content: center;
-        align-items: center;
-        /* flex-basis: 50%; */
-        /* background-color: blue; */
-    }
-    .produtos>div>div>div>img{
-        width: auto;
-        height: auto;
-    }
-
-    .produtos>div {
-        width: 90%;
-        flex-wrap: wrap;
-        /* background-color: red; */
-    }
-
-
-    .produtos>div>div>h2 {
-        font-family: "montserrat";
-        font-weight: 700;
-        color: rgb(103, 66, 46);
-        font-size: clamp(0.7em, 1vw, 2em);
-        margin-top: 2vh;
-    }
-
-    .receitas-banner {
-        width: 90%;
-        min-height: fit-content;
-        /* height: 65%; */
-        /* background-color: red; */
-    }
-
-    .receitas-banner>div>img:nth-child(1) {
-        /* display: none; */
-        /* background-color: red; */
-        /* height: 50%; */
-    }
-
-    .receitas-banner h1 {
-        width: 70%;
-        margin-top: 5vh;
-        font-size: clamp(1.5rem, 2vw, 2rem);
-        font-weight: 900;
-        text-align: center;
-
-    }
-
-    .receitas-banner p {
-        width: 70%;
-        margin-top: 5vh;
-
-        font-size: clamp(1.5rem, 2vw, 2rem);
-        margin: auto;
-        /* background-color: red; */
-        text-align: center;
-    }
-
-    .receitas-omelete {
-        
-    }
-
-    .teste {
-        /* padding-top: 5vh; */
-        width: 90%;
-        /* height: 200vh; */
-        /* min-height: fit-content; */
-        /* max-height: none; */
-        /* margin: auto; */
-        /* background-color: red; */
-    }
-
-    .receitas-item {
-        /* padding-top: 5vh; */
-        padding: 3vh 0vw;
-        width: 100%;
-        height: fit-content;
+    .box2>div {
         flex-direction: column;
-        align-items: center;
-        /* flex-grow: 1; */
+        gap: 0;
+        /* height: 300vh; */
         /* background-color: blue; */
 
     }
 
-    .receitas-item>div {
-        width: fit-content;
-        /* min-height: fit-content; */
-
-        /* padding-right: 10vw; */
-        /* height: 60%; */
-        /* height: auto; */
-        /* height: fit-content; */
-        /* background-color: red; */
-    }
-
-    .receitas-item>div>h1 {
-        /* height: fit-content; */
-        /* background-color: red; */
-        font-size: clamp(1.4rem, 2vw, 2rem);
-        /* padding-right: 20vw; */
-    }
-
-    .receitas-item>div>p {
-        /* height: 100vh; */
-        /* height: 5vh; */
-        font-size: clamp(0.8rem, 2vw, 2rem);
-        word-wrap: break-word;
-
-        /* height: fit-content; */
-        /* background-color: red; */
-    }
-
-    .imagem-receita {
-        /* width: 100%; */
-        /* width: ; */
-        /* min-height: fit-content; */
-        height: 15vh;
-        /* background-color: blue; */
-    }
-
-    .imagem-receita>img {
-        object-fit: cover;
-        width: 80vw;
-        height: auto;
-        /* height: 20vh; */
-    }
-
-    .contato-section {
-        width: 90%;
-
-    }
-
-    .contato-group {
-        width: 90%;
-        /* background-color: rebeccapurple; */
-
-    }
-
-    .contato-group input {
-        width: 65vw;
-    }
-
-    .contato-group label {}
-
-    .video-institucional {
-        width: 90%;
-        border-radius: 1em;
-
-    }
-
-    .location-section{
-        padding: 1vh 0vh;
-        /* width: 90%; */
+    .boxprod {
+        /* display: block; */
         flex-direction: column;
+        /* flex: 1 1 100%; */
+        width: 95%;
+        height: 35vh;
+        /* background-color: brown; */
+        transform: translateY(30vh);
     }
-    .location-section>div:nth-child(1){
-        border-radius: 1em 1em 0em 0em;
-        width: 90%;
-    }
-    .location-section>div:nth-child(2){
-        width: 90%;
-        border-radius: 0em 0em 1em 1em;
-    }
-    footer{
-        height: auto;
-    }
-    .footerInfo{
-        display: block;
-        padding: 0vh 5vw;
-        /* flex-direction: column; */
-    }
-    .privacidade{
-        display: block;
-        height: auto;
-        /* background-color: red; */
-    }
-    .privacidade>div{
-        /* padding: 1vh 0vh; */
-        margin: auto;
-    }
-    .privacidade p {
-        margin: auto;
-    }
-    
 
+    .box2>button {
+        width: 30%;
+        height: 3%;
+        background-color: red;
+        margin-top: auto;
+        margin-bottom: 10%;
 
-
-
-
-
+    }
 
 }

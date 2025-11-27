@@ -16,9 +16,13 @@ export default function NavBar() {
       if (window.scrollY > lastScrollY.current) {
         // Scrolling down
         containerNavRef.current?.classList.add("hidden");
+
       } else {
         // Scrolling up
         containerNavRef.current?.classList.remove("hidden");
+        setTimeout(() => {
+          containerNavRef.current?.classList.add("hidden");
+        }, 2000);
       }
       lastScrollY.current = window.scrollY;
     };
@@ -29,22 +33,22 @@ export default function NavBar() {
     }
   }, [])
 
-useEffect(() => {
-  if (isOpen) {
-    document.body.style.overflowY = "hidden";
-    containerSideRef.current?.classList.remove("closed");
-  } else {
-    document.body.style.overflowY = "auto"; // reset scroll
-    containerSideRef.current?.classList.add("closed");
-  }
-}, [isOpen]);
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflowY = "hidden";
+      containerSideRef.current?.classList.remove("closed");
+    } else {
+      document.body.style.overflowY = "auto"; // reset scroll
+      containerSideRef.current?.classList.add("closed");
+    }
+  }, [isOpen]);
 
 
 
 
   return (
     <div className='containerNav' ref={containerNavRef}>
-      <div  className='containerItens'>
+      <div className='containerItens'>
         <a href="/" className='logo'><img src={SaoJoseLogo} alt=""
         /></a>
         <a href="#" className='transparentLink'>Sobre nós</a>
@@ -65,9 +69,9 @@ useEffect(() => {
             style={{ objectFit: "contain", display: "block", width: "100%", height: "auto" }}
           /></a>
           <div className='anchor-side'>
-          <a href="#" className='transparentLink'><h2>Sobre nós</h2></a>
-          <a href="#" className='transparentLink'><h2>Produtos</h2></a>
-          <a href="#" className='redBackgroundButton'><h2>Contato</h2></a>
+            <a href="#" className='transparentLink'><h2>Sobre nós</h2></a>
+            <a href="#" className='transparentLink'><h2>Produtos</h2></a>
+            <a href="#" className='redBackgroundButton'><h2>Contato</h2></a>
           </div>
 
         </div>
