@@ -145,14 +145,14 @@ export default function Landing() {
       </div>
 
       <div className='receitas-banner'>
-        <div>
+        <div className='receitas-banner-text'>
           <h1>Receitas com ovos São José</h1>
           <p>Qualidade de sabor, ingrediente do seu dia</p>
         </div>
         <div>
           <img src={zezinho} alt="" height={"80%"} />
 
-          <img src="https://static.wixstatic.com/media/dec92a_9c1a6f83fb0945fd80d8175e944912ba~mv2.png/v1/fill/w_620,h_620,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/delicious-savory-omelette-with-cilantro-garnish.png" alt="Omelete girando" height={"100%"} />
+          <img src="https://static.wixstatic.com/media/dec92a_9c1a6f83fb0945fd80d8175e944912ba~mv2.png/v1/fill/w_620,h_620,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/delicious-savory-omelette-with-cilantro-garnish.png" alt="Omelete girando" height={"100%"} className='receitas-omelete'/>
 
           <img src={zezinho2} alt="" height={"80%"} />
         </div>
