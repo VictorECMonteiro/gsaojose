@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Wix+Madefor+Text:ital,wght@0,400..800;1,400..800&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -6,6 +8,10 @@
     box-sizing: border-box;
 
     /* position: absolute; */
+}
+
+html{
+    scroll-behavior: smooth;
 }
 
 
@@ -188,9 +194,10 @@
     display: flex;
     justify-self: center;
     align-items: center;
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     background-color: #B31E0F;
+    overflow-x: hidden;
 
 }
 
@@ -319,20 +326,7 @@
     object-fit: cover;
 }
 
-.boxprod:hover {
-    /* position: relative; */
-    width: 35%;
 
-    scale: 1.1;
-    padding-left: 5vw;
-    padding-right: 5vw;
-    /* left: 50%; */
-    transition-duration: 0.2s;
-    transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
-    /* transition-delay: ease; */
-    /* background-color: blue; */
-
-}
 
 
 .produtos {
@@ -639,47 +633,75 @@
     margin: auto;
     z-index: 4;
     overflow-y: hidden;
-    padding: 10vh 0vh;
+    padding-top: 4%;
+    padding-bottom: 4%;
 }
 
 .contato-group {
     display: flex;
     /* display: none; */
     justify-content: center;
-    align-items: center;
-    width: 60vw;
-    height: 80vh;
-
+    align-items: start;
+    flex-direction: column;
+    min-width: 60%;
+    max-width: 100%;
+    height: auto;
+    
+    /* background-color: red; */
     margin: auto;
+}
+.contato-group>form{
+    /* height: fit-content; */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    
 }
 
 .contato-group>form>h1 {
     font-family: "fraunces";
-    font-size: clamp(1rem, 2vw, 3rem);
+    font-size: clamp(1rem, 1vw + 1rem, 3rem);
     font-weight: 400;
-    color: #FFF;
-    margin-bottom: 3vh;
+    color: #fefaef;
+    margin-bottom: 2vh;
+    /* color: red; */
 
 }
 
 .contato-group input {
-    display: block;
-    width: 50vw;
-    height: 5vh;
-    margin-top: 1vh;
-    margin-bottom: 1vh;
-    border-radius: 0.8em;
+    /* display: block; */
+    /* width: 100%; */
+    min-height: 5vh;
+    /* min-height: 20%; */
+    /* height: 100; */
+    /* margin-top: 1vh; */
+    /* margin-bottom: 1vh; */
+    border-radius: 0.6em;
+    padding-left: 2%;
     /* background-color: red; */
     border: none;
+    flex-grow: 1;
+    
+}
+ .msg{
+    /* background-color: red; */
+    width: 100%;
+    max-height: 10vh;
+    border-radius: 0.6em;
+    padding: 2%;
+    margin-bottom: 1%;
+    flex: 2 5%;
 }
 
 .contato-group label {
-    font-size: clamp(0.3rem, 1vw, 0.5rem);
+    font-size: clamp(0.8rem, 1vw, 0.5rem);
 
-    font-family: "montserrat";
-    font-weight: bolder;
-    color: #FEFAEF;
-    padding-left: 2vw;
+    font-family: montserrat;
+    font-weight: 400;
+    color: #fefaef;
+    /* padding-left: 2%; */
 
 }
 
@@ -756,107 +778,6 @@
     border-radius: 1em 0em 0em 1em;
 }
 
-footer {
-    position: sticky;
-    width: 100%;
-    height: 120vh;
-    background-color: #A1653A;
-    z-index: 9;
-}
-
-.sempre-com-voce {
-    width: 90%;
-    height: 50vh;
-    background: url("https://static.wixstatic.com/media/dec92a_b5c4927bc4b947388062dab1d4c59bbf~mv2.png/v1/fill/w_1704,h_455,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/FAZENDA%20IMAGEM-01.png");
-    margin: auto;
-    margin-top: 10vh;
-    border-radius: 3em;
-    background-color: #FEFAEF;
-    padding: 1em;
-}
-
-.sempre-com-voce>h1 {
-    margin: 1em;
-    font-size: clamp(1rem, 2.5vw, 3rem);
-    font-family: "fraunces";
-    font-weight: 400;
-    color: #67422e;
-}
-
-.footerInfo {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    height: 40%;
-    /* background-color: red; */
-}
-
-.privacidade>div {
-    display: flex;
-    /* justify-content: space-between; */
-    /* padding-left: 5vw; */
-}
-
-.privacidade>div>p {
-    margin-left: 2vw;
-    font-size: 1em;
-    /* background-color: red; */
-}
-
-.privacidade {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-right: 5vw;
-    padding-left: 5vw;
-    /* width: 100%; */
-    height: 5vh;
-    /* background-color: red; */
-    font-size: 1.1em;
-}
-
-.footerInfo>div>h2 {
-    margin-bottom: 4vh;
-    font-family: "montserrat";
-    font-weight: 300;
-    color: #FFF;
-}
-
-.footerInfo>div>p {
-    font-size: 1.1em;
-    color: #FFF;
-    margin: 2vh 0vh;
-    font-family: "montserrat";
-}
-
-.footerInfo>div>p>a {
-    color: #FFF;
-    text-decoration: none;
-}
-
-.privacidade p {
-    color: #FFF;
-    font-family: "montserrat";
-}
-
-
-
-
-
-
-
-
-
-
-
-
-/* @media (max-width: 500px) {
-    .imageNewsIten {
-        display: flex;
-        flex-direction: row;
-        height: 20vh;
-    }
-} */
 @media (max-width: 400px) {
     .imageNewsIten {
         display: flex;
@@ -864,6 +785,9 @@ footer {
         height: 20vh;
     }
 
+    .boxprod:hover {
+    background: none;
+  }
     .box2 {
         flex-direction: column;
         height: 220vh;
@@ -883,7 +807,7 @@ footer {
         flex-direction: column;
         /* flex: 1 1 100%; */
         width: 100%;
-        height: 100vh;
+        height: 50%;
         /* background-color: brown; */
         transform: translateY(30vh);
     }
@@ -899,13 +823,26 @@ footer {
 }
 
 @media (min-width: 401px) and (max-width:900px) {
+    .contato-section{
+        position: sticky;
+        top: -50%;
+        
+
+    }
+    .contato-group{
+
+    }
+    .contato-group input{
+        height: 2%;
+
+    }
 
     .box2 {
         flex-direction: column;
-        height: 150vh;
+        height: auto;
         /* background-color: red; */
+        gap: 3%;
     }
-
     .box2>div {
         flex-direction: column;
         gap: 0;
@@ -919,7 +856,7 @@ footer {
         flex-direction: column;
         /* flex: 1 1 100%; */
         width: 95%;
-        height: 35vh;
+        height: 90%;
         /* background-color: brown; */
         transform: translateY(30vh);
     }
@@ -932,5 +869,29 @@ footer {
         margin-bottom: 10%;
 
     }
+    .contato-section{
+        height: auto;
+    }
+    .contato-group{
+        height: auto;
+    }
+
+}
+@media(min-width:901px){
+        .boxprod:hover {
+    /* position: relative; */
+    width: 35%;
+
+    scale: 1.1;
+    padding-left: 5vw;
+    padding-right: 5vw;
+    /* left: 50%; */
+    transition-duration: 0.2s;
+    transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+    /* transition-delay: ease; */
+    /* background-color: blue; */
+
+}
+
 
 }

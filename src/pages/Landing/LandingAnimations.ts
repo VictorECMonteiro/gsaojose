@@ -34,9 +34,7 @@ export function LandingAnimations(selector: string) {
             // el.style.transition = "opacity cubic-bezier(0.55, 0.055, 0.675, 0.19)"
 
             el.classList.add("visible");
-            // observer.unobserve(el)
           } else {
-            // delay removal to avoid flickering on small scroll changes
             const timeout = window.setTimeout(() => {
               el.classList.remove("visible");
               hideTimeouts.delete(el);
@@ -101,6 +99,7 @@ export function ProdutosAnimations(selector: string) {
           start: "top 80%",
           end: "top top",
           scrub: true,
+          // pin: true
         },
       });
     });

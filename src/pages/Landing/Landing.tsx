@@ -19,6 +19,7 @@ import paisagem1Png from "../../assets/apresentacaoImg/paisagem1.png"
 import Carrossel from '../../components/Carrossel/Carrossel'
 import { LandingAnimations, ProdutosAnimations } from './LandingAnimations'
 import { useGSAP } from '@gsap/react'
+import Footer from '../../components/Footer/Footer'
 // const baseUrl = import.meta.env.VITE_StrapiAdress
 
 
@@ -28,6 +29,10 @@ console.log(paisagem1Png)
 let mockData = [
   {
     Titulo: "RECEITA 1",
+    Descricao: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, placeat necessitatibus, sit ipsa quod, quia corporis atque inventore accusantium sed nesciunt laborum repellendus quae! Obcaecati nihil explicabo doloribus dolore quisquam."
+  },
+  {
+    Titulo: "RECEITA 2",
     Descricao: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, placeat necessitatibus, sit ipsa quod, quia corporis atque inventore accusantium sed nesciunt laborum repellendus quae! Obcaecati nihil explicabo doloribus dolore quisquam."
   },
   {
@@ -109,7 +114,7 @@ export default function Landing() {
       </section>
 
       <section className='quem-somos'>
-        <img src={fundoSomos} alt="" />
+        {/* <img src={fundoSomos} alt="" /> */}
         <div>
           <h1>Quem somos</h1>
           <h2>Uma história feita de trabalho, terra e tradição.</h2>
@@ -138,10 +143,10 @@ export default function Landing() {
             <h2>Ovos de codorna São José</h2>
           </div>
         </div>
-        
-            <button>Ver Produtos</button>
-        
-        
+
+        <button className='redBackgroundButton'>Ver Produtos</button>
+
+
       </div>
 
       <div className='receitas-banner'>
@@ -152,7 +157,7 @@ export default function Landing() {
         <div>
           <img src={zezinho} alt="" height={"80%"} />
 
-          <img src="https://static.wixstatic.com/media/dec92a_9c1a6f83fb0945fd80d8175e944912ba~mv2.png/v1/fill/w_620,h_620,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/delicious-savory-omelette-with-cilantro-garnish.png" alt="Omelete girando" height={"100%"} className='receitas-omelete'/>
+          <img src="https://static.wixstatic.com/media/dec92a_9c1a6f83fb0945fd80d8175e944912ba~mv2.png/v1/fill/w_620,h_620,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/delicious-savory-omelette-with-cilantro-garnish.png" alt="Omelete girando" height={"100%"} className='receitas-omelete' />
 
           <img src={zezinho2} alt="" height={"80%"} />
         </div>
@@ -181,34 +186,35 @@ export default function Landing() {
           </div>
         ))}
       </div>
-      <div className='stickyBox contato-section'>
+      <div className='stickyBox contato-section' id='contato'>
         <div className='contato-group'>
           <form action="#">
             <h1>Fale conosco</h1>
-            <div>
-              <label htmlFor="nome">
-                <h1>Nome Completo*</h1>
-              </label>
-              <input type="text" name='nome' />
-              <label htmlFor="endereco">
-                <h1>Endereço Completo*</h1>
-              </label>
-              <input type="text" name='endereco' />
-            </div>
+
+            <label htmlFor="nome">
+              <p>Nome Completo*</p>
+            </label>
+            <input type="text" name='nome' required />
+            <label htmlFor="endereco">
+              <p>Endereço Completo*</p>
+            </label>
+            <input type="text" name='endereco' required />
+
             <label htmlFor="telefone">
-              <h1>Telefone*</h1>
+              <p>Telefone*</p>
             </label>
-            <input type="number" name='telefone' />
+            <input type="number" name='telefone' required />
             <label htmlFor="email">
-              <h1>E-mail*</h1>
+              <p>E-mail*</p>
             </label>
-            <input type="text" name='email' />
+            <input type="text" name='email' required />
             <label htmlFor="mensagem">
-              <h1>Mensagem*</h1>
+              <p>Mensagem*</p>
             </label>
-            <input type="text" name='mensagem' />
-            <button className='transparentButton'>Enviar</button>
+            <textarea name='mensagem' className='msg' rows={3} required />
+
           </form>
+          <button className='transparentButton'>Enviar</button>
 
         </div>
       </div>
@@ -238,41 +244,8 @@ export default function Landing() {
         </div>
 
       </section>
-      <footer>
-        <div className='sempre-com-voce'>
-          <h1>Sempre com você!</h1>
-        </div>
-        <div className="footerInfo">
-          <img src={SaoJoseLogoBranco} alt="" width={"20%"} height={"auto"} />
-          <div className="local">
-            <h2>Local</h2>
-            <p>RUA EDGAR BELCHIOR XIMENES, 630 - Sala 01</p>
-            <p>
-              85910101010
-            </p>
-            <p>email@gmail.com</p>
-          </div>
-          <div className="menu">
-            <h2>Menu</h2>
-            <p><a href="">Página Principal</a></p>
-            <p><a href="">Sobre Nós</a></p>
-            <p><a href="">Produtos</a></p>
-          </div>
-          <div className="social">
-            <h2>Social</h2>
-            <p><a href="">Facebook</a></p>
-            <p><a href="">Instagram</a></p>
-            <p><a href="">LinkedIn</a></p>
-          </div>
-        </div>
-        <div className='privacidade'>
-          <div>
-            <p>Politica de Privacidade</p>
-            <p>Acessibilidade</p>
-          </div>
-          <p>© Grupo Tijuca Alimentos LTDA</p>
-        </div>
-      </footer>
+      <Footer />
+
     </div>
 
 

@@ -53,7 +53,7 @@ export default function NavBar() {
         /></a>
         <a href="#" className='transparentLink'>Sobre nós</a>
         <a href="#" className='transparentLink'>Produtos</a>
-        <a href="#" className='redBackgroundButton'>Contato</a>
+        <a href="#contato" className='redBackgroundButton'>Contato</a>
         <div className='collapsed-hamburguer'>
           <button onClick={() => setIsOpen(!isOpen)}>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-list" viewBox="0 0 16 16">
@@ -71,7 +71,7 @@ export default function NavBar() {
           <div className='anchor-side'>
             <a href="#" className='transparentLink'><h2>Sobre nós</h2></a>
             <a href="#" className='transparentLink'><h2>Produtos</h2></a>
-            <a href="#" className='redBackgroundButton'><h2>Contato</h2></a>
+            <a href="#contato" className='redBackgroundButton'><h2>Contato</h2></a>
           </div>
 
         </div>
