@@ -6,6 +6,7 @@ import asset2 from "../../assets/02.png"
 import asset3 from "../../assets/03.png"
 import asset4 from "../../assets/04.png"
 import asset5 from "../../assets/05.png"
+import homepage from "../../assets/homepage3.jpg"
 import fundoSomos from "../../assets/fundoSomos.png"
 import zezinho from "../../assets/zezin.png"
 import zezinho2 from "../../assets/zezin2.png"
@@ -68,6 +69,11 @@ export default function Landing() {
     <div className='container'>
       <NavBar />
       <div className="imageNews">
+        {/* <div className="imageNewsContainer">
+          <img src={homepage} alt="" width={"100%"} height={"100%"}/>
+        </div>
+        <h1>Com você todos os dias</h1>
+        <p>Levando sabor e qualidade para sua mesa</p> */}
         {/* <Carrossel>
           {banners.map((iten, index) => (
             <div className='imageNewsIten' key={index}>
@@ -179,6 +185,7 @@ export default function Landing() {
               {/* //Lembrar de colocar o link pra receitas e mais receitas */}
               <h1>{iten.Titulo}</h1>
               <p>{iten.Descricao}</p>
+              <a href="">Ver mais</a>
             </div>
             <div className='imagem-receita'>
               <img src={`${url}${iten.Imagem?.url}`} alt="" />
