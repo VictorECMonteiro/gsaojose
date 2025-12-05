@@ -22,7 +22,7 @@ export default function NavBar() {
         containerNavRef.current?.classList.remove("hidden");
         setTimeout(() => {
           containerNavRef.current?.classList.add("hidden");
-        }, 2000);
+        }, 10000);
       }
       lastScrollY.current = window.scrollY;
     };

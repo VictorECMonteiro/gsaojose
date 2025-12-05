@@ -65,7 +65,8 @@ html{
     height: 180vh;
     /* margin-top: 10%; */
     
-    background: linear-gradient(to left, rgba(255,0,0,1), rgba(255, 0, 0, 0));
+    /* background: linear-gradient(to left, rgba(255,0,0,1), rgba(255, 0, 0, 0)); */
+    background-color: #B31E0F;
     /* border-radius: 1em; */
     margin: auto;
     
@@ -699,9 +700,9 @@ html{
 }
 
 .contato-group>form>h1 {
+    font-weight: 400;
     font-family: "fraunces";
     font-size: clamp(1rem, 1vw + 1rem, 3rem);
-    font-weight: 400;
     color: #fefaef;
     margin-bottom: 2vh;
     /* color: red; */
