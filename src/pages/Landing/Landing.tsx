@@ -18,7 +18,7 @@ import "slick-carousel/slick/slick-theme.css";
 import { HomePageCarrossels } from '../../types/StrapiTypes'
 import paisagem1Png from "../../assets/apresentacaoImg/paisagem1.png"
 import Carrossel from '../../components/Carrossel/Carrossel'
-import { LandingAnimations, ProdutosAnimations } from './LandingAnimations'
+import { LandingAnimations, ProdutosAnimations, BannerAnimations } from './LandingAnimations'
 import { useGSAP } from '@gsap/react'
 import Footer from '../../components/Footer/Footer'
 // const baseUrl = import.meta.env.VITE_StrapiAdress
@@ -49,8 +49,18 @@ export default function Landing() {
 
   LandingAnimations(".itens>div")
   ProdutosAnimations(".boxprod")
+  BannerAnimations(".imageNews")
 
   useEffect(() => {
+    function loadSvg() {
+      fetch("/ImagemBannerSaoJose.svg").then((res) => (res.text())).then((svg) => {
+        const el = document.getElementById("imageNews");
+        if (el) el.innerHTML = svg;
+        document.querySelector("imageNews svg")?.setAttribute("preserverAspectRatio", "xMidYMid slice");
+      })
+
+    }
+    loadSvg();
     StrapiGet("homepage-carrossels").then((res: any) => {
       setBanners(res.data)
       console.log(res.data)
@@ -68,7 +78,9 @@ export default function Landing() {
   return (
     <div className='container'>
       <NavBar />
-      <div className="imageNews">
+      <div className="imageNews" id='imageNews'>
+        
+        {/* <div className="clippathImage"></div> */}
         {/* <div className="imageNewsContainer">
           <img src={homepage} alt="" width={"100%"} height={"100%"}/>
         </div>
@@ -150,7 +162,7 @@ export default function Landing() {
           </div>
         </div>
 
-        <button className='redBackgroundButton'>Ver Produtos</button>
+        <a className='redBackgroundButton' href='/produtos'>Ver Produtos</a>
 
 
       </div>
@@ -180,7 +192,7 @@ export default function Landing() {
       </div>
       <div className='stickyBox teste'>
         {mockData.map((iten, index) => (
-          <div className='receitas-item'>
+          <div className='receitas-item' key={index}>
             <div>
               {/* //Lembrar de colocar o link pra receitas e mais receitas */}
               <h1>{iten.Titulo}</h1>
@@ -190,8 +202,11 @@ export default function Landing() {
             <div className='imagem-receita'>
               <img src={`${url}${iten.Imagem?.url}`} alt="" />
             </div>
+            
           </div>
         ))}
+        <button className='redBackgroundButton'>Ver todas as receitas</button>
+        
       </div>
       <div className='stickyBox contato-section' id='contato'>
         <div className='contato-group'>

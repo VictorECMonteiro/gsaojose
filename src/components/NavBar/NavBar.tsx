@@ -52,7 +52,7 @@ export default function NavBar() {
         <a href="/" className='logo'><img src={SaoJoseLogo} alt=""
         /></a>
         <a href="#" className='transparentLink'>Sobre nós</a>
-        <a href="#" className='transparentLink'>Produtos</a>
+        <a href="/produtos" className='transparentLink'>Produtos</a>
         <a href="#contato" className='redBackgroundButton'>Contato</a>
         <div className='collapsed-hamburguer'>
           <button onClick={() => setIsOpen(!isOpen)}>

@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { gsap } from "gsap";
 
-// import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 
 
@@ -99,6 +99,8 @@ export function ProdutosAnimations(selector: string) {
           start: "top 80%",
           end: "top top",
           scrub: true,
+          // onEnter: () => console.log("ENTROU")
+          // onEnter: () => console.log("ENTROU")
           // pin: true
         },
       });
@@ -107,4 +109,26 @@ export function ProdutosAnimations(selector: string) {
 
 
 
+}
+
+export function BannerAnimations(element: string) {
+  // ❌ REMOVE: let elSorri = document.querySelector("#imageNews svg");
+
+  return useGSAP(() => {
+    // ✅ ADD: Select the element *inside* the hook where the DOM is ready
+    gsap.fromTo(element, {scale: 1},{
+      scale: 0.6,
+      scrollTrigger: {
+        trigger: element,
+        start: "top top",
+        end: "bottom bottom",
+        scrub: true,
+        onEnter: () => console.log("ENTROU")
+      },
+    });
+
+  },
+    // You might need to add a dependency array if this hook needs to re-run
+    // [] 
+  );
 }

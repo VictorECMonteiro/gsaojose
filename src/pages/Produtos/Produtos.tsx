@@ -6,11 +6,16 @@ import ZezinhoCestaDeOvos from "../../assets/Zezinho_cesta_de_ovos.png"
 import NutriEggs from "../../assets/selo_nutrieggs.png"
 import "./Produtos.css"
 import { ScrollEntering } from './ProdutoAnimations'
+import { Helmet } from 'react-helmet-async'
 
 export default function Produtos() {
     ScrollEntering(".zezinhoSaoJose")
     return (
         <div className='container'>
+            <Helmet>
+                <title>Produtos - Granja Sao Jose</title>
+                <meta name='description' content='Nossos produtos, fabricados com alto rigor de qualidade, e uma imensa dose de carinho'/>
+            </Helmet>
             <NavBar />
             <section className='apresentacao'>
                 <div className='apresentacao-titulo'>

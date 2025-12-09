@@ -1,7 +1,8 @@
-*{
+* {
     margin: 0;
     padding: 0;
 }
+
 .containerItens {
     display: flex;
     width: 50%;
@@ -11,10 +12,14 @@
     border-radius: 0.5em;
     justify-content: space-between;
     align-items: center;
-    padding: 2vh 4vw ;
+    padding: 2vh 4vw;
     z-index: 5;
     overflow-y: hidden;
+    box-shadow: 1px 1px 14px 0px rgba(0, 0, 0, 0.25);
+    -webkit-box-shadow: 1px 1px 14px 0px rgba(0, 0, 0, 0.25);
+    -moz-box-shadow: 1px 1px 14px 0px rgba(0, 0, 0, 0.25);
 }
+
 .containerItens>a>img {
     object-fit: contain;
     display: block;
@@ -23,7 +28,8 @@
 }
 
 .containerNav {
-    position: fixed; /* better than absolute so it stays visible everywhere */
+    position: fixed;
+    /* better than absolute so it stays visible everywhere */
     top: 0;
     left: 0;
     width: 100%;
@@ -36,12 +42,13 @@
 }
 
 .hidden {
-    transform: translateY(-100%); /* hide entire navbar */
+    transform: translateY(-100%);
+    /* hide entire navbar */
 }
 
-.closed{
+.closed {
     /* width: 0; */
-    transform:translateX(-100vw);
+    transform: translateX(-100vw);
     transition: cubic-bezier(0, .66, 1, .88);
     transition-duration: .09s;
 }
@@ -55,7 +62,8 @@
 .collapsed-hamburguer {
     display: none;
 }
-.container-side{
+
+.container-side {
     position: fixed;
     left: 0;
     top: 0;
@@ -66,7 +74,8 @@
     transition-duration: .09s;
     z-index: 10;
 }
-.content-side{
+
+.content-side {
     display: flex;
     flex-direction: column;
     /* justify-content: center; */
@@ -76,12 +85,14 @@
     background-color: #FFF;
     overflow-y: hidden;
 }
-.logo-side{
+
+.logo-side {
     width: 100px;
     height: 100px;
     margin: 5vh 0;
 }
-.anchor-side{
+
+.anchor-side {
     display: flex;
     flex-direction: column;
     width: 60%;
@@ -89,11 +100,13 @@
     /* background-color: blue; */
 
 }
-.anchor-side>*{
+
+.anchor-side>* {
     margin-top: 5vh;
     /* margin: auto; */
     font-size: clamp(1rem, 5vw, 2rem);
 }
+
 /* .anchor-side>*{
     width: 100%;
     display: flex;
@@ -108,10 +121,12 @@
     .collapsed-hamburguer {
         display: block;
     }
-    .containerItens>.transparentLink, .containerItens>.redBackgroundButton{
+
+    .containerItens>.transparentLink,
+    .containerItens>.redBackgroundButton {
         display: none;
     }
-    
+
 
     .logo {
         height: 80%;

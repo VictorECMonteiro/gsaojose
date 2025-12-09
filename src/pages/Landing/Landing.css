@@ -10,10 +10,12 @@
     /* position: absolute; */
 }
 
-html{
+html {
     scroll-behavior: smooth;
 }
-
+body{
+    background-color: #FEFAEF;
+}
 
 @keyframes spin {
     from {
@@ -22,6 +24,37 @@ html{
 
     to {
         transform: rotate(360deg);
+    }
+}
+
+@keyframes slide {
+    0% {
+        transform: translateX(0%)
+    }
+
+    25% {
+        transform: translateX(25%)
+    }
+    50%{
+        transform: translateX(50%)
+
+    }
+    75%{
+        transform: translateX(75%)
+    }
+    100%{
+        transform: translateX(100%);
+    }
+}
+@keyframes slide {
+    0% {
+        transform: translateX(-100%);
+        
+    }
+    100%{
+        transform: translateX(100%);
+        
+        
     }
 }
 
@@ -57,41 +90,75 @@ html{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: end;
+    align-items: start;
     /* flex-wrap: nowrap; */
-
+    
     /* overflow-y: hidden; */
     width: 100%;
-    height: 180vh;
+    /* height: 100vh; */
+    /* height: auto; */
     /* margin-top: 10%; */
-    
+    background-color: #FEFAEF;
     /* background: linear-gradient(to left, rgba(255,0,0,1), rgba(255, 0, 0, 0)); */
-    background-color: #B31E0F;
+    /* background-color: #B31E0F; */
     /* border-radius: 1em; */
     margin: auto;
+    z-index: 20;
     
 }
-.imageNewsContainer{
+
+#sorriso {
+    position: absolute;
+    
+    bottom: 0;
+    transform: translateX(0%);
+    padding: 1%;
+    animation: slide 5s linear infinite;
+    z-index: 10;
+
+}
+
+
+
+
+.imageNews svg {
+    width: 100%;
+    /* scale: 0.6; */
+        object-fit: cover;
+    height: 100%;
+}
+
+/* .clippathImage{
+    
+    width: 50%;
+    height: 30%;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    background-color: blue;
+} */
+.imageNewsContainer {
     /* position: absolute; */
     width: 100%;
     height: 100%;
     /* object-position: cover; */
     /* background-color: red; */
-    
+
 }
-.imageNewsContainer>img{
+
+.imageNewsContainer>img {
     /* object-position: cover; */
     object-fit: contain;
 
 }
-.imageNews h1{
+
+.imageNews h1 {
     position: absolute;
     font-family: fraunces;
     color: #894a28;
     font-size: 5em;
     /* margin-top: 6%; */
 }
-.imageNews p{
+
+.imageNews p {
     font-family: montserrat;
     color: #894a28;
     font-size: 3em;
@@ -499,7 +566,8 @@ html{
     /* margin-top: 3vh; */
     color: #894a28;
 }
-.receitas-banner-text{
+
+.receitas-banner-text {
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -507,7 +575,8 @@ html{
     /* background-color: red; */
 
 }
-.receitas-item h1{
+
+.receitas-item h1 {
     /* font-size: clamp(1rem, 3vw + 1rem, 3rem); */
     /* font-size: 100px; */
     /* background-color: red; */
@@ -532,7 +601,7 @@ html{
 }
 
 .receitas-banner img {
-    
+
     height: 100%;
 }
 
@@ -553,9 +622,10 @@ html{
     /* top: 50px; */
     /* left: 25%; */
     z-index: 3;
-    /* background-color: red; */
+    background-color: #FEFAEF;
     border-radius: 2em;
     margin: auto;
+    padding: 1%;
     /* padding: 5em 0em; */
     /* transform: translateX(12.5%); */
     /* padding: 10vh 0vw; */
@@ -685,18 +755,19 @@ html{
     min-width: 60%;
     max-width: 100%;
     height: auto;
-    
+
     /* background-color: red; */
     margin: auto;
 }
-.contato-group>form{
+
+.contato-group>form {
     /* height: fit-content; */
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
     gap: 10px;
-    
+
 }
 
 .contato-group>form>h1 {
@@ -722,9 +793,10 @@ html{
     /* background-color: red; */
     border: none;
     flex-grow: 1;
-    
+
 }
- .msg{
+
+.msg {
     /* background-color: red; */
     width: 100%;
     max-height: 10vh;
@@ -825,8 +897,9 @@ html{
     }
 
     .boxprod:hover {
-    background: none;
-  }
+        background: none;
+    }
+
     .box2 {
         flex-direction: column;
         height: 220vh;
@@ -862,21 +935,22 @@ html{
 }
 
 @media (min-width: 401px) and (max-width:900px) {
-    .contato-section{
+    .contato-section {
         position: sticky;
         top: -50%;
-        
+
 
     }
-    .teste{
+
+    .teste {
         position: sticky;
         top: -80%;
 
     }
-    .contato-group{
 
-    }
-    .contato-group input{
+    .contato-group {}
+
+    .contato-group input {
         height: 2%;
 
     }
@@ -887,6 +961,7 @@ html{
         /* background-color: red; */
         gap: 3%;
     }
+
     .box2>div {
         flex-direction: column;
         gap: 0;
@@ -913,29 +988,32 @@ html{
         margin-bottom: 10%;
 
     }
-    .contato-section{
+
+    .contato-section {
         height: auto;
     }
-    .contato-group{
+
+    .contato-group {
         height: auto;
     }
 
 }
-@media(min-width:901px){
-        .boxprod:hover {
-    /* position: relative; */
-    width: 35%;
 
-    scale: 1.1;
-    padding-left: 5vw;
-    padding-right: 5vw;
-    /* left: 50%; */
-    transition-duration: 0.2s;
-    transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
-    /* transition-delay: ease; */
-    /* background-color: blue; */
+@media(min-width:901px) {
+    .boxprod:hover {
+        /* position: relative; */
+        width: 35%;
 
-}
+        scale: 1.1;
+        padding-left: 5vw;
+        padding-right: 5vw;
+        /* left: 50%; */
+        transition-duration: 0.2s;
+        transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+        /* transition-delay: ease; */
+        /* background-color: blue; */
+
+    }
 
 
 }
