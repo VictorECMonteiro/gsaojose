@@ -10,13 +10,16 @@ import homepage from "../../assets/homepage3.jpg"
 import fundoSomos from "../../assets/fundoSomos.png"
 import zezinho from "../../assets/zezin.png"
 import zezinho2 from "../../assets/zezin2.png"
+import OvoLiquido from "../../assets/ovo_integral_liquido.avif"
+import OvoCodorna from "../../assets/ovos_de_codorna.avif"
+import OvoOmega3 from "../../assets/ovos_omega3.avif"
 import NavBar from '../../components/NavBar/NavBar'
 import "./Landing.css"
 import { StrapiGet } from '../../configuration/strapiApi'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { HomePageCarrossels } from '../../types/StrapiTypes'
-import paisagem1Png from "../../assets/apresentacaoImg/paisagem1.png"
+// import paisagem1Png from "../../assets/apresentacaoImg/paisagem1.png"
 import Carrossel from '../../components/Carrossel/Carrossel'
 import { LandingAnimations, ProdutosAnimations, BannerAnimations } from './LandingAnimations'
 import { useGSAP } from '@gsap/react'
@@ -26,7 +29,6 @@ import Footer from '../../components/Footer/Footer'
 
 //Não excluir estas 2 linhas, elas garantem que nao de erro no build do VITE
 console.log(SaoJoseLogo)
-console.log(paisagem1Png)
 let mockData = [
   {
     Titulo: "RECEITA 1",
@@ -146,23 +148,23 @@ export default function Landing() {
           confiável.</p>
         <div>
           <div className="boxprod">
-            <img src="https://static.wixstatic.com/media/dec92a_bd4a508050534f75b9c334c985b07967~mv2.png/v1/fill/w_571,h_632,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/ChatGPT%20Image%2020%20de%20jun_%20de%202025%2C%2013_50_13.png"
+            <img src={OvoCodorna}
               alt="" width="auto" height="33%" />
             <h2>Ovos de codorna São José</h2>
           </div>
           <div className="boxprod">
-            <img src="https://static.wixstatic.com/media/dec92a_bd4a508050534f75b9c334c985b07967~mv2.png/v1/fill/w_571,h_632,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/ChatGPT%20Image%2020%20de%20jun_%20de%202025%2C%2013_50_13.png"
+            <img src={OvoOmega3}
               alt="" width="auto%" height="33%" />
-            <h2>Ovos de codorna São José</h2>
+            <h2>Ovos Life - Ômega 3</h2>
           </div>
           <div className="boxprod">
-            <img src="https://static.wixstatic.com/media/dec92a_bd4a508050534f75b9c334c985b07967~mv2.png/v1/fill/w_571,h_632,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/ChatGPT%20Image%2020%20de%20jun_%20de%202025%2C%2013_50_13.png"
+            <img src={OvoLiquido}
               alt="" width="auto" height="33%" />
-            <h2>Ovos de codorna São José</h2>
+            <h2>Ovo Integral Líquido</h2>
           </div>
         </div>
 
-        <a className='redBackgroundButton' href='/produtos'>Ver Produtos</a>
+        <a className='redBackgroundButton' href='/produtos'>Conheça nossos produtos</a>
 
 
       </div>
@@ -259,7 +261,7 @@ export default function Landing() {
           <h1>Onde estamos</h1>
           <h2>O escritório da Granjas São José se localiza no centro de horizonte no Ceará</h2>
           <p>
-            Pipipipopopo, 1234.
+            Rua Edgar Belchior Ximenes, 630 - Sala 01
             <br />
             Horizonte
           </p>

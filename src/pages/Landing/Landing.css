@@ -13,7 +13,8 @@
 html {
     scroll-behavior: smooth;
 }
-body{
+
+body {
     background-color: #FEFAEF;
 }
 
@@ -35,26 +36,30 @@ body{
     25% {
         transform: translateX(25%)
     }
-    50%{
-        transform: translateX(50%)
 
+    50% {
+        transform: translateX(50%)
     }
-    75%{
+
+    75% {
         transform: translateX(75%)
     }
-    100%{
+
+    100% {
         transform: translateX(100%);
     }
 }
+
 @keyframes slide {
     0% {
         transform: translateX(-100%);
-        
+
     }
-    100%{
+
+    100% {
         transform: translateX(100%);
-        
-        
+
+
     }
 }
 
@@ -92,7 +97,7 @@ body{
     justify-content: center;
     align-items: start;
     /* flex-wrap: nowrap; */
-    
+
     /* overflow-y: hidden; */
     width: 100%;
     /* height: 100vh; */
@@ -104,12 +109,12 @@ body{
     /* border-radius: 1em; */
     margin: auto;
     z-index: 20;
-    
+
 }
 
 #sorriso {
     position: absolute;
-    
+
     bottom: 0;
     transform: translateX(0%);
     padding: 1%;
@@ -124,7 +129,7 @@ body{
 .imageNews svg {
     width: 100%;
     /* scale: 0.6; */
-        object-fit: cover;
+    object-fit: cover;
     height: 100%;
 }
 
@@ -359,7 +364,7 @@ body{
     width: 100%;
     height: 150vh;
     /* background-color: aquamarine; */
-    padding-top: 5vh;
+    padding: 20vh 0;
     /* padding-bottom: 5vh; */
 }
 
@@ -890,6 +895,7 @@ body{
 }
 
 @media (max-width: 400px) {
+
     .imageNewsIten {
         display: flex;
         flex-direction: row;
@@ -935,6 +941,18 @@ body{
 }
 
 @media (min-width: 401px) and (max-width:900px) {
+    .box2>a {
+        display: flex;
+        width: 50%;
+        height: 6vh;
+        justify-content: center;
+        align-items: center;
+        font-size:  small;
+        
+        
+
+    }
+
     .contato-section {
         position: sticky;
         top: -50%;
