@@ -938,6 +938,18 @@ body {
         margin-bottom: 10%;
 
     }
+
+    .box2>a {
+        display: flex;
+        width: 50%;
+        height: 6vh;
+        justify-content: center;
+        align-items: center;
+        font-size: small;
+
+
+
+    }
 }
 
 @media (min-width: 401px) and (max-width:900px) {
@@ -947,9 +959,9 @@ body {
         height: 6vh;
         justify-content: center;
         align-items: center;
-        font-size:  small;
-        
-        
+        font-size: small;
+
+
 
     }
 

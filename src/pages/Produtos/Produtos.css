@@ -75,3 +75,67 @@
 .apresentacao-nutrieggs div{
 
 }
+
+.Produtos{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    /* flex-wrap: wrap; */
+    /* align-content: start; */
+    background-color: #EFE5CB;
+    padding: 6vh 4vw;
+    
+}
+.Produtos>h1{
+    font-size: clamp(2rem, 2vw + 2rem, 6rem);
+    font-family: fraunces;
+    font-weight: 400 !important;
+    color: #67422e;
+    padding: 2vh 0;
+}
+.Produtos>h2{
+    font-size: clamp(1rem, 1vw + 1rem, 2rem);
+    font-family: fraunces;
+    font-weight: 400 !important;
+    color: #67422e;
+    padding: 6vh 0;
+}
+.ProdutosWrapper{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    gap: 2%;
+    
+}
+
+.ProdutoContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 550px !important;
+    /* height: 60vh !important; */
+    height: auto !important;
+    /* width: 30vw !important; */
+    
+    /* flex: 1 1; */ 
+    /* min-width: 30vw !important; */
+    /* flex-basis: 30vw; */
+    flex-direction: column;
+    background-color: #FEFAEF;
+    border-radius: 2em;
+    margin-top: 3%;
+}
+.ProdutoContainer img{
+    max-width: 400px;
+    /* height: auto; */
+    /* background-color: rebeccapurple; */
+
+}
+.ProdutoContainer h1{
+    /* background-color: blue; */
+}
