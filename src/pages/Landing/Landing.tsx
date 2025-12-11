@@ -6,25 +6,43 @@ import asset2 from "../../assets/02.png"
 import asset3 from "../../assets/03.png"
 import asset4 from "../../assets/04.png"
 import asset5 from "../../assets/05.png"
-import fundoSomos from "../../assets/fundoSomos.avif"
+import homepage from "../../assets/homepage3.jpg"
+import fundoSomos from "../../assets/fundoSomos.png"
 import zezinho from "../../assets/zezin.png"
 import zezinho2 from "../../assets/zezin2.png"
+import OvoLiquido from "../../assets/ovo_integral_liquido.avif"
+import OvoCodorna from "../../assets/ovos_de_codorna.avif"
+import OvoOmega3 from "../../assets/ovos_omega3.avif"
 import NavBar from '../../components/NavBar/NavBar'
 import "./Landing.css"
 import { StrapiGet } from '../../configuration/strapiApi'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { HomePageCarrossels } from '../../types/StrapiTypes'
-import paisagem1Png from "../../assets/apresentacaoImg/paisagem1.png"
+// import paisagem1Png from "../../assets/apresentacaoImg/paisagem1.png"
 import Carrossel from '../../components/Carrossel/Carrossel'
-import { LandingAnimations } from './LandingAnimations'
+import { LandingAnimations, ProdutosAnimations, BannerAnimations } from './LandingAnimations'
+import { useGSAP } from '@gsap/react'
+import Footer from '../../components/Footer/Footer'
 // const baseUrl = import.meta.env.VITE_StrapiAdress
 
 
 //Não excluir estas 2 linhas, elas garantem que nao de erro no build do VITE
 console.log(SaoJoseLogo)
-console.log(paisagem1Png)
-
+let mockData = [
+  {
+    Titulo: "RECEITA 1",
+    Descricao: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, placeat necessitatibus, sit ipsa quod, quia corporis atque inventore accusantium sed nesciunt laborum repellendus quae! Obcaecati nihil explicabo doloribus dolore quisquam."
+  },
+  {
+    Titulo: "RECEITA 2",
+    Descricao: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, placeat necessitatibus, sit ipsa quod, quia corporis atque inventore accusantium sed nesciunt laborum repellendus quae! Obcaecati nihil explicabo doloribus dolore quisquam."
+  },
+  {
+    Titulo: "RECEITA 2",
+    Descricao: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, placeat necessitatibus, sit ipsa quod, quia corporis atque inventore accusantium sed nesciunt laborum repellendus quae! Obcaecati nihil explicabo doloribus dolore quisquam."
+  }
+]
 
 export default function Landing() {
   const [banners, setBanners] = useState<HomePageCarrossels[]>([])
@@ -32,8 +50,19 @@ export default function Landing() {
   const [scrollStyles, setScrollStyles] = useState<Record<number, React.CSSProperties>>({});
 
   LandingAnimations(".itens>div")
+  ProdutosAnimations(".boxprod")
+  BannerAnimations(".imageNews")
 
   useEffect(() => {
+    function loadSvg() {
+      fetch("/ImagemBannerSaoJose.svg").then((res) => (res.text())).then((svg) => {
+        const el = document.getElementById("imageNews");
+        if (el) el.innerHTML = svg;
+        document.querySelector("imageNews svg")?.setAttribute("preserverAspectRatio", "xMidYMid slice");
+      })
+
+    }
+    loadSvg();
     StrapiGet("homepage-carrossels").then((res: any) => {
       setBanners(res.data)
       console.log(res.data)
@@ -43,105 +72,56 @@ export default function Landing() {
       setReceitas(res.data)
     })
   }, [])
-  const handleScroll = useCallback(() => {
-    const viewportHeight = window.innerHeight;
-    const viewportCenter = viewportHeight / 2;
-
-    document.querySelectorAll<HTMLElement>(".produtos>div>div").forEach((item, index) => {
-      const rect = item.getBoundingClientRect();
-      const itemCenter = rect.top + rect.height / 2;
-
-      const centerDistance = itemCenter - viewportCenter;
-      const factor = viewportHeight * 0.75;
-      let progress = centerDistance / factor;
-      const clampedProgress = Math.max(-1, Math.min(1, progress));
-
-      const opacity = Math.max(0, 1 - Math.abs(clampedProgress));
-      const scale = 1 - Math.abs(clampedProgress) * 0.15;
-
-      const translateY = clampedProgress * (150 + index * 100);
-      item.style.transform = `translateY(${translateY}px)`;
-
-    });
-
-    document.querySelectorAll<HTMLElement>(".quem-somos>div").forEach((item, index) => {
-      const rect = item.getBoundingClientRect();
-      const itemCenter = rect.top + rect.height / 2;
-
-      const centerDistance = itemCenter - viewportCenter;
-      const factor = viewportHeight * 0.75;
-      let progress = centerDistance / factor;
-      const clampedProgress = Math.max(-1, Math.min(1, progress));
-
-      const opacity = Math.max(0, 1 - Math.abs(clampedProgress));
-      const scale = 1 - Math.abs(clampedProgress) * 0.15;
-      item.style.scale = `${scale}`
-      // const translateY = clampedProgress * (150 + index * 100);
-      // item.style.transform = `translateZ(${translateY}px)`;
-
-    });
-  }, []);
-
-
-
-
-
-
-  // Attach scroll listener on mount and remove on unmount
-  useEffect(() => {
-    // Run once on load to set initial state
-    handleScroll();
-    window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, [handleScroll]); // Dependency on useCallback
-
-  // --- End Scroll Animation Logic ---
 
 
   const url = `${import.meta.env.VITE_StrapiAdress}`;
 
 
   return (
-    <>
+    <div className='container'>
       <NavBar />
-      <div className="imageNews">
-        <Carrossel>
-          {banners.map((iten) => (
-            <div className='imageNewsIten'>
+      <div className="imageNews" id='imageNews'>
+        
+        {/* <div className="clippathImage"></div> */}
+        {/* <div className="imageNewsContainer">
+          <img src={homepage} alt="" width={"100%"} height={"100%"}/>
+        </div>
+        <h1>Com você todos os dias</h1>
+        <p>Levando sabor e qualidade para sua mesa</p> */}
+        {/* <Carrossel>
+          {banners.map((iten, index) => (
+            <div className='imageNewsIten' key={index}>
               {iten.Link ?
                 <a href={iten.Link}>
-                  <img src={`${url}${iten.ImagemVideo.formats.medium?.url}`} alt={iten.descricaoImagem} title='Banners Promocionais' />
+                  <img src={`${url}${iten.ImagemVideo.url}`} alt={iten.descricaoImagem} title='Banners Promocionais' />
                 </a>
                 :
-                <img src={`${url}${iten.ImagemVideo.formats.medium?.url}`} alt={iten.descricaoImagem} title='Banners Promocionais' />
+                <img src={`${url}${iten.ImagemVideo.url}`} alt={iten.descricaoImagem} title='Banners Promocionais' />
               }
             </div>
           ))}
-        </Carrossel>
+        </Carrossel> */}
       </div>
       <section className='section-apresentacao'>
         <h1>Granjas São José</h1>
         <div className='itens'>
           <div>
-            <img src={asset1} alt="" width={150} height={"auto"} />
+            <img src={asset1} alt="" width={130} height={"auto"} />
             <h1>Sabor e qualidade</h1>
             <h2>A nutrição do seu dia-a-dia</h2>
           </div>
           <div>
-            <img src={asset3} alt="" width={150} height={"auto"} />
+            <img src={asset3} alt="" width={130} height={"auto"} />
             <h1>Criação que faz a diferença</h1>
             <h2>Mais espaço, mais saúde, mais sabor</h2>
           </div>
           <div>
-            <img src={asset2} alt="" width={150} height={"auto"} />
+            <img src={asset2} alt="" width={130} height={"auto"} />
             <h1>Mais que ovos</h1>
             <h2>É dedicação e compromisso com você</h2>
           </div>
           <div>
-            <img src={asset4} alt="" width={150} height={"auto"} />
+            <img src={asset4} alt="" width={130} height={"auto"} />
             <h1>Bem-estar animal</h1>
             <h2>Responsabilidade em cada etapa</h2>
           </div>
@@ -154,7 +134,7 @@ export default function Landing() {
       </section>
 
       <section className='quem-somos'>
-        <img src={fundoSomos} alt="" />
+        {/* <img src={fundoSomos} alt="" /> */}
         <div>
           <h1>Quem somos</h1>
           <h2>Uma história feita de trabalho, terra e tradição.</h2>
@@ -162,55 +142,46 @@ export default function Landing() {
           <button className='redBackgroundButton' style={{ backgroundColor: "#FFF", color: "#A1653A" }}>Ver Mais</button>
         </div>
       </section>
-      <section className='produtos'>
+      <div className="box2">
         <h1>Nossos Produtos</h1>
-        <p>Conheça os produtos da Granja, produzidos com responsabilidade para levar até você um alimento fresco e confiável.</p>
+        <p>Conheça os produtos da Granja, produzidos com responsabilidade para levar até você um alimento fresco e
+          confiável.</p>
         <div>
-          <div>
-            <div style={{ display: "flex", width: "100%", height: "95%", borderRadius: "1em" }}>
-              <img src="https://static.wixstatic.com/media/dec92a_bd4a508050534f75b9c334c985b07967~mv2.png/v1/fill/w_571,h_632,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/ChatGPT%20Image%2020%20de%20jun_%20de%202025%2C%2013_50_13.png" alt="" style={{
-                height: "auto",
-                objectFit: "cover"
-                // flexGrow: 1
-              }} />
-            </div>
+          <div className="boxprod">
+            <img src={OvoCodorna}
+              alt="" width="auto" height="33%" />
             <h2>Ovos de codorna São José</h2>
           </div>
-          <div>
-            <div style={{ display: "flex", width: "100%", height: "95%", borderRadius: "1em" }}>
-              <img src="https://static.wixstatic.com/media/dec92a_5d067d7c4ca54872b8ab159afe32d821~mv2.jpg/v1/fill/w_571,h_631,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Gema%20Pasteurizada%20SJ.jpg" alt="" style={{
-                height: "auto",
-                objectFit: "cover"
-                // flexGrow: 1
-              }} />
-            </div>
-            <h2>Ovo Integral Líquido</h2>
-          </div>
-          <div>
-            <div style={{ display: "flex", width: "100%", height: "95%", borderRadius: "1em" }}>
-              <img src="https://static.wixstatic.com/media/dec92a_959559f4f19b480faafb198994bea857~mv2.png/v1/fill/w_571,h_632,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/ChatGPT%20Image%2020%20de%20jun_%20de%202025%2C%2013_35_47.png" alt="" style={{
-                height: "auto",
-                objectFit: "cover"
-                // flexGrow: 1
-              }} />
-            </div>
+          <div className="boxprod">
+            <img src={OvoOmega3}
+              alt="" width="auto%" height="33%" />
             <h2>Ovos Life - Ômega 3</h2>
           </div>
+          <div className="boxprod">
+            <img src={OvoLiquido}
+              alt="" width="auto" height="33%" />
+            <h2>Ovo Integral Líquido</h2>
+          </div>
         </div>
-        <button className='redBackgroundButton'>Ver Mais</button>
-      </section>
-      {/* <section className='receitas-section'> */}
-        <div className='receitas-banner'>
+
+        <a className='redBackgroundButton' href='/produtos'>Conheça nossos produtos</a>
+
+
+      </div>
+
+      <div className='receitas-banner'>
+        <div className='receitas-banner-text'>
           <h1>Receitas com ovos São José</h1>
           <p>Qualidade de sabor, ingrediente do seu dia</p>
-          <div>
-            <img src={zezinho} alt="" height={"80%"} />
-            <div className='receitas-omelete'>
-              <img src="https://static.wixstatic.com/media/dec92a_9c1a6f83fb0945fd80d8175e944912ba~mv2.png/v1/fill/w_620,h_620,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/delicious-savory-omelette-with-cilantro-garnish.png" alt="" height={"100%"} />
-            </div>
-            <img src={zezinho2} alt="" height={"80%"} />
-          </div>
-          {/* <div className='carrossel-receitas'>
+        </div>
+        <div>
+          <img src={zezinho} alt="" height={"80%"} />
+
+          <img src="https://static.wixstatic.com/media/dec92a_9c1a6f83fb0945fd80d8175e944912ba~mv2.png/v1/fill/w_620,h_620,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/delicious-savory-omelette-with-cilantro-garnish.png" alt="Omelete girando" height={"100%"} className='receitas-omelete' />
+
+          <img src={zezinho2} alt="" height={"80%"} />
+        </div>
+        {/* <div className='carrossel-receitas'>
           {receitas.map((iten, index) => (
             <div className='receitas-item'>
               <div>
@@ -220,65 +191,68 @@ export default function Landing() {
               <img src="" alt="" width={"40%"}/>
             </div>
           ))}</div> */}
-        </div>
-
-        <div className='teste'>
-          {receitas.map((iten, index) => (
-            <div className='receitas-item'>
-              <div>
-                {/* //Lembrar de colocar o link pra receitas e mais receitas */}
-                <h1>{iten.Titulo}</h1>
-                <p>{iten.Descricao}</p>
-              </div>
-              <div className='imagem-receita'>
-                <img src={`${url}${iten.Imagem?.formats?.thumbnail?.url}`} alt="" />
-              </div>
+      </div>
+      <div className='stickyBox teste'>
+        {mockData.map((iten, index) => (
+          <div className='receitas-item' key={index}>
+            <div>
+              {/* //Lembrar de colocar o link pra receitas e mais receitas */}
+              <h1>{iten.Titulo}</h1>
+              <p>{iten.Descricao}</p>
+              <a href="">Ver mais</a>
             </div>
-          ))}
-
-        </div>
-        <div className='contato-section'>
-          <div className='contato-group'>
-            <form action="#">
-              <h1>Fale conosco</h1>
-              <div>
-                <label htmlFor="nome">
-                  <h1>Nome Completo*</h1>
-                </label>
-                <input type="text" name='nome' />
-                <label htmlFor="endereco">
-                  <h1>Endereço Completo*</h1>
-                </label>
-                <input type="text" name='endereco' />
-              </div>
-              <label htmlFor="telefone">
-                <h1>Telefone*</h1>
-              </label>
-              <input type="number" name='telefone' />
-              <label htmlFor="email">
-                <h1>E-mail*</h1>
-              </label>
-              <input type="text" name='email' />
-              <label htmlFor="mensagem">
-                <h1>Mensagem*</h1>
-              </label>
-              <input type="text" name='mensagem' />
-              <button className='transparentButton'>Enviar</button>
-            </form>
-
+            <div className='imagem-receita'>
+              <img src={`${url}${iten.Imagem?.url}`} alt="" />
+            </div>
+            
           </div>
+        ))}
+        <button className='redBackgroundButton'>Ver todas as receitas</button>
+        
+      </div>
+      <div className='stickyBox contato-section' id='contato'>
+        <div className='contato-group'>
+          <form action="#">
+            <h1>Fale conosco</h1>
+
+            <label htmlFor="nome">
+              <p>Nome Completo*</p>
+            </label>
+            <input type="text" name='nome' required />
+            <label htmlFor="endereco">
+              <p>Endereço Completo*</p>
+            </label>
+            <input type="text" name='endereco' required />
+
+            <label htmlFor="telefone">
+              <p>Telefone*</p>
+            </label>
+            <input type="number" name='telefone' required />
+            <label htmlFor="email">
+              <p>E-mail*</p>
+            </label>
+            <input type="text" name='email' required />
+            <label htmlFor="mensagem">
+              <p>Mensagem*</p>
+            </label>
+            <textarea name='mensagem' className='msg' rows={3} required />
+
+          </form>
+          <button className='transparentButton'>Enviar</button>
+
         </div>
-        <div className='video-institucional'>
-          <video src={`${url}/uploads/SAO_JOSE_PRODUCAO_1920x1080_d0246710b2.mp4`} style={{ objectFit: "cover" }} width={"100%"} height={"100%"} controls
-            aria-orientation='horizontal'
+      </div>
+      <div className='stickyBox video-institucional'>
+        <video src={`${url}/uploads/SAO_JOSE_PRODUCAO_1920x1080_d0246710b2.mp4`} style={{ objectFit: "cover" }} width={"100%"} height={"100%"} controls
+          aria-orientation='horizontal'
 
-          ></video>
+        ></video>
 
-        </div>
+      </div>
 
 
-      {/* </section> */}
-      <section className='location-section'>
+
+      <section className='stickyBox location-section'>
         {/* <iframe src="https://maps.app.goo.gl/NqhQxH11raCSVvgVA"></iframe> */}
         <div className='location-map'>
           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3979.6044575074543!2d-38.49724372430287!3d-4.10061289587316!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7b8b004c5523b17%3A0x194e41840628a217!2zR3JhbmphIFPDo28gSm9zw6k!5e0!3m2!1spt-BR!2sbr!4v1760354327266!5m2!1spt-BR!2sbr" width="100%" height="100%" loading="lazy" ></iframe>
@@ -287,50 +261,17 @@ export default function Landing() {
           <h1>Onde estamos</h1>
           <h2>O escritório da Granjas São José se localiza no centro de horizonte no Ceará</h2>
           <p>
-            Pipipipopopo, 1234.
+            Rua Edgar Belchior Ximenes, 630 - Sala 01
             <br />
             Horizonte
           </p>
         </div>
 
       </section>
-      <footer>
-          <div className='sempre-com-voce'>
-            <h1>Sempre com você!</h1>
-          </div>
-          <div className="footerInfo">
-            <img src={SaoJoseLogoBranco} alt="" width={"20%"} height={"auto"}/>
-            <div className="local">
-              <h2>Local</h2>
-              <p>RUA EDGAR BELCHIOR XIMENES, 630 - Sala 01</p>
-              <p>
-                85910101010
-              </p>
-              <p>email@gmail.com</p>
-            </div>
-            <div className="menu">
-              <h2>Menu</h2>
-              <p><a href="">Página Principal</a></p>
-              <p><a href="">Sobre Nós</a></p>
-              <p><a href="">Produtos</a></p>
-            </div>
-            <div className="social">
-              <h2>Social</h2>
-              <p><a href="">Facebook</a></p>
-              <p><a href="">Instagram</a></p>
-              <p><a href="">LinkedIn</a></p>
-            </div>
-          </div>
-          <div className='privacidade'>
-            <div>
-              <p>Politica de Privacidade</p>
-              <p>Acessibilidade</p>
-            </div>
-            <p>© Grupo Tijuca Alimentos LTDA</p>
-          </div>
-      </footer>
+      <Footer />
 
-    </>
+    </div>
+
 
   )
 }

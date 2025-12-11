@@ -1,0 +1,77 @@
+.apresentacao{
+    width: 100%;
+    background-color: #FEFAEF;
+    
+}
+
+.apresentacao-titulo{
+    display: flex;
+    flex-direction: column;
+    padding: 5% 0;
+    /* background-color: red; */
+    text-align: center;
+    gap: 4vh;
+}
+.apresentacao-titulo h1{
+    font-size: clamp(1rem, 2vw + 1rem, 4rem);
+    font-family: fraunces;
+    font-weight: 600;
+    color: #67422e;
+}
+.apresentacao-titulo h2{
+    font-size: clamp(1rem, 2vw + 1rem, 2rem);
+    font-family: montserrat;
+    font-weight: 400;
+    color: #67422e;
+}
+
+.apresentacao-banner{
+    width: 95%;
+    min-height: 20vh;
+    max-height: 80vh;
+    /* min-height: 15%; */
+    /* max-height: 20%; */
+    background-image: url("../../assets/ProdutoSaoJose.png");
+    background-size: cover;
+    margin: auto;
+    border-radius: 1em;
+}
+.apresentacao-banner img{
+    width: 25%;
+}
+.apresentacao-nutrieggs{
+    width: 95%;
+    /* height: fit-content; */
+    /* max-height: 50vh; */
+    /* height: 30vh; */
+    /* min-height: 15vh; */
+
+    display: flex;
+    margin: auto;
+    padding: 5% 5%;
+    /* background-color: red; */
+}
+.apresentacao-nutrieggs>img{
+    min-width: 35%;
+    /* max-width: 60%; */
+    /* min-height: 10%; */
+    /* max-height: 20%; */
+    object-fit: contain;
+    /* max-height: 60%; */
+}
+.apresentacao-nutrieggs div p{
+    width: 80%;
+    font-family: montserrat;
+    font-size: clamp(1rem, 1vw + 0.5rem, 3rem);
+    /* font-size: 10px; */
+    word-wrap: break-word;
+    color: #67422e;
+
+}
+.apresentacao-nutrieggs div img{
+    width: 70%;
+
+}
+.apresentacao-nutrieggs div{
+
+}
