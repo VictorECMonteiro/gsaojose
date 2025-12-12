@@ -5,6 +5,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 
 
+
 export function LandingAnimations(selector: string) {
   useEffect(() => {
     const elements = document.querySelectorAll<HTMLElement>(selector);
@@ -84,13 +85,7 @@ export function ProdutosAnimations(selector: string) {
 
     //         }
     //       }
-    //     });
-
-    //   });
-
-    // }
-
-
+    //     });  ➜  Local:   http://localhost:5173/
     elements.forEach((element, index) => {
       gsap.to(element, {
         y: (index * 30) * -1,

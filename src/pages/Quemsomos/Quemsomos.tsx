@@ -1,6 +1,8 @@
 import NavBar from '../../components/NavBar/NavBar'
-import { useEffect } from 'react'
+// import { useEffect } from 'react'
 import "./Quemsomos.css"
+import {animarDeBaixoParaCima, animarDeCimaParaBaixo, animarCrescendo, animarLinhaDeTempo} from './QuemSomosAnimations'
+import { useGSAP } from '@gsap/react' 
 
 import quemsomo from "../../assets/quemsomo.avif"
 import imginicial from "../../assets/imginicial.png"
@@ -20,84 +22,93 @@ import map from "../../assets/map.avif"
 
 import senhor from "../../assets/senhoreasgalinhas.avif"
 import ovos from "../../assets/ovos.png"
+
+import Footer from '../../components/Footer/Footer'
 export default function quemsomos() {
 
-  useEffect(() => {
+  // useEffect(() => {
 
-    const tops = document.querySelectorAll<HTMLElement>(".linhatempo-item.top");
-    const bottoms = document.querySelectorAll<HTMLElement>(".linhatempo-item2.bottom");
+  //   const tops = document.querySelectorAll<HTMLElement>(".linhatempo-item.top");
+  //   const bottoms = document.querySelectorAll<HTMLElement>(".linhatempo-item2.bottom");
   
-    const ordered: HTMLElement[] = [];
-    const max = Math.max(tops.length, bottoms.length);
-    for (let i = 0; i < max; i++) {
-      if (tops[i]) ordered.push(tops[i]);
-      if (bottoms[i]) ordered.push(bottoms[i]);
-    }
+  //   const ordered: HTMLElement[] = [];
+  //   const max = Math.max(tops.length, bottoms.length);
+  //   for (let i = 0; i < max; i++) {
+  //     if (tops[i]) ordered.push(tops[i]);
+  //     if (bottoms[i]) ordered.push(bottoms[i]);
+  //   }
   
-    const trigger = document.querySelector(".section3");
+  //   const trigger = document.querySelector(".section3");
   
-    const timelineObserver = new IntersectionObserver(
-      (entries) => {
-        const entry = entries[0];
+  //   const timelineObserver = new IntersectionObserver(
+  //     (entries) => {
+  //       const entry = entries[0];
     
-        if (entry.isIntersecting) {
-          ordered.forEach((item, index) => {
-            setTimeout(() => item.classList.add("show"), index * 700);
-          });
+  //       if (entry.isIntersecting) {
+  //         ordered.forEach((item, index) => {
+  //           setTimeout(() => item.classList.add("show"), index * 700);
+  //         });
     
    
-          timelineObserver.disconnect();
-        }
-      },
-      {
-        rootMargin: "-150px 0px -150px 0px",
-        threshold: 0.2,
-      }
-    );
+  //         timelineObserver.disconnect();
+  //       }
+  //     },
+  //     {
+  //       rootMargin: "-150px 0px -150px 0px",
+  //       threshold: 0.2,
+  //     }
+  //   );
     
-    if (trigger) timelineObserver.observe(trigger);
+  //   if (trigger) timelineObserver.observe(trigger);
     
   
   
-    const scrollOnce = document.querySelectorAll<HTMLElement>(".scroll-anim");
+  //   const scrollOnce = document.querySelectorAll<HTMLElement>(".scroll-anim");
   
-    const scrollOnceObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("show");
-            scrollOnceObserver.unobserve(entry.target); 
-          }
-        });
-      },
-      { threshold: 0.5 }
-    );
+  //   const scrollOnceObserver = new IntersectionObserver(
+  //     (entries) => {
+  //       entries.forEach((entry) => {
+  //         if (entry.isIntersecting) {
+  //           entry.target.classList.add("show");
+  //           scrollOnceObserver.unobserve(entry.target); 
+  //         }
+  //       });
+  //     },
+  //     { threshold: 0.5 }
+  //   );
   
-    scrollOnce.forEach((el) => scrollOnceObserver.observe(el));
+  //   scrollOnce.forEach((el) => scrollOnceObserver.observe(el));
   
   
 
-    const repeatAnimations = document.querySelectorAll<HTMLElement>(
-      ".anim-sumir, .anim-crescer, .anim-slide-baixo"
-    );
+  //   const repeatAnimations = document.querySelectorAll<HTMLElement>(
+  //     ".anim-sumir, .anim-crescer, .anim-slide-baixo"
+  //   );
   
-    const repeatObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("show");
-          } else {
-            entry.target.classList.remove("show"); 
-          }
-        });
-      },
-      { threshold: 0.8 }
-    );
+  //   const repeatObserver = new IntersectionObserver(
+  //     (entries) => {
+  //       entries.forEach((entry) => {
+  //         if (entry.isIntersecting) {
+  //           entry.target.classList.add("show");
+  //         } else {
+  //           entry.target.classList.remove("show"); 
+  //         }
+  //       });
+  //     },
+  //     { threshold: 0.8 }
+  //   );
   
-    repeatAnimations.forEach((el) => repeatObserver.observe(el));
+  //   repeatAnimations.forEach((el) => repeatObserver.observe(el));
   
-  }, []);
+  // }, []);
   
+  animarDeCimaParaBaixo(".raiz1")
+  animarDeBaixoParaCima(".section3>h1")
+  animarDeBaixoParaCima(".future-text");
+  animarDeBaixoParaCima(".imgsenhor")
+  // animarDeBaixoParaCima("img1")
+  animarCrescendo(".map")
+  animarLinhaDeTempo(".linhatempo-item, .linhatempo-item2")
   
   
   
@@ -107,7 +118,7 @@ export default function quemsomos() {
       <section className='section1'>
         <h1>Quem somos</h1>
         <h2>Mais que uma hitória, um legado</h2>
-        <div className='divimg scroll-anim'>
+        <div className='divimg'>
         <img src={quemsomo} alt="" className='img1' />
         <img src={imginicial} alt="" className='imginicial' />
           </div>
@@ -118,14 +129,14 @@ export default function quemsomos() {
           <h2>No coração do Ceará, nossa história é feita de tradição, inovação e muito compromisso com o bem-estar de quem nos escolhe todos os dias.</h2>
           </div>
           <div className='raiz'>
-            <div className='raiz1 anim-slide-baixo'>
+            <div className='raiz1'>
               <h1>Raizes que nos movem</h1>
               {/* <div className='imgraiz'> */}
                 <img src={planta} alt="" className='img2' />
               {/* </div> */}
             </div>
             
-            <div className='raiz2 scroll-anim'>
+            <div className='raiz2 '>
               <p>Há mais de 50 anos, as Granjas São José tem se dedicado à produção de ovos de 
                 alta qualidade no coração do Ceará, garantindo frescor e excelência em cada produto.
                 <br />
@@ -147,11 +158,11 @@ export default function quemsomos() {
           </section>
 
           <section className='section3'>
-          <h1 className='anim-sumir'>Linha do tempo</h1>
+          <h1 className=''>Linha do tempo</h1>
           <div className='cont-tempo'>
 
-          <div className="linhatempo-item top">
-          <img src={casa} alt="" className='img3' />
+          <div className="linhatempo-item top ">
+          <img src={casa} alt="" className='' />
           <div className="triangulo-para-baixo"></div>
           <div className='text-temp'>
           <h1>1975</h1>
@@ -160,7 +171,7 @@ export default function quemsomos() {
           <div className='circulo'></div>
           </div>
 
-          <div className="linhatempo-item top">
+          <div className="linhatempo-item top ">
           <img src={ovosfabrica} alt="" className='img3' />
           <div className="triangulo-para-baixo"></div>
           <div className='text-temp'>
@@ -188,7 +199,7 @@ export default function quemsomos() {
 
           <div className='cont-tempo'>
 
-          <div className='linhatempo-item2 bottom'>
+          <div className='linhatempo-item2 bottom '>
           <div className='circulo'></div>
           <div className='text-temp'>
           <h1>1990</h1>
@@ -205,7 +216,7 @@ export default function quemsomos() {
           <p>A virada</p>
           </div>
           <div className="triangulo-para-cima"></div>
-          <img src={fabrica} alt="" className='img3' />
+          <img src={fabrica} alt="" className='' />
           </div>
           </div>
           </section>
@@ -213,7 +224,7 @@ export default function quemsomos() {
           <section className='section4'>
           <div className='futuro'>
             <div className='future'>
-              <div className='future-text scroll-anim'>
+              <div className='future-text'>
                 <h1>O futuro que queremos <br /> colocar na sua mesa
                 <br />
                 <br /></h1>
@@ -252,7 +263,7 @@ export default function quemsomos() {
               </div>
             {/* </div> */}
             <div className='cont-map'>
-              <div className='img-map anim-crescer'>
+              <div className='img-map'>
                 <img src={map} alt="" className='map'/>
               </div>
             </div>
@@ -272,7 +283,7 @@ export default function quemsomos() {
   </div>
  {/* <div className='imgdiv'> */}
  <div className='div-img'>
-  <img src={senhor} alt="" className="imgsenhor anim-sumir" />
+  <img src={senhor} alt="" className="imgsenhor" />
   </div>
   </div>
 
@@ -280,44 +291,8 @@ export default function quemsomos() {
 
 </section>
 
-
-          <footer>
-          <div className='sempre-com-voce'>
-            <h1>Sempre com você!</h1>
-          </div>
-          <div className="footerInfo">
-            {/* <img src={SaoJoseLogoBranco} alt="" width={"20%"} height={"auto"}/> */}
-            <div className="local">
-              <h2>Local</h2>
-              <p>RUA EDGAR BELCHIOR XIMENES, 630 - Sala 01</p>
-              <p>
-                85910101010
-              </p>
-              <p>email@gmail.com</p>
-            </div>
-            <div className="menu">
-              <h2>Menu</h2>
-              <p><a href="">Página Principal</a></p>
-              <p><a href="">Sobre Nós</a></p>
-              <p><a href="">Produtos</a></p>
-            </div>
-            <div className="social">
-              <h2>Social</h2>
-              <p><a href="">Facebook</a></p>
-              <p><a href="">Instagram</a></p>
-              <p><a href="">LinkedIn</a></p>
-            </div>
-          </div>
-          <div className='privacidade'>
-            <div>
-              <p>Politica de Privacidade</p>
-              <p>Acessibilidade</p>
-            </div>
-            <p>© Grupo Tijuca Alimentos LTDA</p>
-          </div>
-      </footer>
-     
+    <Footer />
     </>
           
           );
-          } 
+        }
