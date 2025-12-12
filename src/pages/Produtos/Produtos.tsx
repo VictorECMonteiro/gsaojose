@@ -8,8 +8,9 @@ import "./Produtos.css"
 import { ScrollEntering } from './ProdutoAnimations'
 import { Helmet } from 'react-helmet-async'
 import { StrapiGet } from '../../configuration/strapiApi'
+import Side from '../../components/Side/Side'
 const url = `${import.meta.env.VITE_StrapiAdress}`;
-interface Produtos {
+interface Produtos <T>{
     NomeProduto: string,
     FotoProduto: {
         url: string
@@ -17,16 +18,22 @@ interface Produtos {
     DescricaoFotoProduto: string,
     DescricaoProdutoPrincipal?: string,
     DescricaoProdutoSecundaria?: string,
-    TabelaNutricional: {
-        url: string
-    }
+    TabelaNutricional: [
+            {
+                url:string
+            }
+        ]
+    
     TabelaNutricionalTexto: string
 
 }
 
 
 export default function Produtos() {
-    const [Produtos, setProdutos] = useState<[Produtos]>()
+    const [Produtos, setProdutos] = useState<[Produtos<object>]>()
+    const [openSide, setOpenSide] = useState(false);
+    const [nutricional, setNutricional] = useState<Produtos<object> | null>(null)
+
     ScrollEntering(".zezinhoSaoJose")
     useEffect(() => {
         StrapiGet("sao-jose-produtos").then((res: any) => {
@@ -36,6 +43,20 @@ export default function Produtos() {
         })
 
     }, [])
+    
+    let handleOpenSide = (data:Produtos<object>)=>{
+        setNutricional(data);
+        
+        setOpenSide(true)   
+        // document.body.style.overflow = "hidden"
+    }
+    let handleCloseSide = ( )=>{
+        setOpenSide(false);
+        // document.body.style.overflow = "visible"
+    }
+
+
+
 
     return (
         <div className='container'>
@@ -44,7 +65,10 @@ export default function Produtos() {
                 <meta name='description' content='Nossos produtos, fabricados com alto rigor de qualidade, e uma imensa dose de carinho' />
             </Helmet>
             <NavBar />
-            <section className='apresentacao'>
+            {openSide&&(
+                <Side data={nutricional} close={()=>{handleCloseSide()}} isSideOpen={openSide}/>
+            )}
+            <section className='apresentacao'>  
                 <div className='apresentacao-titulo'>
                     <h1>
                         O sabor da tradição em cada produto.
@@ -80,23 +104,26 @@ export default function Produtos() {
                     Produtos?.map((item, index) => (
                         <div key={index} className='ProdutoContainer'>
                             <img src={`${url}${item.FotoProduto.url}`} alt="" />
-                            <button>Tabela Nutricional</button>
+                            <button className='orangeRoundButton' onClick={()=>handleOpenSide(item)}>Tabela Nutricional</button>
+                            <div>
                             <h1>{item.NomeProduto}</h1>
-                            {item.DescricaoProdutoPrincipal ? item.DescricaoProdutoPrincipal : ""}
+                            <h3>{item.DescricaoProdutoPrincipal}</h3>
+                            {item.DescricaoProdutoSecundaria&&(
+                                <p>
+                                    {item.DescricaoProdutoSecundaria}
+                                </p>
+                            )}
+                            </div>
+                            
                         </div>
                     ))
                 }
                 </div>
-
-
-
-
-
+            </section>
+            <section>
+                
 
             </section>
-
-
-
             <Footer />
         </div>
     )

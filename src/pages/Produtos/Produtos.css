@@ -127,8 +127,11 @@
     /* flex-basis: 30vw; */
     flex-direction: column;
     background-color: #FEFAEF;
+    /* border: 1px solid #292929; */
     border-radius: 2em;
     margin-top: 3%;
+    gap: 5vh;
+    padding: 5vh 3vw;
 }
 .ProdutoContainer img{
     max-width: 400px;
@@ -137,5 +140,27 @@
 
 }
 .ProdutoContainer h1{
-    /* background-color: blue; */
+    font-weight: 700;
+    font-family: montserrat;
+    color: #67422e;
+    /* padding: 2vh 0 ; */
+}
+.ProdutoContainer h3{
+    font-family: montserrat;
+    font-weight: 600;
+    color: #67422e;
+    
+
+}
+.ProdutoContainer p{
+    font-weight: 400;
+    font-family: montserrat;
+    color: rgb(243, 99, 99);
+    /* padding: 2vh 0 ; */
+
+}
+.ProdutoContainer div{
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
 }

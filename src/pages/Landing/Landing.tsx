@@ -199,7 +199,7 @@ export default function Landing() {
               {/* //Lembrar de colocar o link pra receitas e mais receitas */}
               <h1>{iten.Titulo}</h1>
               <p>{iten.Descricao}</p>
-              <a href="">Ver mais</a>
+              <a href="/produtos">Ver receita completa</a>
             </div>
             <div className='imagem-receita'>
               <img src={`${url}${iten.Imagem?.url}`} alt="" />
@@ -243,9 +243,10 @@ export default function Landing() {
         </div>
       </div>
       <div className='stickyBox video-institucional'>
-        <video src={`${url}/uploads/SAO_JOSE_PRODUCAO_1920x1080_d0246710b2.mp4`} style={{ objectFit: "cover" }} width={"100%"} height={"100%"} controls
+        <video src={`${url}/uploads/saojoseproducao_c294d1e90c.mp4`} style={{ objectFit: "cover" }} width={"100%"} height={"100%"} controls
+          autoPlay muted
           aria-orientation='horizontal'
-
+          
         ></video>
 
       </div>
@@ -259,7 +260,7 @@ export default function Landing() {
         </div>
         <div>
           <h1>Onde estamos</h1>
-          <h2>O escritório da Granjas São José se localiza no centro de horizonte no Ceará</h2>
+          <h2>O escritório da Granja São José se localiza no centro de Horizonte no Ceará</h2>
           <p>
             Rua Edgar Belchior Ximenes, 630 - Sala 01
             <br />

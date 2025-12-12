@@ -12,7 +12,7 @@ export default function Footer() {
                 <img src={SaoJoseLogoBranco} alt="" width={"20%"} height={"auto"} />
                 <div className="local">
                     <h2>Local</h2>
-                    <p>RUA EDGAR BELCHIOR XIMENES, 630 - Sala 01</p>
+                    <p>RUA EDGAR BELCHIOR XIMENES, 630 - Sala 01 - Horizonte - CE</p>
                     <p>
                         85910101010
                     </p>
@@ -20,9 +20,9 @@ export default function Footer() {
                 </div>
                 <div className="menu">
                     <h2>Menu</h2>
-                    <p><a href="">Página Principal</a></p>
-                    <p><a href="">Sobre Nós</a></p>
-                    <p><a href="">Produtos</a></p>
+                    <p><a href="/">Página Principal</a></p>
+                    <p><a href="/quemsomos">Sobre Nós</a></p>
+                    <p><a href="/produtos">Produtos</a></p>
                 </div>
                 <div className="social">
                     <h2>Social</h2>
