@@ -1,0 +1,64 @@
+.container-receitas{
+    width: 100%;
+    
+}
+.titulo-section{
+    display: flex;
+    width: 100%;
+    background-color: #894A28;
+    /* justify-content: center; */
+    align-items: center;
+    
+    padding: 10vh 5%;
+}
+.titulo-section div{
+    /* position: absolute; */
+    /* left: 50%; */
+    text-align:left;
+    /* background-color: red; */
+    /* margin: auto; */
+    /* transform: translateX(-50%); */
+    
+}
+.titulo-section div h1{
+    font-family: fraunces;
+    font-weight: 400;
+    font-size: clamp(1rem, 2vw + 1rem, 4rem);
+    color: #FFF;
+}
+.titulo-section div h2{
+    font-family: montserrat;
+    font-weight: 400;
+    font-size: clamp(0.5rem, 1vw + .3rem, 2rem);
+    color: #FFF;
+    margin-top: 2%;
+}
+.titulo-section button{
+    display: none;
+    /* position: relative; */
+    width: 5%;
+    height: 10vh;
+    margin-left: 10vw;
+    border-radius: 15em;
+    /* right: 20%; */
+    border: solid 2px #894A28;
+    background-color: transparent;
+}
+.titulo-section button svg{
+    width: 100%;
+    height: 35%;
+    margin: auto;
+    color: #894A28;
+
+}
+.receita-lista{
+    /* display: none; */
+    width: 95%;
+    height: 500vh;
+    margin: auto;
+    margin-bottom: 1vh;
+    margin-top: 10vh;
+    border-radius: 5em;
+    
+    /* background-color: #D07E52; */
+}
