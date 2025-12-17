@@ -4,13 +4,14 @@ import Footer from '../../components/Footer/Footer'
 import ZezinhoBandejaDeOvos from "../../assets/Zezinho_bandeja_de_ovos.png"
 import ZezinhoCestaDeOvos from "../../assets/Zezinho_cesta_de_ovos.png"
 import NutriEggs from "../../assets/selo_nutrieggs.png"
+import Catalogo from "../../assets/catalogo.png"
 import "./Produtos.css"
 import { ScrollEntering } from './ProdutoAnimations'
 import { Helmet } from 'react-helmet-async'
 import { StrapiGet } from '../../configuration/strapiApi'
 import Side from '../../components/Side/Side'
 const url = `${import.meta.env.VITE_StrapiAdress}`;
-interface Produtos <T>{
+interface Produtos<T> {
     NomeProduto: string,
     FotoProduto: {
         url: string
@@ -19,11 +20,11 @@ interface Produtos <T>{
     DescricaoProdutoPrincipal?: string,
     DescricaoProdutoSecundaria?: string,
     TabelaNutricional: [
-            {
-                url:string
-            }
-        ]
-    
+        {
+            url: string
+        }
+    ]
+
     TabelaNutricionalTexto: string
 
 }
@@ -43,14 +44,14 @@ export default function Produtos() {
         })
 
     }, [])
-    
-    let handleOpenSide = (data:Produtos<object>)=>{
+
+    let handleOpenSide = (data: Produtos<object>) => {
         setNutricional(data);
-        
-        setOpenSide(true)   
+
+        setOpenSide(true)
         // document.body.style.overflow = "hidden"
     }
-    let handleCloseSide = ( )=>{
+    let handleCloseSide = () => {
         setOpenSide(false);
         // document.body.style.overflow = "visible"
     }
@@ -65,10 +66,10 @@ export default function Produtos() {
                 <meta name='description' content='Nossos produtos, fabricados com alto rigor de qualidade, e uma imensa dose de carinho' />
             </Helmet>
             <NavBar />
-            {openSide&&(
-                <Side data={nutricional} close={()=>{handleCloseSide()}} isSideOpen={openSide}/>
+            {openSide && (
+                <Side data={nutricional} close={() => { handleCloseSide() }} isSideOpen={openSide} />
             )}
-            <section className='apresentacao'>  
+            <section className='apresentacao'>
                 <div className='apresentacao-titulo'>
                     <h1>
                         O sabor da tradição em cada produto.
@@ -95,33 +96,45 @@ export default function Produtos() {
 
             </section>
             <section className='Produtos'>
-                
-                    <h1>Linha de nutrição completa</h1>
-                    <h2>Tudo o que você precisa para levar mais sabor e saúde à sua mesa.</h2>
-                
+
+                <h1>Linha de nutrição completa</h1>
+                <h2>Tudo o que você precisa para levar mais sabor e saúde à sua mesa.</h2>
+
                 <div className='ProdutosWrapper'>
-                {
-                    Produtos?.map((item, index) => (
-                        <div key={index} className='ProdutoContainer'>
-                            <img src={`${url}${item.FotoProduto.url}`} alt="" />
-                            <button className='orangeRoundButton' onClick={()=>handleOpenSide(item)}>Tabela Nutricional</button>
-                            <div>
-                            <h1>{item.NomeProduto}</h1>
-                            <h3>{item.DescricaoProdutoPrincipal}</h3>
-                            {item.DescricaoProdutoSecundaria&&(
-                                <p>
-                                    {item.DescricaoProdutoSecundaria}
-                                </p>
-                            )}
+                    {
+                        Produtos?.map((item, index) => (
+                            <div key={index} className='ProdutoContainer'>
+                                <img src={`${url}${item.FotoProduto.url}`} alt="" />
+                                <button className='orangeRoundButton' onClick={() => handleOpenSide(item)}>Tabela Nutricional</button>
+                                <div>
+                                    <h1>{item.NomeProduto}</h1>
+                                    <h3>{item.DescricaoProdutoPrincipal}</h3>
+                                    {item.DescricaoProdutoSecundaria && (
+                                        <p>
+                                            {item.DescricaoProdutoSecundaria}
+                                        </p>
+                                    )}
+                                </div>
+
                             </div>
-                            
-                        </div>
-                    ))
-                }
+                        ))
+                    }
                 </div>
             </section>
-            <section>
-                
+            <section className='section-catalogo'>
+                <h1>Quer saber mais?</h1>
+                <h2>Para mais informações sobre os produtos São José, você pode baixar nosso catálogo atualizado logo abaixo, contendo informações detalhadas sobre toda a nossa linha, e muito mais!</h2>
+                <div className="baixar-catalogo">
+                    <a href='https://6412d317-8b7c-4fff-9706-25a19a2ba01e.filesusr.com/ugd/dec92a_d8c8060aa4f9433ca9b41c15e6aacf1c.pdf' target='blank'>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-eye" viewBox="0 0 16 16">
+                            <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13 13 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5s3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5s-3.879-1.168-5.168-2.457A13 13 0 0 1 1.172 8z" />
+                            <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0" />
+                        </svg>
+                        Visualizar Catalogo
+                    </a>
+                    <img src={Catalogo} alt="Foto Catalogo de Produtos e Especificações São José" />
+
+                </div>
 
             </section>
             <Footer />
