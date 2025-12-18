@@ -81,7 +81,7 @@ export default function Landing() {
     <div className='container'>
       <NavBar />
       <div className="imageNews" id='imageNews'>
-        
+
         {/* <div className="clippathImage"></div> */}
         {/* <div className="imageNewsContainer">
           <img src={homepage} alt="" width={"100%"} height={"100%"}/>
@@ -204,11 +204,11 @@ export default function Landing() {
             <div className='imagem-receita'>
               <img src={`${url}${iten.Imagem?.url}`} alt="" />
             </div>
-            
+
           </div>
         ))}
         <button className='redBackgroundButton'>Ver todas as receitas</button>
-        
+
       </div>
       <div className='stickyBox contato-section' id='contato'>
         <div className='contato-group'>
@@ -246,7 +246,7 @@ export default function Landing() {
         <video src={`${url}/uploads/saojoseproducao_c294d1e90c.mp4`} style={{ objectFit: "cover" }} width={"100%"} height={"100%"} controls
           autoPlay muted
           aria-orientation='horizontal'
-          
+
         ></video>
 
       </div>
@@ -256,7 +256,7 @@ export default function Landing() {
       <section className='stickyBox location-section'>
         {/* <iframe src="https://maps.app.goo.gl/NqhQxH11raCSVvgVA"></iframe> */}
         <div className='location-map'>
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3979.6044575074543!2d-38.49724372430287!3d-4.10061289587316!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7b8b004c5523b17%3A0x194e41840628a217!2zR3JhbmphIFPDo28gSm9zw6k!5e0!3m2!1spt-BR!2sbr!4v1760354327266!5m2!1spt-BR!2sbr" width="100%" height="100%" loading="lazy" ></iframe>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1305.0708631192706!2d-38.453318317283795!3d-4.070919168249647!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7b8a50576f76aa5%3A0xddcd0f927204e7a5!2zR3JhbmphcyBTw6NvIEpvc8OpIFMvQQ!5e1!3m2!1spt-BR!2sbr!4v1766010671714!5m2!1spt-BR!2sbr" width="100%" height="100%" loading="lazy" ></iframe>
         </div>
         <div>
           <h1>Onde estamos</h1>
