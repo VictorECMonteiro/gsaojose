@@ -1,9 +1,9 @@
 import axios from "axios"
 
-export const StrapiGet = async (route: string) => {
+export const StrapiGet = async (route: string, params?: string) => {
   try {
     const res = await axios.get(
-      `${import.meta.env.VITE_StrapiAdress}/api/${route}?populate=*`,
+      `${import.meta.env.VITE_StrapiAdress}/api/${route}?populate=*${params}`,
       {
         headers: {
           Authorization: `Bearer ${import.meta.env.VITE_StrapiToken}`,

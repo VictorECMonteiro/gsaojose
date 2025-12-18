@@ -195,6 +195,7 @@ body{
     display: flex;
     justify-content: space-between;
     align-items: end;
+    flex-wrap: wrap-reverse;
     /* background-color: red; */
 }
 .baixar-catalogo a{
@@ -202,14 +203,40 @@ body{
     justify-content: center;
     align-items: center;
     gap: 10px;
-    width: 15%;
+    padding: 0 2vw;
+    /* width: 15%; */
     border-radius: 10em;
     height: 8vh;
     cursor: pointer;
     color: #67422e;
     text-decoration: none;
+    border: 1px solid #67422e;
 }
 .baixar-catalogo a:hover{
     border: 1px solid #67422e;
     background-color: #FFF;
 }
+
+@media (max-width: 768px){
+    .ProdutosWrapper{
+        width: 100%;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        /* background-color: red; */
+    }
+    .ProdutoContainer{
+        width: 350px !important;
+    }
+    .ProdutoContainer img{
+        width: 80%;
+    }
+
+    .baixar-catalogo{
+        justify-content: center;
+    }
+    .baixar-catalogo img{
+        width: 100%;
+
+    }
+}
+

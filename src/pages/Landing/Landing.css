@@ -118,7 +118,7 @@ body {
     bottom: 0;
     transform: translateX(0%);
     padding: 1%;
-    animation: slide 5s linear infinite;
+    /* animation: slide 5s linear infinite; */
     z-index: 10;
 
 }

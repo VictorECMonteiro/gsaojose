@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import NavBar from '../../components/NavBar/NavBar'
 import Footer from '../../components/Footer/Footer'
 import "./Receitas.css"
+import { StrapiGet } from '../../configuration/strapiApi'
+const url = `${import.meta.env.VITE_StrapiAdress}`;
 
 interface SaoJoseReceita {
     ReceitaTitulo: string,
@@ -13,84 +15,36 @@ interface SaoJoseReceita {
     ReceitaPreparo: string,
     ReceitaTextoExtra?: string
 }
-
+interface Meta {
+    pagination: {
+        page: number;
+        pageSize: number;
+        pageCount: number;
+        total: number;
+    };
+}
 export default function Receitas() {
-    const [receitas, setReceitas] = useState<SaoJoseReceita[] | null>(
-        [
-            {
-                ReceitaTitulo: "Omelete tradicional",
-                ReceitaSubTitulo: "Simples, rápida e deliciosa: a omelete tradicional é aquela receita coringa que combina com qualquer momento do dia! Feita com os ovos fresquinhos da Granja São José, ela garante sabor e qualidade em cada mordida. Vem aprender a preparar essa delícia que nunca sai de moda!",
-                ReceitaImagem: {
-                    url: "/uploads/imagem"
-                },
-                ReceitaIngredientes: `
-                    2 ovos Granja São José
+    const [meta, setMeta] = useState<Meta | null>(null)
+    const [receitas, setReceitas] = useState<SaoJoseReceita[] | null>()
+    const [page, setPage] = useState(1)
 
-                    1 colher (sopa) de leite (opcional, para deixar mais leve)
+    const handlePageChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+        const newPage = Number(e.target.value);
+        setPage(newPage)
+    };
 
-                    Sal e pimenta-do-reino a gosto
-
-                    1 colher (chá) de manteiga ou azeite
-
-                    Recheios a gosto (queijo, presunto, tomate, cebola, orégano, cheiro-verde, etc.)`,
-                ReceitaPreparo: `Em uma tigela, quebre os ovos da Granja São José e bata com um garfo ou fouet até a mistura ficar bem homogênea.
-
-Adicione o leite (se for usar), tempere com sal e pimenta-do-reino a gosto.
-
-Aqueça uma frigideira antiaderente com a manteiga ou azeite, em fogo médio.
-
-Quando estiver quente, despeje os ovos batidos e espalhe bem pela frigideira.
-
-Espere firmar levemente a parte de baixo e, se quiser, acrescente o recheio por cima.
-
-Quando a parte de baixo estiver douradinha e a de cima ainda cremosa, dobre a omelete ao meio com uma espátula.
-
-Cozinhe por mais 1 minuto e está pronto!`,
-            },
-            {
-                ReceitaTitulo: "Omelete tradicional",
-                ReceitaSubTitulo: "Simples, rápida e deliciosa: a omelete tradicional é aquela receita coringa que combina com qualquer momento do dia! Feita com os ovos fresquinhos da Granja São José, ela garante sabor e qualidade em cada mordida. Vem aprender a preparar essa delícia que nunca sai de moda!",
-                ReceitaImagem: {
-                    url: "/uploads/imagem"
-                },
-                ReceitaIngredientes: `
-                    2 ovos Granja São José
-
-                    1 colher (sopa) de leite (opcional, para deixar mais leve)
-
-                    Sal e pimenta-do-reino a gosto
-
-                    1 colher (chá) de manteiga ou azeite
-
-                    Recheios a gosto (queijo, presunto, tomate, cebola, orégano, cheiro-verde, etc.)`,
-                ReceitaPreparo: `Em uma tigela, quebre os ovos da Granja São José e bata com um garfo ou fouet até a mistura ficar bem homogênea.
-
-Adicione o leite (se for usar), tempere com sal e pimenta-do-reino a gosto.
-
-Aqueça uma frigideira antiaderente com a manteiga ou azeite, em fogo médio.
-
-Quando estiver quente, despeje os ovos batidos e espalhe bem pela frigideira.
-
-Espere firmar levemente a parte de baixo e, se quiser, acrescente o recheio por cima.
-
-Quando a parte de baixo estiver douradinha e a de cima ainda cremosa, dobre a omelete ao meio com uma espátula.
-
-Cozinhe por mais 1 minuto e está pronto!`,
-            }
-
-
-
-
-
-        ]
-    )
 
 
 
     useEffect(() => {
-        document.querySelector(".fundo svg")?.setAttribute("preserverAspectRatio", "xMidYMid slice");
-    }, [])
-     
+        console.log(page)
+        StrapiGet("sao-jose-receitas", `&pagination[page]=${page}&pagination[pageSize]=5`).then((res) => {
+            setReceitas(res.data);
+            setMeta(res.meta);
+        })
+    }, [page])
+
+
 
 
 
@@ -111,29 +65,33 @@ Cozinhe por mais 1 minuto e está pronto!`,
             </div>
             <section className='receita-lista'>
                 {
-                    receitas?.map((item) => (
-                        <div className='item-receita'>
-                            <h2>{item.ReceitaTitulo}</h2>
-                            <p>{item.ReceitaSubTitulo}</p>
-                            <a href="#">Quero Aprender!!</a>
-
+                    receitas?.map((item, index) => (
+                        <div className='item-receita' key={index}>
+                            <div>
+                                <h2>{item.ReceitaTitulo}</h2>
+                                <p>{item.ReceitaSubTitulo}</p>
+                                <a href="#">Quero Aprender!!</a>
+                            </div>
+                            <div>
+                                <img src={`${url}${item.ReceitaImagem.url}`} alt="" />
+                            </div>
                         </div>
                     ))
                 }
+                <select value={page} onChange={handlePageChange}>
+                    {Array.from(
+                        { length: meta?.pagination.pageCount ?? 0 },
+                        (_, i) => i + 1
+                    ).map((p) => (
+                        <option key={p} value={p}>
+                            Página {p}
+                        </option>
+                    ))}
+                </select>
+
+
 
             </section>
-
-
-
-
-
-
-
-
-
-
-
-
 
             <Footer />
         </div>
