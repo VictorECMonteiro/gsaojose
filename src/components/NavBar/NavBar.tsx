@@ -3,12 +3,26 @@ import SaoJoseLogo from "../../assets/logosaojosenav.png";
 import logoSemSlogan from "../../assets/logoSemSlogan.png";
 import "./NavBar.css";
 import "../ButtonsCss/buttons.css";
+import { useNavigate } from "react-router";
 
 export default function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
   const containerNavRef = useRef<any>(null);
   const containerSideRef = useRef<any>(null);
   const lastScrollY = useRef<any>(window.scrollY);
+
+  const navigate = useNavigate();
+
+  const goToContato = () => {
+    navigate("/");
+    setTimeout(() => {
+      document.getElementById("contato")?.scrollIntoView({
+        behavior: "smooth",
+      });
+    }, 100);
+  };
+
+
 
   useEffect(() => {
     const handleScroll = () => {
@@ -43,6 +57,7 @@ export default function NavBar() {
 
   return (
     <div className="containerNav" ref={containerNavRef}>
+
       <div className="containerItens">
         <a href="/" className="logo">
           <img src={SaoJoseLogo} alt="" />
@@ -53,7 +68,10 @@ export default function NavBar() {
         <a href="/produtos" className="transparentLink">
           Produtos
         </a>
-        <a href="#contato" className="redBackgroundButton">
+        <a href="/receitas" className="transparentLink">
+          Receitas
+        </a>
+        <a onClick={goToContato} className="redBackgroundButton">
           Contato
         </a>
         <div className="collapsed-hamburguer">
@@ -76,7 +94,13 @@ export default function NavBar() {
       </div>
 
       <div ref={containerSideRef} className="container-side closed">
+        <div className="background" onClick={() => setIsOpen(!isOpen)}></div>
         <div className="content-side">
+          <button className="closeButton" onClick={() => setIsOpen(!isOpen)}  >
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-x-circle-fill" viewBox="0 0 16 16">
+              <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293z" />
+            </svg>
+          </button>
           <a href="/" className="logo-side">
             <img
               src={logoSemSlogan}

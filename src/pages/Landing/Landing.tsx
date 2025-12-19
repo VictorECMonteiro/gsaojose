@@ -67,7 +67,7 @@ export default function Landing() {
       setBanners(res.data)
       console.log(res.data)
     })
-    StrapiGet("Receitas-Sao-Joses").then((res: any) => {
+    StrapiGet("sao-jose-receitas", "pagination[pageSize]=3").then((res: any) => {
       console.log(res.data)
       setReceitas(res.data)
     })
@@ -192,22 +192,22 @@ export default function Landing() {
             </div>
           ))}</div> */}
       </div>
-      <div className='stickyBox teste'>
-        {mockData.map((iten, index) => (
+      <div className='teste'>
+        {receitas.map((iten, index) => (
           <div className='receitas-item' key={index}>
             <div>
               {/* //Lembrar de colocar o link pra receitas e mais receitas */}
-              <h1>{iten.Titulo}</h1>
-              <p>{iten.Descricao}</p>
-              <a href="/produtos">Ver receita completa</a>
+              <h1>{iten.ReceitaTitulo}</h1>
+              <p>{iten.ReceitaSubTitulo}</p>
+              <a href="/receitas">Ver receita completa</a>
             </div>
             <div className='imagem-receita'>
-              <img src={`${url}${iten.Imagem?.url}`} alt="" />
+              <img src={`${url}${iten.ReceitaImagem?.url}`} alt="" />
             </div>
 
           </div>
         ))}
-        <button className='redBackgroundButton'>Ver todas as receitas</button>
+        <a className='redBackgroundButton' href='/receitas'>Ver todas as receitas</a>
 
       </div>
       <div className='stickyBox contato-section' id='contato'>

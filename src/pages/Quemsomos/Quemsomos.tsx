@@ -115,8 +115,8 @@ export default function quemsomos() {
         <h1>Quem somos</h1>
         <h2>Mais que uma hitória, um legado</h2>
         <div className='divimg scroll-anim'>
-          <img src={quemsomo} alt="" className='img1' />
-          <img src={imginicial} alt="" className='imginicial' />
+          <img src={quemsomo} alt="Funcionarios com produção ao fundo" className='img1' />
+          <img src={imginicial} alt="Funcionarios com produção ao fundo" className='imginicial' />
         </div>
       </section>
 
@@ -157,7 +157,7 @@ export default function quemsomos() {
         <h1 className='anim-sumir titulo-linha'>Linha do tempo</h1>
         <div className='cont-tempo'>
           <div className="linhatempo-item top">
-            <img src={casa} alt="" className='img3' />
+            <img src={casa} alt="Casa / Celereiro em 1975" className='img3' />
             <div className="triangulo-para-baixo"></div>
             <div className='text-temp'>
               <h1>1975</h1>
@@ -167,7 +167,7 @@ export default function quemsomos() {
           </div>
 
           <div className="linhatempo-item top">
-            <img src={ovosfabrica} alt="" className='img3' />
+            <img src={ovosfabrica} alt="Produção de Ovos em 2005" className='img3' />
             <div className="triangulo-para-baixo"></div>
             <div className='text-temp'>
               <h1>2005</h1>
@@ -177,7 +177,7 @@ export default function quemsomos() {
           </div>
 
           <div className="linhatempo-item top">
-            <img src={Sãojose} alt="" className='img3' />
+            <img src={Sãojose} alt="Imagem de pátio local atual da Granjas São José" className='img3' />
             <div className="triangulo-para-baixo"></div>
             <div className='text-temp'>
               <h1>2024</h1>
@@ -201,17 +201,17 @@ export default function quemsomos() {
               <p>As memórias</p>
             </div>
             <div className="triangulo-para-cima"></div>
-            <img src={mulher} alt="" className='img3' />
+            <img src={mulher} alt="Imagem de funcionaria em tom sépia" className='img3' />
 
           </div>
           <div className="linhatempo-item2 bottom">
             <div className='circulo'></div>
             <div className='text-temp'>
-              <h1>1975</h1>
+              <h1>2020</h1>
               <p>A virada</p>
             </div>
             <div className="triangulo-para-cima"></div>
-            <img src={fabrica} alt="" className='img3' />
+            <img src={fabrica} alt="Foto local produção no ano de 2020" className='img3' />
           </div>
         </div>
       </section>
@@ -272,13 +272,13 @@ export default function quemsomos() {
               Interessado em fazer parte dessa família?Saiba mais
               <br /> clicando no link abaixo e preenchendo o formulário
             </p>
-            <button className='but-trab'>Clique aqui</button>
+            <a href="https://vagasgsjse.gupy.io/" target='blank' className='redBackgroundButton'>Clique aqui</a>
             <br />
             <a href="" className='a-trab'> ​Código de ética São José</a>
           </div>
           {/* <div className='imgdiv'> */}
           <div className='div-img'>
-            <img src={senhor} alt="" className="imgsenhor anim-sumir" />
+            <img src={senhor} alt="Imagem Senhor com Logotipo São José" className="imgsenhor anim-sumir" />
           </div>
         </div>
 
