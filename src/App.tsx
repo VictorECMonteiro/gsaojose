@@ -5,6 +5,7 @@ import Quemsomos from "./pages/Quemsomos/Quemsomos";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import Produtos from "./pages/Produtos/Produtos";
+import Receitas from "./pages/Receitas/Receitas"
 
 function App() {
 
@@ -16,7 +17,7 @@ function App() {
             <Route path="/" element={<Landing />} />
             <Route path="/quemsomos" element={<Quemsomos />}/>
             <Route path="/produtos" element={<Produtos />} />
-
+            <Route path="/receitas/:slug" element={<Receitas />} />
           </Routes>
         </BrowserRouter>
       </div>

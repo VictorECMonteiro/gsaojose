@@ -1,0 +1,88 @@
+.boby {
+  background-color: #fefaef;
+}
+
+.section-descrition {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fffaf2;
+    width: 100%;
+  }
+  
+  
+  .descricao {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #894a28;
+    width: 85%;
+    margin-top: 10vh;
+  }
+  
+  .descricao h1 {
+    font-family: "fraunces", serif;
+    font-weight: 400;
+    color: #ffffff;
+    font-size: clamp(1rem, 2.4vw, 3rem);
+    margin: 6vh 10vw 1vw 8vw;
+  }
+  
+  .descricao p {
+    font-family: "montserrat", sans-serif;
+    font-size: clamp(0.8rem, 1vw, 1.2rem);
+    font-weight: 400;
+    color: #ffffff;
+    max-width: 85%;
+    margin: 0 10vw 6vw 8vw ;
+  }
+  
+  
+  .img-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: -4vw; 
+  }
+  
+  .img-wrapper img {
+    width: 70%;
+    object-fit: cover;
+    border-radius: 4px;
+  }
+  
+  .receita {
+    width: 73%;
+    padding: 2vh 0 10vh 4vh;
+  }
+  
+  .receita h3 {
+    font-family: "montserrat", serif;
+    font-weight: 700;
+    margin-bottom: 2vh;
+    color: rgb(103, 66, 46);
+    margin-top: 3vh;
+  }
+  
+  .receita ul, ol {
+    padding-left: 1.5rem;
+    font-size: clamp(1em, 1vw, 2em);
+  }
+  
+  .receita li {
+    font-family: "montserrat", sans-serif;
+    margin-bottom: 1vh;
+    line-height: 1.5;
+    font-weight: 400;
+    color: rgb(103, 66, 46);
+    font-size: clamp(01em, 1vw, 2em);
+  }
+  
+  .receita p {
+    font-family: "montserrat", sans-serif;
+    margin: 5vh 0 5vh 0;
+    line-height: 1.5;
+    font-weight: 400;
+    color: rgb(103, 66, 46);
+    font-size: clamp(1em, 1vw, 2em);
+  }

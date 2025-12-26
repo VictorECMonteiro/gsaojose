@@ -26,87 +26,12 @@ import ovos from "../../assets/ovos.png"
 import Footer from '../../components/Footer/Footer'
 export default function quemsomos() {
 
-  // useEffect(() => {
-
-  //   const tops = document.querySelectorAll<HTMLElement>(".linhatempo-item.top");
-  //   const bottoms = document.querySelectorAll<HTMLElement>(".linhatempo-item2.bottom");
-  
-  //   const ordered: HTMLElement[] = [];
-  //   const max = Math.max(tops.length, bottoms.length);
-  //   for (let i = 0; i < max; i++) {
-  //     if (tops[i]) ordered.push(tops[i]);
-  //     if (bottoms[i]) ordered.push(bottoms[i]);
-  //   }
-  
-  //   const trigger = document.querySelector(".section3");
-  
-  //   const timelineObserver = new IntersectionObserver(
-  //     (entries) => {
-  //       const entry = entries[0];
-    
-  //       if (entry.isIntersecting) {
-  //         ordered.forEach((item, index) => {
-  //           setTimeout(() => item.classList.add("show"), index * 700);
-  //         });
-    
-   
-  //         timelineObserver.disconnect();
-  //       }
-  //     },
-  //     {
-  //       rootMargin: "-150px 0px -150px 0px",
-  //       threshold: 0.2,
-  //     }
-  //   );
-    
-  //   if (trigger) timelineObserver.observe(trigger);
-    
-  
-  
-  //   const scrollOnce = document.querySelectorAll<HTMLElement>(".scroll-anim");
-  
-  //   const scrollOnceObserver = new IntersectionObserver(
-  //     (entries) => {
-  //       entries.forEach((entry) => {
-  //         if (entry.isIntersecting) {
-  //           entry.target.classList.add("show");
-  //           scrollOnceObserver.unobserve(entry.target); 
-  //         }
-  //       });
-  //     },
-  //     { threshold: 0.5 }
-  //   );
-  
-  //   scrollOnce.forEach((el) => scrollOnceObserver.observe(el));
-  
-  
-
-  //   const repeatAnimations = document.querySelectorAll<HTMLElement>(
-  //     ".anim-sumir, .anim-crescer, .anim-slide-baixo"
-  //   );
-  
-  //   const repeatObserver = new IntersectionObserver(
-  //     (entries) => {
-  //       entries.forEach((entry) => {
-  //         if (entry.isIntersecting) {
-  //           entry.target.classList.add("show");
-  //         } else {
-  //           entry.target.classList.remove("show"); 
-  //         }
-  //       });
-  //     },
-  //     { threshold: 0.8 }
-  //   );
-  
-  //   repeatAnimations.forEach((el) => repeatObserver.observe(el));
-  
-  // }, []);
   
   animarDeCimaParaBaixo(".raiz1")
   animarDeBaixoParaCima(".section3>h1")
   animarDeBaixoParaCima(".future-text");
   animarDeBaixoParaCima(".imgsenhor")
-  // animarDeBaixoParaCima("img1")
+  animarDeBaixoParaCima("divimg")
   animarCrescendo(".map")
   animarLinhaDeTempo(".linhatempo-item, .linhatempo-item2")
   

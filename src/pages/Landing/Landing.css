@@ -587,6 +587,14 @@ body {
     /* background-color: red; */
 }
 
+.receitas-item a {
+    font-size: clamp(1rem, 1vw, 2rem);
+    font-family: "fraunces";
+    font-weight: 200;
+    color: #d40a0a;
+    text-decoration-color: #d40a0a;
+}
+
 .receitas-banner>div {
     display: flex;
     /* display: none; */
