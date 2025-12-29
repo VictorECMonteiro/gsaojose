@@ -8,7 +8,7 @@ import Produtos from "./pages/Produtos/Produtos";
 import Receitas from "./pages/Receitas/Receitas"
 
 function App() {
-
+ 
   return (
     <>
       <div>

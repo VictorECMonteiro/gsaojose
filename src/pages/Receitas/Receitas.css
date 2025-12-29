@@ -2,6 +2,29 @@
   background-color: #fefaef;
 }
 
+.button {
+  display: flex;
+  align-items: end;
+  /* background-color: #894a28; */
+  width: 100%;
+}
+
+.btn-voltar {
+  background: none;
+  border: 1px solid #894a28;
+  border-radius: 50vh;
+  color: #333;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 1vh;
+  /* background-color: aqua; */
+  margin: 3vh;
+}
+
+.btn-voltar:hover {
+  text-decoration: underline;
+}
+
 .section-descrition {
     display: flex;
     flex-direction: column;
@@ -53,7 +76,7 @@
   
   .receita {
     width: 73%;
-    padding: 2vh 0 10vh 4vh;
+    padding: 2vh 0 10vh 8vh;
   }
   
   .receita h3 {

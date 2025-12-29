@@ -70,6 +70,8 @@ export default function ReceitaDetalhe() {
                 <li key={i}>{passo}</li>
               ))}
           </ol>
+
+          <p>{receita.ReceitaTextoExtra}</p>
         </div>
       </section>
 
