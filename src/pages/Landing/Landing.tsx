@@ -23,6 +23,8 @@ import { HomePageCarrossels } from '../../types/StrapiTypes'
 import Carrossel from '../../components/Carrossel/Carrossel'
 import { LandingAnimations, ProdutosAnimations, BannerAnimations } from './LandingAnimations'
 import { useGSAP } from '@gsap/react'
+import { Link } from "react-router-dom";
+
 import Footer from '../../components/Footer/Footer'
 // const baseUrl = import.meta.env.VITE_StrapiAdress
 
@@ -31,14 +33,17 @@ import Footer from '../../components/Footer/Footer'
 console.log(SaoJoseLogo)
 let mockData = [
   {
+    slug: "omelete-tradicional",
     Titulo: "RECEITA 1",
     Descricao: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, placeat necessitatibus, sit ipsa quod, quia corporis atque inventore accusantium sed nesciunt laborum repellendus quae! Obcaecati nihil explicabo doloribus dolore quisquam."
   },
   {
+    slug: "torradas-com-ovo-poche",
     Titulo: "RECEITA 2",
     Descricao: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, placeat necessitatibus, sit ipsa quod, quia corporis atque inventore accusantium sed nesciunt laborum repellendus quae! Obcaecati nihil explicabo doloribus dolore quisquam."
   },
   {
+    slug: "shakshuka",
     Titulo: "RECEITA 2",
     Descricao: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, placeat necessitatibus, sit ipsa quod, quia corporis atque inventore accusantium sed nesciunt laborum repellendus quae! Obcaecati nihil explicabo doloribus dolore quisquam."
   }
