@@ -46,3 +46,19 @@
     color: #A1653A;
     transition-duration: .3s;
 }
+.orangeRoundButton{
+    background-color: #FFDB4A;
+    padding: 10px 30px;
+    border-radius: 50em;
+    border: none;
+    font-family: montserrat;
+    font-weight: 700;
+    color: #67422e;
+    cursor: pointer;
+}
+.orangeRoundButton:hover{
+    width: auto;
+    height: auto;
+    background-color: #292929;   
+    color: #FFF;
+}

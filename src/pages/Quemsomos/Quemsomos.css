@@ -157,8 +157,10 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    min-height: 110vh;
-    max-height: 120vh;
+    /* height: auto !important; */
+    height: 150vh;
+    
+    
     
 }
 
@@ -509,10 +511,14 @@
   
 
   .traba-tex {
-    position: absolute;
+    /* position: absolute; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
     z-index: 2;       
     width: 50%;
     /* height: 20vh; */
+    /* background-color: red !important; */
     background-color: #00000000;
     margin: 4vw;
     /* white-space: nowrap */
@@ -539,6 +545,10 @@
     /* width: 95%; */
 
   }
+  .traba-tex a{
+    width: 50%;
+  }
+  
 
   /* .imgdiv {
     display: flex;
@@ -571,7 +581,9 @@
   
   
   .but-trab {
-    padding: 0.7em 3em;
+    /* position: relative; */
+    /* bottom: 5%; */
+    padding: 0.7em 5em;
     background-color: #E41700;
     border-radius: 5vh;
     color: #FFFF;
@@ -581,7 +593,7 @@
     text-decoration: none;
     border: none;
     transition-duration: .3s;
-    margin-bottom: 2vh;
+    /* margin-bottom: 2vh !important; */
   }
 
   .a-trab{
@@ -591,6 +603,8 @@
     background-color: #00000000;
     font-family: "momontserrat", sans-serif;
     font-size: clamp(0.5rem, 0.9vw, 2rem);
+    margin-top: 10% !important;
+    
   }
 
   .section7 {
@@ -679,14 +693,20 @@
     display: flex;
     align-items: center;
     flex-direction: row;
-    min-height: 0vh;
+    /* min-height: auto; */
+    height: auto;
+    /* overflow-x: hidden; */
     /* background-color: #E41700; */
     
 }
 
- .section3>h1 {
-  display: none;
+ .titulo-linha {
+  display: none !important;
  }
+  /* .text-temp{
+    display: block;
+    background-color: red;
+  } */
 
   .cont-tempo, .cont-tempo2{
     position: relative;
@@ -696,13 +716,14 @@
     flex-direction: column;
     align-items: center;
     margin: 0px 0 0px 0px;
-    gap: 0;
+    gap: 10vh;
+    /* background-color: red; */
   }
  
   .linhatempo-item{
     /* position: relative; */
     width: 35vw;
-    height: 30vw;
+    height: auto;
     /* margin: 90px; */
     /* background-color: #4d4bdf; */
     flex-direction: column;
@@ -712,7 +733,7 @@
   .linhatempo-item2 {
     /* position: ; */
     width: 35vw;
-    height: 30vw;
+    /* height: 30vw; */
     /* margin: 90px; */
     /* background-color: #4d4bdf; */
     flex-direction: column-reverse;
@@ -776,7 +797,8 @@
   }
 
   .but-trab {
-    margin-bottom: 0vh;
+    margin-bottom: 10vh;
+    background-color: oranges;
   }
 
   .traba-tex p {
@@ -806,7 +828,9 @@
 
 
   @media (max-width: 730px) {
-   
+  .section3{
+    height: 150vh;
+  }
   
   .raiz {
       display: flex;
@@ -1075,7 +1099,7 @@
       text-decoration: none;
       border: none;
       transition-duration: .3s;
-      margin: 0vh;
+      margin: 2vh;
     }
   
   
@@ -1104,7 +1128,7 @@
     
     .text-temp {
       height: 40% ;
-      overflow: hidden;
+      /* overflow: hidden; */
       
     }
 
