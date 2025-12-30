@@ -33,7 +33,6 @@ export default function Footer() {
             <div className='privacidade'>
                 <div>
                     <p>Politica de Privacidade</p>
-                    <p>Acessibilidade</p>
                 </div>
                 <div>
                     <p><a href="https://www.instagram.com/tijucalimentos/" target='blank'>Time de Marketing e T.I</a></p>

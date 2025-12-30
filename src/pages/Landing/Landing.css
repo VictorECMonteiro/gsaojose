@@ -984,6 +984,9 @@ body {
     .location-section {
         flex-direction: column;
     }
+    .location-section div{
+        width: 90%;
+    }
 }
 
 @media (min-width: 401px) and (max-width:900px) {
