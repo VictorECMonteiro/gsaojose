@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { StrapiGet } from "../../configuration/strapiApi";
 import NavBar from "../../components/NavBar/NavBar";
 import Footer from "../../components/Footer/Footer";
-import "./Receitas.css"
+import "./Receita.css"
 
 const url = import.meta.env.VITE_StrapiAdress;
 

@@ -202,9 +202,10 @@ export default function quemsomos() {
       Interessado em fazer parte dessa família?Saiba mais 
       <br /> clicando no link abaixo e preenchendo o formulário
     </p>
-    <button className='but-trab'>Clique aqui</button>
-    <br />
+    <div className='but-a'>
+    <a className='but-trab'>Clique aqui</a>
     <a href=""  className='a-trab'> ​Código de ética São José</a>
+    </div>
   </div>
  {/* <div className='imgdiv'> */}
  <div className='div-img'>
