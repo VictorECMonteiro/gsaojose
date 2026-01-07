@@ -1,3 +1,8 @@
+body{
+    /* background-color: #EFE5CB; */
+        background-color: #FEFAEF;
+
+}
 .apresentacao{
     width: 100%;
     background-color: #FEFAEF;
@@ -127,8 +132,11 @@
     /* flex-basis: 30vw; */
     flex-direction: column;
     background-color: #FEFAEF;
+    /* border: 1px solid #292929; */
     border-radius: 2em;
     margin-top: 3%;
+    gap: 5vh;
+    padding: 5vh 3vw;
 }
 .ProdutoContainer img{
     max-width: 400px;
@@ -137,5 +145,98 @@
 
 }
 .ProdutoContainer h1{
-    /* background-color: blue; */
+    font-weight: 700;
+    font-family: montserrat;
+    color: #67422e;
+    /* padding: 2vh 0 ; */
 }
+.ProdutoContainer h3{
+    font-family: montserrat;
+    font-weight: 600;
+    color: #67422e;
+    
+
+}
+.ProdutoContainer p{
+    font-weight: 400;
+    font-family: montserrat;
+    color: rgb(243, 99, 99);
+    /* padding: 2vh 0 ; */
+
+}
+.ProdutoContainer div{
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+}
+
+.section-catalogo{
+    width: 90vw;
+    height: 100vh;
+    margin: 10vh auto;
+    padding: 10vh 5vw;
+    border-radius: 5em;
+    background-color: #FEFAEF;
+
+}
+.section-catalogo h1{
+    font-family: fraunces;
+    font-weight: 400;
+    font-size: clamp(1rem, 1.5vw + 1rem, 4rem);
+    color: #67422e;    
+}
+.section-catalogo h2{
+    font-family: montserrat;
+    font-weight: 400;
+    font-size: clamp(0.5rem, 1vw + 0.5rem, 3rem);
+    color: #67422e;    
+}
+.baixar-catalogo{
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    flex-wrap: wrap-reverse;
+    /* background-color: red; */
+}
+.baixar-catalogo a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 0 2vw;
+    /* width: 15%; */
+    border-radius: 10em;
+    height: 8vh;
+    cursor: pointer;
+    color: #67422e;
+    text-decoration: none;
+    border: 1px solid #67422e;
+}
+.baixar-catalogo a:hover{
+    border: 1px solid #67422e;
+    background-color: #FFF;
+}
+
+@media (max-width: 768px){
+    .ProdutosWrapper{
+        width: 100%;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        /* background-color: red; */
+    }
+    .ProdutoContainer{
+        width: 350px !important;
+    }
+    .ProdutoContainer img{
+        width: 80%;
+    }
+
+    .baixar-catalogo{
+        justify-content: center;
+    }
+    .baixar-catalogo img{
+        width: 100%;
+
+    }
+}
+
