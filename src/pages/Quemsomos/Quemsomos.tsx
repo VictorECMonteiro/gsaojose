@@ -23,6 +23,7 @@ import map from "../../assets/map.avif"
 import senhor from "../../assets/senhoreasgalinhas.avif"
 import ovos from "../../assets/ovos.png"
 
+import Cookies from '../../components/Cookies/Cookies'
 import Footer from '../../components/Footer/Footer'
 export default function quemsomos() {
 
@@ -122,7 +123,7 @@ export default function quemsomos() {
 
           <div className='linha'></div>
 
-          <div className='cont-tempo'>
+          <div className='cont-tempo2'>
 
           <div className='linhatempo-item2 bottom '>
           <div className='circulo'></div>
@@ -216,7 +217,7 @@ export default function quemsomos() {
 {/* </div> */}
 
 </section>
-
+   <Cookies />
     <Footer />
     </>
           

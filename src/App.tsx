@@ -6,7 +6,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Produtos from "./pages/Produtos/Produtos";
 import Receita from "./pages/Receita/Receita";
-import Receitas from "./pages/Receita/Receitas";
+import Receitas from "./pages/Receitas/Receitas";
 
 function App() {
   return (
@@ -17,7 +17,7 @@ function App() {
             <Route path="/" element={<Landing />} />
             <Route path="/quemsomos" element={<Quemsomos />} />
             <Route path="/produtos" element={<Produtos />} />
-            <Route path="/receitas/:slug" element={<Receita />} />
+            <Route path="/receita/:slug" element={<Receita />} />
             <Route path="/receitas" element={<Receitas />} />
 
           </Routes>

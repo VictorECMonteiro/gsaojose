@@ -25,6 +25,7 @@ import { LandingAnimations, ProdutosAnimations, BannerAnimations } from './Landi
 import { useGSAP } from '@gsap/react'
 import { Link } from "react-router-dom";
 
+import Cookies from '../../components/Cookies/Cookies'
 import Footer from '../../components/Footer/Footer'
 // const baseUrl = import.meta.env.VITE_StrapiAdress
 
@@ -204,7 +205,11 @@ export default function Landing() {
               {/* //Lembrar de colocar o link pra receitas e mais receitas */}
               <h1>{iten.ReceitaTitulo}</h1>
               <p>{iten.ReceitaSubTitulo}</p>
-              <a href="/receitas">Ver receita completa</a>
+              {/* <a href="/receita">Ver receita completa</a> */}
+              <Link to={`/receita/${iten.slug}`}>
+                Ver receita completa
+              </Link>
+
             </div>
             <div className='imagem-receita'>
               <img src={`${url}${iten.ReceitaImagem?.url}`} alt="" />
@@ -274,6 +279,7 @@ export default function Landing() {
         </div>
 
       </section>
+      <Cookies />
       <Footer />
 
     </div>

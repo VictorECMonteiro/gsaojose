@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import NavBar from '../../components/NavBar/NavBar'
+import Cookies from '../../components/Cookies/Cookies'
 import Footer from '../../components/Footer/Footer'
 import "./Receitas.css"
 import { StrapiGet } from '../../configuration/strapiApi'
@@ -115,7 +116,7 @@ export default function Receitas() {
 
 
             </section>
-
+            <Cookies />
             <Footer />
         </div>
     )

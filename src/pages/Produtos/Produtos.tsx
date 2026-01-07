@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import NavBar from '../../components/NavBar/NavBar'
+import Cookies from '../../components/Cookies/Cookies'
 import Footer from '../../components/Footer/Footer'
 import ZezinhoBandejaDeOvos from "../../assets/Zezinho_bandeja_de_ovos.png"
 import ZezinhoCestaDeOvos from "../../assets/Zezinho_cesta_de_ovos.png"
@@ -137,6 +138,8 @@ export default function Produtos() {
                 </div>
 
             </section>
+
+            <Cookies />
             <Footer />
         </div>
     )
