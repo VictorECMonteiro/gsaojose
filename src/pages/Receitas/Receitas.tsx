@@ -4,6 +4,7 @@ import Cookies from '../../components/Cookies/Cookies'
 import Footer from '../../components/Footer/Footer'
 import "./Receitas.css"
 import { StrapiGet } from '../../configuration/strapiApi'
+import { Link } from 'react-router'
 const url = `${import.meta.env.VITE_StrapiAdress}`;
 
 interface SaoJoseReceita {
@@ -15,6 +16,7 @@ interface SaoJoseReceita {
     ReceitaIngredientes: string,
     ReceitaPreparo: string,
     ReceitaTextoExtra?: string
+    slug: string
 }
 interface Meta {
     pagination: {
@@ -71,7 +73,10 @@ export default function Receitas() {
                             <div>
                                 <h2>{item.ReceitaTitulo}</h2>
                                 <p>{item.ReceitaSubTitulo}</p>
-                                <a href="#">Quero Aprender!!</a>
+                                {/* <a href="#">Quero Aprender!!</a> */}
+                                <Link to={`/receita/${item.slug}`}>
+                Quero Aprender
+              </Link>
                             </div>
                             <div>
                                 <img src={`${url}${item.ReceitaImagem.url}`} alt="" />
