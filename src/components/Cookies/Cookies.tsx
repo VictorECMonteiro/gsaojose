@@ -15,7 +15,7 @@ export default function Cookies() {
   }, []);
 
   function handleAcceptCookies() {
-    document.cookie = "cookiesAccepted=true; path=/; max-age=31536000"; // 1 ano
+    document.cookie = "cookiesAccepted=true; path=/; max-age=31536000"; 
     setShowCookie(false);
   }
 

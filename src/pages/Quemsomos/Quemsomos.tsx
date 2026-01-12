@@ -205,7 +205,7 @@ export default function quemsomos() {
     </p>
     <div className='but-a'>
     <a className='but-trab' href='https://vagastijuca.gupy.io/'>Clique aqui</a>
-    <a href="" className='a-trab'> ​Código de ética São José</a>
+    <a href="https://6412d317-8b7c-4fff-9706-25a19a2ba01e.filesusr.com/ugd/dec92a_78324360c11a4eb8b3ffda3bee75d56d.pdf" className='a-trab'> ​Código de ética São José</a>
     </div>
   </div>
  {/* <div className='imgdiv'> */}

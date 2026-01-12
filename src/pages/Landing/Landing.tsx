@@ -145,7 +145,7 @@ export default function Landing() {
           <h1>Quem somos</h1>
           <h2>Uma história feita de trabalho, terra e tradição.</h2>
           <p>Há mais de 50 anos, as Granjas São José tem se dedicado à produção de ovos de alta qualidade no coração do Ceará, garantindo frescor e excelência em cada produto</p>
-          <button className='redBackgroundButton' style={{ backgroundColor: "#FFF", color: "#A1653A" }}>Ver Mais</button>
+          <a className='redBackgroundButton' href='/quemsomos' style={{ backgroundColor: "#FFF", color: "#A1653A", cursor: "pointer" }}>Ver Mais</a>
         </div>
       </section>
       <div className="box2">
