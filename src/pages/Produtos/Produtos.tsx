@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import NavBar from '../../components/NavBar/NavBar'
 import Footer from '../../components/Footer/Footer'
 import ZezinhoBandejaDeOvos from "../../assets/Zezinho_bandeja_de_ovos.png"
