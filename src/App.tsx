@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import Landing from "./pages/Landing/Landing";
 import Quemsomos from "./pages/Quemsomos/Quemsomos";
@@ -6,7 +6,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Produtos from "./pages/Produtos/Produtos";
 import Receita from "./pages/Receita/Receita";
-import Receitas from "./pages/Receita/Receitas";
+import Receitas from "./pages/Receitas/Receitas";
 
 function App() {
   return (

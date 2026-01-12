@@ -3,6 +3,8 @@ import NavBar from '../../components/NavBar/NavBar'
 import Footer from '../../components/Footer/Footer'
 import "./Receitas.css"
 import { StrapiGet } from '../../configuration/strapiApi'
+import { useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 const url = `${import.meta.env.VITE_StrapiAdress}`;
 
 interface SaoJoseReceita {
@@ -13,7 +15,8 @@ interface SaoJoseReceita {
     },
     ReceitaIngredientes: string,
     ReceitaPreparo: string,
-    ReceitaTextoExtra?: string
+    ReceitaTextoExtra?: string,
+    slug: string
 }
 interface Meta {
     pagination: {
@@ -27,6 +30,7 @@ export default function Receitas() {
     const [meta, setMeta] = useState<Meta | null>(null)
     const [receitas, setReceitas] = useState<SaoJoseReceita[] | null>()
     const [page, setPage] = useState(1)
+    const navigate = useNavigate();
 
     const handlePageChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
         const newPage = Number(e.target.value);
@@ -34,7 +38,9 @@ export default function Receitas() {
     };
 
 
-
+    // const irParaReceita = (slug: string)=>{
+    //     navigate(`/receitas/${slug}`)
+    // }
 
     useEffect(() => {
         console.log(page)
@@ -70,7 +76,13 @@ export default function Receitas() {
                             <div>
                                 <h2>{item.ReceitaTitulo}</h2>
                                 <p>{item.ReceitaSubTitulo}</p>
-                                <a href="#">Quero Aprender!!</a>
+                                <a>
+                                    {/* {item.slug} */}
+                                    <Link to={`/receitas/${item.slug}`}>
+                                        Ver Receita Completa
+                                    </Link>
+                                    {/* </Link> */}
+                                    </a>
                             </div>
                             <div>
                                 <img src={`${url}${item.ReceitaImagem.url}`} alt="" />

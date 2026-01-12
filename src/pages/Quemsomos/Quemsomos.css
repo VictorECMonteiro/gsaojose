@@ -693,6 +693,7 @@
     display: flex;
     align-items: center;
     flex-direction: row;
+    width: auto;
     /* min-height: auto; */
     height: auto;
     /* overflow-x: hidden; */

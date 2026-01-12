@@ -14,9 +14,9 @@ export default function Footer() {
                     <h2>Local</h2>
                     <p>RUA EDGAR BELCHIOR XIMENES, 630 - Sala 01 - Horizonte - CE</p>
                     <p>
-                        85910101010
+                        (85) 3336-1010
                     </p>
-                    <p>email@gmail.com</p>
+                    {/* <p>email@gmail.com</p> */}
                 </div>
                 <div className="menu">
                     <h2>Menu</h2>

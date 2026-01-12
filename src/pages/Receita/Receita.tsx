@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { StrapiGet } from "../../configuration/strapiApi";
 import NavBar from "../../components/NavBar/NavBar";
 import Footer from "../../components/Footer/Footer";
-import "./Receitas.css"
+import "./Receita.css"
 
 const url = import.meta.env.VITE_StrapiAdress;
 
@@ -14,12 +14,13 @@ export default function ReceitaDetalhe() {
   useEffect(() => {
     async function buscarReceitas() {
       try {
-        const res: any = await StrapiGet("sao-jose-receitas");
         
-        const receitaEncontrada = res.data.find(
-          (item: any) => item.slug === slug
-        );
-        setReceita(receitaEncontrada);
+        const res: any = await StrapiGet("sao-jose-receitas", `filters[slug][$eqi]=${slug}`);
+        console.log(slug)
+        // const receitaEncontrada = res.data.find(
+        //   (item: any) => item.slug === slug
+        // );
+        setReceita(res.data[0]);
       } catch (error) {
         console.error(error);
       }
@@ -27,6 +28,7 @@ export default function ReceitaDetalhe() {
 
     buscarReceitas();
   }, [slug]);
+  console.log(receita)
 
   if (!receita) {
     return <p>Receita não encontrada</p>;
@@ -53,22 +55,12 @@ export default function ReceitaDetalhe() {
         <div className="receita">
           <h3>Ingredientes</h3>
           <ul>
-            {receita.ReceitaIngredientes
-              .split("\n")
-              .filter(Boolean)
-              .map((item: string, i: number) => (
-                <li key={i}>{item}</li>
-              ))}
+            {receita.ReceitaIngredientes}
           </ul>
 
           <h3>Modo de preparo</h3>
           <ol>
-            {receita.ReceitaPreparo
-              .split("\n")
-              .filter(Boolean)
-              .map((passo: string, i: number) => (
-                <li key={i}>{passo}</li>
-              ))}
+            {receita.ReceitaPreparo}
           </ol>
 
           <p>{receita.ReceitaTextoExtra}</p>
