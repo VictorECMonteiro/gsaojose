@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import Landing from "./pages/Landing/Landing";
 import Quemsomos from "./pages/Quemsomos/Quemsomos";
@@ -18,7 +18,7 @@ function App() {
             <Route path="/" element={<Landing />} />
             <Route path="/quemsomos" element={<Quemsomos />} />
             <Route path="/produtos" element={<Produtos />} />
-            <Route path="/receita/:slug" element={<Receita />} />
+            <Route path="/receitas/:slug" element={<Receita />} />
             <Route path="/receitas" element={<Receitas />} />
             <Route path="/privacidade" element={<Privacidade />} />
 

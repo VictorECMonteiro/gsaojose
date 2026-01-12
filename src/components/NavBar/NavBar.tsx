@@ -3,7 +3,7 @@ import SaoJoseLogo from "../../assets/logosaojosenav.png";
 import logoSemSlogan from "../../assets/logoSemSlogan.png";
 import "./NavBar.css";
 import "../ButtonsCss/buttons.css";
-import { useNavigate } from "react-router";
+import { useNavigate } from "react-router-dom";
 
 export default function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
