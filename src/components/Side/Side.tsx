@@ -44,7 +44,7 @@ export default function ({ data, close, isSideOpen }: { data: Produtos<object> |
             <div className="backgroundBlur" onClick={close}></div>
 
             <div className="side">
-                <button className='X'>X</button>
+                <button className='X' onClick={close}>X</button>
                 <img src={`${url}${data?.FotoProduto.url}`} alt={data?.DescricaoFotoProduto} />
                 <h1>{data?.NomeProduto}</h1>
                 <h2>Confira as informações nutricionais abaixo</h2>

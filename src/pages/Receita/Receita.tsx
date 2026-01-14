@@ -4,6 +4,7 @@ import { StrapiGet } from "../../configuration/strapiApi";
 import NavBar from "../../components/NavBar/NavBar";
 import Footer from "../../components/Footer/Footer";
 import "./Receita.css"
+import { Helmet } from "react-helmet-async";
 
 const url = import.meta.env.VITE_StrapiAdress;
 
@@ -14,7 +15,7 @@ export default function ReceitaDetalhe() {
   useEffect(() => {
     async function buscarReceitas() {
       try {
-        
+
         const res: any = await StrapiGet("sao-jose-receitas", `filters[slug][$eqi]=${slug}`);
         console.log(slug)
         // const receitaEncontrada = res.data.find(
@@ -37,7 +38,10 @@ export default function ReceitaDetalhe() {
   return (
     <div className="container">
       <NavBar />
-
+      <Helmet>
+        <title>Receitas - Granjas Sao Jose</title>
+        <meta name='description' content='Receitas preparadas com nossos produtos, trazendo o gostinho caseiro e a leveza que só a Granja São José proporciona.' />
+      </Helmet>
       <section className="section-descrition ">
         <div className="descricao">
           <h1>{receita.ReceitaTitulo}</h1>
@@ -45,10 +49,10 @@ export default function ReceitaDetalhe() {
         </div>
 
         <div className="img-wrapper">
-        <img
-        src={`${url}${receita.ReceitaImagem.url}`}
-        alt={receita.ReceitaTitulo}
-/>
+          <img
+            src={`${url}${receita.ReceitaImagem.url}`}
+            alt={receita.ReceitaTitulo}
+          />
 
         </div>
 

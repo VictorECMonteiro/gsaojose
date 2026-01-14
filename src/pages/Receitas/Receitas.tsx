@@ -5,6 +5,7 @@ import "./Receitas.css"
 import { StrapiGet } from '../../configuration/strapiApi'
 import { useNavigate } from 'react-router-dom'
 import { Link } from 'react-router-dom'
+import { Helmet } from 'react-helmet-async'
 const url = `${import.meta.env.VITE_StrapiAdress}`;
 
 interface SaoJoseReceita {
@@ -58,6 +59,10 @@ export default function Receitas() {
     return (
         <div className='container-receitas'>
             <NavBar />
+            <Helmet>
+                <title>Receitas - Granjas Sao Jose</title>
+                <meta name='description' content='Receitas preparadas com nossos produtos, trazendo o gostinho caseiro e a leveza que só a Granja São José proporciona.' />
+            </Helmet>
             <div className='titulo-section'>
                 <button>
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-caret-left-fill" viewBox="0 0 16 16">
@@ -82,7 +87,7 @@ export default function Receitas() {
                                         Ver Receita Completa
                                     </Link>
                                     {/* </Link> */}
-                                    </a>
+                                </a>
                             </div>
                             <div>
                                 <img src={`${url}${item.ReceitaImagem.url}`} alt="" />
@@ -97,7 +102,7 @@ export default function Receitas() {
                                 setPage(page - 1)
                                 // return
                             }
-                            
+
                         }}
                     ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-caret-left-fill" viewBox="0 0 16 16">
                             <path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z" />
