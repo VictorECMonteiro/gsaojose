@@ -6,7 +6,7 @@ import { useGSAP } from "@gsap/react";
 export function animarDeBaixoParaCima(selector: string) {
   return useGSAP(() => {
     gsap.from(selector, {
-      y: 80,            
+      y: 70,            
       opacity: 0,
       duration: 1.2,
       ease: "power3.out",
@@ -22,7 +22,7 @@ export function animarDeBaixoParaCima(selector: string) {
 export function animarDeCimaParaBaixo(selector: string) {
   return useGSAP(() => {
     gsap.from(selector, {
-      y: -80, 
+      y: -70, 
       opacity:0,          
       duration: 3,
       ease: "power3.out",
@@ -40,7 +40,7 @@ export function animarDeCimaParaBaixo(selector: string) {
 export function animarCrescendo(selector: string) {
   return useGSAP(() => {
     gsap.from(selector, {
-      scale: 0.6,        
+      scale: 0.4,        
       duration: 2,
       ease: "power2.out",
       scrollTrigger: {

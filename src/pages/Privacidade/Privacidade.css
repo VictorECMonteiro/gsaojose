@@ -1,0 +1,103 @@
+.texto {
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    flex-direction: column;
+    margin-top: 7vw;
+    /* font-family: "Times New Roman", Times, serif; */
+    color: #000;
+    /* line-height: 1.7; */
+    margin-bottom: 10vh;
+    overflow: hidden;
+  }
+  
+  .texto-todo {
+    width: 65%;
+    overflow: hidden;
+  }
+  
+  .texto h1 {
+    font-family: "fraunces";
+    font-size: clamp(1em, 2.4vw, 2em);
+    font-weight: 700;
+    color: #692e0d;
+    margin: 0 55vw 0 0;
+  }
+  
+  
+  .texto h2 {
+    margin: 32px 0 12px;
+    font-family: "fraunces";
+    font-size: clamp(1em, 1.4vw, 2em);
+    font-weight: 600;
+    color: #692e0d;
+    /* margin: 0 0 vw 0; */
+  }
+  
+  
+  .texto h3 {
+    font-style: italic;
+    margin: 1vw 0 2vw;
+    font-family: "fraunces";
+    font-size: clamp(0.8em, 1.2vw, 1.5em);
+    font-weight: 500;
+    color: #742e09;
+  }
+  
+  
+  .texto p {
+    margin-bottom: 18px;
+    font-family: "montserrat";
+    font-size: clamp(0.7em, 1vw, 1.1em);
+    font-weight: 400;
+    color: #742e09;
+    line-height: 1.4;
+  }
+  
+  
+  .texto ol {
+    /* padding-left: 20px; */
+    margin-top: 20px; 
+    /* background-color: #ff650c; */
+  }
+  
+  
+  .lista-li {
+    font-family: "fraunces";
+    font-size: clamp(0.8em, 1vw, 1.3em);
+    font-weight: 700;
+    color:  #692e0d;
+    margin: 4vw 0 0 0 ;
+  }
+  
+  
+  .texto a {
+    color: #000;
+    text-decoration: underline;
+  }
+  
+ 
+  .texto br {
+    line-height: 2;
+  }
+  
+  
+  @media (max-width: 1024px) {
+    .texto {
+        margin-top: 11vw;
+    }
+  }
+
+  @media (max-width: 500px) {
+    .texto {
+        margin-top: 15vw;
+        
+    }
+
+    .texto h1 {
+        margin-right: 40vw;
+      }
+  }
+
+  
+  

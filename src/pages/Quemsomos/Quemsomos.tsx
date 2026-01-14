@@ -23,6 +23,7 @@ import map from "../../assets/map.avif"
 import senhor from "../../assets/senhoreasgalinhas.avif"
 import ovos from "../../assets/ovos.png"
 
+import Cookies from '../../components/Cookies/Cookies'
 import Footer from '../../components/Footer/Footer'
 export default function quemsomos() {
 
@@ -122,7 +123,7 @@ export default function quemsomos() {
 
           <div className='linha'></div>
 
-          <div className='cont-tempo'>
+          <div className='cont-tempo2'>
 
           <div className='linhatempo-item2 bottom '>
           <div className='circulo'></div>
@@ -202,9 +203,10 @@ export default function quemsomos() {
       Interessado em fazer parte dessa família?Saiba mais 
       <br /> clicando no link abaixo e preenchendo o formulário
     </p>
-    <button className='but-trab'>Clique aqui</button>
-    <br />
-    <a href=""  className='a-trab'> ​Código de ética São José</a>
+    <div className='but-a'>
+    <a className='but-trab' href='https://vagastijuca.gupy.io/'>Clique aqui</a>
+    <a href="https://6412d317-8b7c-4fff-9706-25a19a2ba01e.filesusr.com/ugd/dec92a_78324360c11a4eb8b3ffda3bee75d56d.pdf" className='a-trab'> ​Código de ética São José</a>
+    </div>
   </div>
  {/* <div className='imgdiv'> */}
  <div className='div-img'>
@@ -215,7 +217,7 @@ export default function quemsomos() {
 {/* </div> */}
 
 </section>
-
+   <Cookies />
     <Footer />
     </>
           

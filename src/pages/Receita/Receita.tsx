@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { StrapiGet } from "../../configuration/strapiApi";
 import NavBar from "../../components/NavBar/NavBar";
+import Cookies from "../../components/Cookies/Cookies";
 import Footer from "../../components/Footer/Footer";
 import "./Receita.css"
 import { Helmet } from "react-helmet-async";
@@ -70,7 +71,8 @@ export default function ReceitaDetalhe() {
           <p>{receita.ReceitaTextoExtra}</p>
         </div>
       </section>
-
+        
+      <Cookies />
       <Footer />
     </div>
   );
