@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import SaoJoseLogo from "../../assets/logosaojosenav.png"
 import SaoJoseLogoBranco from "../../assets/logobranco.png"
+import Isotipo from "../../assets/isotipo_SAOJOSE.png"
 import asset1 from "../../assets/01.png"
 import asset2 from "../../assets/02.png"
 import asset3 from "../../assets/03.png"
@@ -70,10 +71,6 @@ export default function Landing() {
 
     }
     loadSvg();
-    StrapiGet("homepage-carrossels").then((res: any) => {
-      setBanners(res.data)
-      console.log(res.data)
-    })
     StrapiGet("sao-jose-receitas", "pagination[pageSize]=3").then((res: any) => {
       console.log(res.data)
       setReceitas(res.data)
@@ -207,7 +204,7 @@ export default function Landing() {
               <h1>{iten.ReceitaTitulo}</h1>
               <p>{iten.ReceitaSubTitulo}</p>
               {/* <a href="/receita">Ver receita completa</a> */}
-              <Link to={`/receita/${iten.slug}`}>
+              <Link to={`/receitas/${iten.slug}`}>
                 Ver receita completa
               </Link>
 
@@ -222,7 +219,20 @@ export default function Landing() {
 
       </div>
       <div className='stickyBox contato-section' id='contato'>
+
         <div className='contato-group'>
+          <div>
+            <h2>Fale Conosco</h2>
+            <p>Entre em contato conosco. Será um prazer atender você, esclarecer suas dúvidas e oferecer todo o suporte necessário.</p>
+            <h3>(85) 3336-1010</h3>
+          </div>
+          <img src={SaoJoseLogoBranco} alt="" width={"30%"}/>   
+            
+
+        </div>
+
+
+        {/* <div className='contato-group'>
           <form action="#">
             <h1>Fale conosco</h1>
 
@@ -251,7 +261,7 @@ export default function Landing() {
           </form>
           <button className='transparentButton'>Enviar</button>
 
-        </div>
+        </div> */}
       </div>
       <div className='stickyBox video-institucional'>
         <video src={`${url}/uploads/saojoseproducao_c294d1e90c.mp4`} style={{ objectFit: "cover" }} width={"100%"} height={"100%"} controls

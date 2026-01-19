@@ -32,9 +32,9 @@ export default function NavBar() {
       } else {
         // Scrolling up
         containerNavRef.current?.classList.remove("hidden");
-        setTimeout(() => {
-          containerNavRef.current?.classList.add("hidden");
-        }, 10000);
+        // setTimeout(() => {
+        //   containerNavRef.current?.classList.add("hidden");
+        // }, 10000);
       }
       lastScrollY.current = window.scrollY;
     };
@@ -114,14 +114,18 @@ export default function NavBar() {
             />
           </a>
           <div className="anchor-side">
-            <a href="#" className="transparentLink">
-              <h2>Sobre nós</h2>
+
+            <a href="/quemsomos" className="transparentLink">
+              Sobre nós
             </a>
-            <a href="#" className="transparentLink">
-              <h2>Produtos</h2>
+            <a href="/produtos" className="transparentLink">
+              Produtos
             </a>
-            <a href="#contato" className="redBackgroundButton">
-              <h2>Contato</h2>
+            <a href="/receitas" className="transparentLink">
+              Receitas
+            </a>
+            <a onClick={goToContato} className="redBackgroundButton">
+              Contato
             </a>
           </div>
         </div>
