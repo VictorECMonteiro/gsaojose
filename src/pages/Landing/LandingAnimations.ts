@@ -115,7 +115,7 @@ export function BannerAnimations(element: string) {
       scale: 0.6,
       scrollTrigger: {
         trigger: element,
-        start: "top 99%",
+        start: "top top",
         end: "bottom bottom",
         scrub: true,
         onEnter: () => console.log("ENTROU")
@@ -124,6 +124,6 @@ export function BannerAnimations(element: string) {
 
   },
     // You might need to add a dependency array if this hook needs to re-run
-    // [] 
+    [] 
   );
 }
