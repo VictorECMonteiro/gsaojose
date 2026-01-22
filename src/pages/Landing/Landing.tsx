@@ -62,7 +62,7 @@ export default function Landing() {
   ProdutosAnimations(".boxprod")
   BannerAnimations(".imageNews")
 
-  useEffect(React.useCallback(() => {
+  useEffect(() => {
     // function loadSvg() {
     //   fetch("/ImagemBannerSaoJose.svg").then((res) => (res.text())).then((svg) => {
     //     const el = document.getElementById("imageNews");
@@ -76,7 +76,7 @@ export default function Landing() {
       // console.log(res.data)
       setReceitas(res.data)
     })
-  }, []))
+  }, [])
 
 
   const url = `${import.meta.env.VITE_StrapiAdress}`;
