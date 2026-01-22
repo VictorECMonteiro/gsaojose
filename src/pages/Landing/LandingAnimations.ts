@@ -115,7 +115,7 @@ export function BannerAnimations(element: string) {
       scale: 0.6,
       scrollTrigger: {
         trigger: element,
-        start: "top top",
+        start: "top 99%",
         end: "bottom bottom",
         scrub: true,
         onEnter: () => console.log("ENTROU")
