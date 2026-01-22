@@ -1084,7 +1084,7 @@ body {
         flex-direction: column;
         /* flex: 1 1 100%; */
         width: 95%;
-        height: 90%;
+        height: 100%;
         /* background-color: brown; */
         transform: translateY(30vh);
     }
