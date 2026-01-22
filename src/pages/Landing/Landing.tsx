@@ -1,6 +1,7 @@
-import { useCallback, useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import SaoJoseLogo from "../../assets/logosaojosenav.png"
 import SaoJoseLogoBranco from "../../assets/logobranco.png"
+import Banner from "../../assets/ImagemBannerSaoJose.png"
 import Isotipo from "../../assets/isotipo_SAOJOSE.png"
 import asset1 from "../../assets/01.png"
 import asset2 from "../../assets/02.png"
@@ -61,21 +62,21 @@ export default function Landing() {
   ProdutosAnimations(".boxprod")
   BannerAnimations(".imageNews")
 
-  useEffect(() => {
-    function loadSvg() {
-      fetch("/ImagemBannerSaoJose.svg").then((res) => (res.text())).then((svg) => {
-        const el = document.getElementById("imageNews");
-        if (el) el.innerHTML = svg;
-        document.querySelector("imageNews svg")?.setAttribute("preserverAspectRatio", "xMidYMid slice");
-      })
+  useEffect(React.useCallback(() => {
+    // function loadSvg() {
+    //   fetch("/ImagemBannerSaoJose.svg").then((res) => (res.text())).then((svg) => {
+    //     const el = document.getElementById("imageNews");
+    //     if (el) el.innerHTML = svg;
+    //     document.querySelector("imageNews svg")?.setAttribute("preserverAspectRatio", "xMidYMid slice");
+    //   })
 
-    }
-    loadSvg();
+    // }
+    // loadSvg();
     StrapiGet("sao-jose-receitas", "pagination[pageSize]=3").then((res: any) => {
-      console.log(res.data)
+      // console.log(res.data)
       setReceitas(res.data)
     })
-  }, [])
+  }, []))
 
 
   const url = `${import.meta.env.VITE_StrapiAdress}`;
@@ -85,7 +86,7 @@ export default function Landing() {
     <div className='container'>
       <NavBar />
       <div className="imageNews" id='imageNews'>
-
+        <img src={Banner} alt="Banner Começando com um sorriso para chegar no seu" loading='lazy' width={"100%"}/>
         {/* <div className="clippathImage"></div> */}
         {/* <div className="imageNewsContainer">
           <img src={homepage} alt="" width={"100%"} height={"100%"}/>
@@ -110,27 +111,27 @@ export default function Landing() {
         <h1>Granjas São José</h1>
         <div className='itens'>
           <div>
-            <img src={asset1} alt="" width={130} height={"auto"} />
+            <img src={asset1} alt="" width={130} height={"auto"} loading='lazy'/>
             <h1>Sabor e qualidade</h1>
             <h2>A nutrição do seu dia-a-dia</h2>
           </div>
           <div>
-            <img src={asset3} alt="" width={130} height={"auto"} />
+            <img src={asset3} alt="" width={130} height={"auto"} loading='lazy'/>
             <h1>Criação que faz a diferença</h1>
             <h2>Mais espaço, mais saúde, mais sabor</h2>
           </div>
           <div>
-            <img src={asset2} alt="" width={130} height={"auto"} />
+            <img src={asset2} alt="" width={130} height={"auto"} loading='lazy'/>
             <h1>Mais que ovos</h1>
             <h2>É dedicação e compromisso com você</h2>
           </div>
           <div>
-            <img src={asset4} alt="" width={130} height={"auto"} />
+            <img src={asset4} alt="" width={130} height={"auto"} loading='lazy'/>
             <h1>Bem-estar animal</h1>
             <h2>Responsabilidade em cada etapa</h2>
           </div>
           <div>
-            <img src={asset5} alt="" width={150} height={"auto"} />
+            <img src={asset5} alt="" width={150} height={"auto"}loading='lazy' />
             <h1>Do campo pra mesa</h1>
             <h2>produção que reflete carinho e transparência.</h2>
           </div>
@@ -152,17 +153,17 @@ export default function Landing() {
           confiável.</p>
         <div>
           <div className="boxprod">
-            <img src={OvoCodorna}
+            <img src={OvoCodorna}loading='lazy'
               alt="" width="auto" height="33%" />
             <h2>Ovos de codorna São José</h2>
           </div>
           <div className="boxprod">
-            <img src={OvoOmega3}
+            <img src={OvoOmega3}loading='lazy'
               alt="" width="auto%" height="33%" />
             <h2>Ovos Life - Ômega 3</h2>
           </div>
           <div className="boxprod">
-            <img src={OvoLiquido}
+            <img src={OvoLiquido}loading='lazy'
               alt="" width="auto" height="33%" />
             <h2>Ovo Integral Líquido</h2>
           </div>
@@ -179,11 +180,11 @@ export default function Landing() {
           <p>Qualidade de sabor, ingrediente do seu dia</p>
         </div>
         <div>
-          <img src={zezinho} alt="" height={"80%"} />
+          <img src={zezinho} alt="" height={"80%"} loading='lazy'/>
 
-          <img src={OvoReceitas} alt="Omelete girando" height={"100%"} className='receitas-omelete' />
+          <img src={OvoReceitas} alt="Omelete girando" loading='lazy' height={"100%"} className='receitas-omelete' />
 
-          <img src={zezinho2} alt="" height={"80%"} />
+          <img src={zezinho2} alt="" height={"80%"} loading='lazy' />
         </div>
         {/* <div className='carrossel-receitas'>
           {receitas.map((iten, index) => (
@@ -210,7 +211,7 @@ export default function Landing() {
 
             </div>
             <div className='imagem-receita'>
-              <img src={`${url}${iten.ReceitaImagem?.url}`} alt="" />
+              <img src={`${url}${iten.ReceitaImagem?.url}`} loading='lazy' alt="" />
             </div>
 
           </div>

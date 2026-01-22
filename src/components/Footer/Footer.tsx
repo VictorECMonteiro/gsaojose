@@ -9,7 +9,7 @@ export default function Footer() {
                 <h1>Sempre com você!</h1>
             </div>
             <div className="footerInfo">
-                <img src={SaoJoseLogoBranco} alt="" width={"20%"} height={"auto"} />
+                <img src={SaoJoseLogoBranco} alt="" width={"20%"} height={"auto"} loading='lazy'/>
                 <div className="local">
                     <h2>Local</h2>
                     <p>RUA EDGAR BELCHIOR XIMENES, 630 - Sala 01 - Horizonte - CE</p>
