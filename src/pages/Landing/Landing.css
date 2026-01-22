@@ -937,7 +937,7 @@ body {
     .imageNewsIten {
         display: flex;
         flex-direction: row;
-        height: 20vh;
+        /* height: 20vh; */
     }
 
     .boxprod:hover {
@@ -1025,6 +1025,9 @@ body {
 }
 
 @media (min-width: 401px) and (max-width:900px) {
+    .imageNews{
+        height: 50vh;
+    }
     .box2>a {
         display: flex;
         width: 50%;
@@ -1149,9 +1152,13 @@ body {
 }
 
 @media(min-width:901px) {
+    .imageNews{
+        height: 50vh;
+    }
     .boxprod:hover {
         /* position: relative; */
         width: 35%;
+        
 
         scale: 1.1;
         padding-left: 5vw;
