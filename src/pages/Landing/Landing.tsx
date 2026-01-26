@@ -211,7 +211,7 @@ export default function Landing() {
 
             </div>
             <div className='imagem-receita'>
-              <img src={`${url}${iten.ReceitaImagem?.url}`} loading='lazy' alt="" />
+              <img src={`${url}${iten.ReceitaImagem?.url}`} loading='lazy' alt="" width={"100%"}/>
             </div>
 
           </div>

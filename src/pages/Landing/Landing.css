@@ -487,7 +487,7 @@ body {
     border-radius: 1em;
     overflow-y: hidden;
     /* scale: 1; */
-    background-color: red;
+    /* background-color: red; */
     transition: scale cubic-bezier(0.075, 0.82, 0.165, 1) ease;
 }
 
@@ -588,6 +588,11 @@ body {
     /* font-size: 100px; */
     /* background-color: red; */
 }
+.receitas-item>div p{
+    /* font-size: clamp(0.3rem, 1vw + .4rem, 1rem); */
+    /* color: red; */
+
+}
 
 .receitas-item a {
     font-size: clamp(1rem, 1vw, 2rem);
@@ -630,9 +635,9 @@ body {
     justify-content: center;
     align-items: center;
     width: 95%;
-    height: auto;
+    /* height: 100vh; */
     /* position: sticky; */
-    top: 0%;
+    top: -5%;
     /* margin-left: auto; */
     margin: auto;
     /* top: 50px; */
@@ -653,7 +658,7 @@ body {
     flex: 1;
     /* height: 30vh; */
     /* min-height: 25vh; */
-    flex-grow: 1;
+    /* flex-grow: 1; */
 
     align-items: center;
     position: sticky;
@@ -678,6 +683,8 @@ body {
     /* display: none; */
     /* flex: 1; */
     /* width: 40vw; */
+    /* width: 20%; */
+    width: 100% !important;
     /* width: ; */
     /* min-height: fit-content; */
     height: 25vh;
@@ -688,7 +695,8 @@ body {
 
 .imagem-receita>img {
     object-fit: cover;
-    width: 30vw;
+    width: 100% !important;
+    /* background-color: red; */
     height: auto;
     border-radius: 1em;
 
@@ -720,11 +728,13 @@ body {
 }
 
 .receitas-item>div {
-    /* display: flex; */
-    width: fit-content;
-    width: 50%;
+    display: flex;
+    flex-direction: column;
+    /* width: fit-content; */
+    width: 100%;
     /* background-color: blue; */
-    padding: 1vh 10vw;
+    /* height: auto; */
+    padding: 1vh 7vw;
     /* top: 0px; */
     overflow-y: hidden;
 }
@@ -739,7 +749,7 @@ body {
 
 .receitas-item>div>p {
     padding: 2vh 0vh;
-    font-size: clamp(.5rem, 2vw, .9rem);
+    font-size: clamp(.3rem, 1vw + .2rem, .7rem);
     font-family: "montserrat";
     color: #67422e;
     overflow-y: hidden;
@@ -951,7 +961,8 @@ body {
 
     .box2 {
         flex-direction: column;
-        height: 220vh;
+        /* height: 220vh; */
+        height: auto;
         /* background-color: red; */
     }
 
@@ -1075,34 +1086,39 @@ body {
     }
 
     .box2 {
+        display: flex;
         flex-direction: column;
-        height: 200vh;
+        /* height: 500vh; */
+        height: auto;
         /* background-color: red; */
-        gap: 3%;
+        /* gap: 100px; */
     }
 
     .box2>div {
+        display: flex;
         flex-direction: column;
-        gap: 0;
         /* height: 300vh; */
-        /* background-color: blue; */
+        
 
     }
 
     .boxprod {
+        /* display: flex; */
         /* display: block; */
         flex-direction: column;
         /* flex: 1 1 100%; */
         width: 95%;
         height: 100%;
+        margin-top: 10%;
+        /* gap: 20% !important; */
         /* background-color: brown; */
-        transform: translateY(30vh);
+        transform: translateY(40vh);
     }
 
     .box2>button {
         width: 30%;
         height: 3%;
-        background-color: red;
+        /* background-color: red; */
         margin-top: auto;
         margin-bottom: 10%;
 
