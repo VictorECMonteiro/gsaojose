@@ -152,6 +152,7 @@ export default function Landing() {
         <p>Conheça os produtos da Granja, produzidos com responsabilidade para levar até você um alimento fresco e
           confiável.</p>
         <div>
+          <div>
           <div className="boxprod">
             <img src={OvoCodorna}loading='lazy'
               alt="" width="auto" height="33%" />
@@ -167,9 +168,11 @@ export default function Landing() {
               alt="" width="auto" height="33%" />
             <h2>Ovo Integral Líquido</h2>
           </div>
+          </div>
+          <a className='redBackgroundButton' href='/produtos'>Conheça nossos produtos</a>
         </div>
 
-        <a className='redBackgroundButton' href='/produtos'>Conheça nossos produtos</a>
+        
 
 
       </div>
