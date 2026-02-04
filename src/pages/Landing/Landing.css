@@ -1121,7 +1121,14 @@ body {
         flex-direction: column;
         /* height: 300vh; */
         
+        
 
+    }
+    .box2>div>div{
+        flex-direction: column;
+    }
+    .boxprod h2{
+        font-size: clamp(1rem, 1vw, 1rem);
     }
 
     .boxprod {
@@ -1136,6 +1143,10 @@ body {
         /* background-color: brown; */
         transform: translateY(40vh);
     }
+    /* .boxprod>div>div{
+        flex-direction: column;
+        background-color: red;
+    } */
 
     .box2>button {
         width: 30%;
