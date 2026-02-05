@@ -1,13 +1,11 @@
-# Define permissões para todos os robôs (Google, Bing, etc.)
 User-agent: *
 
-# Permite que todo o site seja indexado
 Allow: /
 
-# Bloqueia pastas sensíveis ou técnicas (opcional, mas recomendado)
+
 Disallow: /static/
 Disallow: /media/
 Disallow: /admin/
 
-# Indica onde está o seu sitemap (AJUSTE A URL ABAIXO)
+
 Sitemap: https://gsaojose.com.br/sitemap.xml

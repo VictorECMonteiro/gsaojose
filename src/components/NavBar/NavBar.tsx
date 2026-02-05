@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import SaoJoseLogo from "../../assets/logosaojosenav.png";
 import logoSemSlogan from "../../assets/logoSemSlogan.png";
+import SaoJoseLogoBranco from "../../assets/logobranco.png"
 import "./NavBar.css";
 import "../ButtonsCss/buttons.css";
 import { useNavigate } from "react-router-dom";
@@ -63,7 +64,7 @@ export default function NavBar() {
           <img src={SaoJoseLogo} alt="" />
         </a>
         <a href="/quemsomos" className="transparentLink">
-          Sobre nós
+          Quem Somos
         </a>
         <a href="/produtos" className="transparentLink">
           Produtos
@@ -103,7 +104,7 @@ export default function NavBar() {
           </button>
           <a href="/" className="logo-side">
             <img
-              src={logoSemSlogan}
+              src={SaoJoseLogoBranco}
               alt=""
               style={{
                 objectFit: "contain",
