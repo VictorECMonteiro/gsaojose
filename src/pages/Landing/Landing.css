@@ -265,12 +265,12 @@ body {
 }
 
 .itens>div>h1 {
-    font-family: "Montserrat";
+    font-family: "fraunces";
     font-weight: 600;
-    font-size: clamp(1.1rem, 1.2vw, 2rem);
-    color:
-        rgb(103, 66, 46);
+    font-size: clamp(1.1rem, 1vw + .5rem, 2.5rem);
+    color:rgb(103, 66, 46);
     width: 100%;
+    padding-bottom: 20px;
     text-align: center;
 }
 
@@ -278,8 +278,7 @@ body {
     font-family: "Montserrat";
     font-weight: 400;
     font-size: clamp(0.5rem, .9vw, 0.9rem);
-    color:
-        rgb(103, 66, 46);
+    color: rgb(103, 66, 46);
     width: 100%;
     text-align: center;
 
@@ -751,7 +750,7 @@ body {
 }
 
 .receitas-item>div>h1 {
-    font-size: clamp(1rem, 2vw, 2rem);
+    font-size: clamp(1rem, 2vw + 1rem, 3rem);
     font-family: "fraunces";
     font-weight: 400;
     color: #67422E;
@@ -760,10 +759,21 @@ body {
 
 .receitas-item>div>p {
     padding: 2vh 0vh;
-    font-size: clamp(.3rem, 1vw + .2rem, .7rem);
+    font-size: clamp(.5rem, 1vw + .8rem, 1rem);
     font-family: "montserrat";
     color: #67422e;
     overflow-y: hidden;
+}
+.botaoReceita{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    min-width: 50%;
+    height: 40px;
+    padding: 20px;
+    margin-top: 25px;
+    font-size: clamp(1rem, 1vw + .1rem, 3rem);
 }
 
 .contato-section {
@@ -1169,7 +1179,10 @@ body {
         /* top: 100%; */
     }
     .teste{
-        position: static;
+        height: 300%;
+        position: sticky;
+        top: -100%;
+        
         /* height: 300vh; */
     }
     .receitas-item {

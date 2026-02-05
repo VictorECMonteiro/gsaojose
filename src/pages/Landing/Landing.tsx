@@ -17,6 +17,9 @@ import OvoCodorna from "../../assets/ovos_de_codorna.avif"
 import OvoOmega3 from "../../assets/ovos_omega3.avif"
 import OvoReceitas from "../../assets/delicious-savory-omelette-with-cilantro-garnish.avif"
 import NavBar from '../../components/NavBar/NavBar'
+import Ovosfabrica from "../../assets/ovosfabrica.avif"
+import Fabrica from "../../assets/fabrica.avif"
+import Saojose from "../../assets/SãoJosé.avif"
 import "./Landing.css"
 import { StrapiGet } from '../../configuration/strapiApi'
 import "slick-carousel/slick/slick.css";
@@ -86,7 +89,7 @@ export default function Landing() {
     <div className='container'>
       <NavBar />
       <div className="imageNews" id='imageNews'>
-        <img src={Banner} alt="Banner Começando com um sorriso para chegar no seu" loading='lazy' width={"100%"}/>
+        <img src={Banner} alt="Banner Começando com um sorriso para chegar no seu" loading='lazy' width={"100%"} />
         {/* <div className="clippathImage"></div> */}
         {/* <div className="imageNewsContainer">
           <img src={homepage} alt="" width={"100%"} height={"100%"}/>
@@ -111,27 +114,27 @@ export default function Landing() {
         <h1>Granjas São José</h1>
         <div className='itens'>
           <div>
-            <img src={asset1} alt="" width={130} height={"auto"} loading='lazy'/>
+            <img src={asset1} alt="" width={130} height={"auto"} loading='lazy' />
             <h1>Sabor e qualidade</h1>
             <h2>A nutrição do seu dia-a-dia</h2>
           </div>
           <div>
-            <img src={asset3} alt="" width={130} height={"auto"} loading='lazy'/>
+            <img src={asset3} alt="" width={130} height={"auto"} loading='lazy' />
             <h1>Criação que faz a diferença</h1>
             <h2>Mais espaço, mais saúde, mais sabor</h2>
           </div>
           <div>
-            <img src={asset2} alt="" width={130} height={"auto"} loading='lazy'/>
+            <img src={asset2} alt="" width={130} height={"auto"} loading='lazy' />
             <h1>Mais que ovos</h1>
             <h2>É dedicação e compromisso com você</h2>
           </div>
           <div>
-            <img src={asset4} alt="" width={130} height={"auto"} loading='lazy'/>
+            <img src={asset4} alt="" width={130} height={"auto"} loading='lazy' />
             <h1>Bem-estar animal</h1>
             <h2>Responsabilidade em cada etapa</h2>
           </div>
           <div>
-            <img src={asset5} alt="" width={150} height={"auto"}loading='lazy' />
+            <img src={asset5} alt="" width={150} height={"auto"} loading='lazy' />
             <h1>Do campo pra mesa</h1>
             <h2>produção que reflete carinho e transparência.</h2>
           </div>
@@ -153,26 +156,34 @@ export default function Landing() {
           confiável.</p>
         <div>
           <div>
-          <div className="boxprod">
-            <img src={OvoCodorna}loading='lazy'
-              alt="" width="auto" height="33%" />
-            <h2>Ovos de codorna São José</h2>
+            <div className="boxprod">
+              <img src={OvoCodorna} loading='lazy'
+                alt="" width="auto" height="33%" />
+              <h2>Ovos de codorna São José</h2>
+            </div>
+            <div className="boxprod">
+              <img src={OvoOmega3} loading='lazy'
+                alt="" width="auto%" height="33%" />
+              <h2>Ovos Life - Ômega 3</h2>
+            </div>
+            <div className="boxprod">
+              <img src={OvoLiquido} loading='lazy'
+                alt="" width="auto" height="33%" />
+              <h2>Ovo Integral Líquido</h2>
+            </div>
           </div>
-          <div className="boxprod">
-            <img src={OvoOmega3}loading='lazy'
-              alt="" width="auto%" height="33%" />
-            <h2>Ovos Life - Ômega 3</h2>
-          </div>
-          <div className="boxprod">
-            <img src={OvoLiquido}loading='lazy'
-              alt="" width="auto" height="33%" />
-            <h2>Ovo Integral Líquido</h2>
-          </div>
-          </div>
-          <a className='redBackgroundButton' href='/produtos'>Conheça nossos produtos</a>
+          <a className='redBackgroundButton botaoReceita' href='/produtos'>
+            Conheça nossos produtos
+
+            <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" fill="currentColor" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M14 2.5a.5.5 0 0 0-.5-.5h-6a.5.5 0 0 0 0 1h4.793L2.146 13.146a.5.5 0 0 0 .708.708L13 3.707V8.5a.5.5 0 0 0 1 0z" />
+            </svg>
+
+
+          </a>
         </div>
 
-        
+
 
 
       </div>
@@ -183,7 +194,7 @@ export default function Landing() {
           <p>Qualidade de sabor, ingrediente do seu dia</p>
         </div>
         <div>
-          <img src={zezinho} alt="" height={"80%"} loading='lazy'/>
+          <img src={zezinho} alt="" height={"80%"} loading='lazy' />
 
           <img src={OvoReceitas} alt="Omelete girando" loading='lazy' height={"100%"} className='receitas-omelete' />
 
@@ -214,12 +225,14 @@ export default function Landing() {
 
             </div>
             <div className='imagem-receita'>
-              <img src={`${url}${iten.ReceitaImagem?.url}`} loading='lazy' alt="" width={"100%"}/>
+              <img src={`${url}${iten.ReceitaImagem?.url}`} loading='lazy' alt="" width={"100%"} />
             </div>
 
           </div>
         ))}
-        <a className='redBackgroundButton' href='/receitas'>Ver todas as receitas</a>
+        <a className='redBackgroundButton botaoReceita' href='/receitas'>Ver todas as receitas <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" fill="currentColor" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M14 2.5a.5.5 0 0 0-.5-.5h-6a.5.5 0 0 0 0 1h4.793L2.146 13.146a.5.5 0 0 0 .708.708L13 3.707V8.5a.5.5 0 0 0 1 0z" />
+        </svg></a>
 
       </div>
       <div className='stickyBox contato-section' id='contato'>
@@ -230,8 +243,8 @@ export default function Landing() {
             <p>Entre em contato conosco. Será um prazer atender você, esclarecer suas dúvidas e oferecer todo o suporte necessário.</p>
             <h3>(85) 3336-1010</h3>
           </div>
-          <img src={SaoJoseLogoBranco} alt="" width={"30%"}/>   
-            
+          <img src={SaoJoseLogoBranco} alt="" width={"30%"} />
+
 
         </div>
 
