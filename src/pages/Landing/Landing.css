@@ -1035,7 +1035,7 @@ body {
         height: 300%;
         position: sticky;
         top: -100%;
-        background-color: red;
+        /* background-color: red; */
         
 
     }
