@@ -83,6 +83,7 @@ body{
 
 .Produtos{
     width: 100%;
+    height: auto;
     display: flex;
     flex-direction: column;
     /* justify-content: center; */
@@ -113,7 +114,10 @@ body{
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: auto;
+    /* height: 650px; */
+    max-height: fit-content;
+    /* height: auto; */
+    /* background-color: red; */
     gap: 2%;
     
 }
@@ -123,8 +127,9 @@ body{
     align-items: center;
     justify-content: center;
     width: 550px !important;
+    height: 600px;
     /* height: 60vh !important; */
-    height: auto !important;
+    /* flex-grow: 1; */
     /* width: 30vw !important; */
     
     /* flex: 1 1; */ 
@@ -134,7 +139,7 @@ body{
     background-color: #FEFAEF;
     /* border: 1px solid #292929; */
     border-radius: 2em;
-    margin-top: 3%;
+    /* margin-top: 3%; */
     gap: 5vh;
     padding: 5vh 3vw;
 }
@@ -146,13 +151,15 @@ body{
 }
 .ProdutoContainer h1{
     font-weight: 700;
-    font-family: montserrat;
+    font-family: fraunces;
     color: #67422e;
+    font-size: clamp(1rem, 1vw + 1rem, 1.8rem);
     /* padding: 2vh 0 ; */
 }
 .ProdutoContainer h3{
     font-family: montserrat;
     font-weight: 600;
+    font-size: clamp(.8rem, 1vw + .4rem, 1rem);
     color: #67422e;
     
 
@@ -172,7 +179,7 @@ body{
 
 .section-catalogo{
     width: 90vw;
-    height: 100vh;
+    height: 60vh;
     margin: 10vh auto;
     padding: 10vh 5vw;
     border-radius: 5em;
@@ -226,6 +233,7 @@ body{
     }
     .ProdutoContainer{
         width: 350px !important;
+        margin-top: 1vh;
     }
     .ProdutoContainer img{
         width: 80%;
