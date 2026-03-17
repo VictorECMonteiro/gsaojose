@@ -1,0 +1,34 @@
+[1mdiff --git a/src/pages/Produtos/Produtos.css b/src/pages/Produtos/Produtos.css[m
+[1mindex d090b96..3b053d9 100644[m
+[1m--- a/src/pages/Produtos/Produtos.css[m
+[1m+++ b/src/pages/Produtos/Produtos.css[m
+[36m@@ -141,14 +141,11 @@[m [mbody{[m
+     border-radius: 2em;[m
+     /* margin-top: 3%; */[m
+     gap: 5vh;[m
+[32m+[m[32m    row-gap: 3vh;[m
+     padding: 5vh 3vw;[m
+[32m+[m[32m    margin-top: 3vh;[m
+ }[m
+[31m-.ProdutoContainer img{[m
+[31m-    max-width: 400px;[m
+[31m-    /* height: auto; */[m
+[31m-    /* background-color: rebeccapurple; */[m
+ [m
+[31m-}[m
+ .ProdutoContainer h1{[m
+     font-weight: 700;[m
+     font-family: fraunces;[m
+[1mdiff --git a/src/pages/Produtos/Produtos.tsx b/src/pages/Produtos/Produtos.tsx[m
+[1mindex 7841abe..87dd14d 100644[m
+[1m--- a/src/pages/Produtos/Produtos.tsx[m
+[1m+++ b/src/pages/Produtos/Produtos.tsx[m
+[36m@@ -105,7 +105,7 @@[m [mexport default function Produtos() {[m
+                     {[m
+                         Produtos?.map((item, index) => ([m
+                             <div key={index} className='ProdutoContainer'>[m
+[31m-                                <img src={`${url}${item.FotoProduto.url}`} alt="" />[m
+[32m+[m[32m                                <img src={`${url}${item.FotoProduto.url}`} alt="" width={"300px"} height={"auto"}/>[m
+                                 <button className='orangeRoundButton' onClick={() => handleOpenSide(item)}>Tabela Nutricional</button>[m
+                                 <div>[m
+                                     <h1>{item.NomeProduto}</h1>[m

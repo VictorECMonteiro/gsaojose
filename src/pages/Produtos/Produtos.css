@@ -141,14 +141,11 @@ body{
     border-radius: 2em;
     /* margin-top: 3%; */
     gap: 5vh;
+    row-gap: 3vh;
     padding: 5vh 3vw;
+    margin-top: 3vh;
 }
-.ProdutoContainer img{
-    max-width: 400px;
-    /* height: auto; */
-    /* background-color: rebeccapurple; */
 
-}
 .ProdutoContainer h1{
     font-weight: 700;
     font-family: fraunces;

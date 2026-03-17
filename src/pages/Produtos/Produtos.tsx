@@ -105,7 +105,7 @@ export default function Produtos() {
                     {
                         Produtos?.map((item, index) => (
                             <div key={index} className='ProdutoContainer'>
-                                <img src={`${url}${item.FotoProduto.url}`} alt="" />
+                                <img src={`${url}${item.FotoProduto.url}`} alt="" width={"300px"} height={"auto"}/>
                                 <button className='orangeRoundButton' onClick={() => handleOpenSide(item)}>Tabela Nutricional</button>
                                 <div>
                                     <h1>{item.NomeProduto}</h1>
