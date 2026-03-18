@@ -20,6 +20,7 @@ import NavBar from '../../components/NavBar/NavBar'
 import Ovosfabrica from "../../assets/ovosfabrica.avif"
 import Fabrica from "../../assets/fabrica.avif"
 import Saojose from "../../assets/SãoJosé.avif"
+import SaoJoseInstitucional from "../../assets/SaoJoseInstitucional.mp4"
 import "./Landing.css"
 import { StrapiGet } from '../../configuration/strapiApi'
 import "slick-carousel/slick/slick.css";
@@ -93,7 +94,7 @@ export default function Landing() {
     <div className='container'>
       <NavBar />
       <div className="imageNews" id='imageNews'>
-        <img src={`${url}${url}`}  alt="Banner Começando com um sorriso para chegar no seu" loading='lazy' width={"100%"} />
+        <img src={`${url}/uploads/${banners.url}`}  alt="Banner Começando com um sorriso para chegar no seu" loading='lazy' width={"100%"} />
         {/* <div className="clippathImage"></div> */}
         {/* <div className="imageNewsContainer">
           <img src={homepage} alt="" width={"100%"} height={"100%"}/>
@@ -285,7 +286,7 @@ export default function Landing() {
         </div> */}
       </div>
       <div className='stickyBox video-institucional'>
-        <video src={`${url}/uploads/saojoseproducao_c294d1e90c.mp4`} style={{ objectFit: "cover" }} width={"100%"} height={"100%"} controls
+        <video src={SaoJoseInstitucional} style={{ objectFit: "cover" }} width={"100%"} height={"100%"} controls
           autoPlay muted
           aria-orientation='horizontal'
 
