@@ -87,7 +87,7 @@ export default function quemsomos() {
 
       </section>
 
-      <section className='section3'>
+      {/* <section className='section3'>
         <h1 className=''>Linha do tempo</h1>
         <div className='cont-tempo'>
 
@@ -149,7 +149,7 @@ export default function quemsomos() {
             <img src={fabrica} alt="" className='' />
           </div>
         </div>
-      </section>
+      </section> */}
 
       <section className='section4'>
         <div className='futuro'>
