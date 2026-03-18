@@ -94,7 +94,7 @@ export default function Landing() {
     <div className='container'>
       <NavBar />
       <div className="imageNews" id='imageNews'>
-        <img src={`${url}/uploads/${banners?.url}`}  alt="Banner Começando com um sorriso para chegar no seu" loading='lazy' width={"100%"} />
+        <img src={`${url}${banners?.url}`}  alt="Banner Começando com um sorriso para chegar no seu" loading='lazy' width={"100%"} />
         {/* <div className="clippathImage"></div> */}
         {/* <div className="imageNewsContainer">
           <img src={homepage} alt="" width={"100%"} height={"100%"}/>
