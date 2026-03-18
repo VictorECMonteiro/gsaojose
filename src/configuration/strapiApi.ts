@@ -10,7 +10,7 @@ export const StrapiGet = async (route: string, params?: string) => {
         },
       }
     );
-    console.log(res.data);
+    // console.log(res.data);
     return res.data;
   } catch (e) {
     console.error("Strapi error:", e);

@@ -26,7 +26,7 @@ export default function ({ data, close, isSideOpen }: { data: Produtos<object> |
 
     useEffect(() => {
         if (isSideOpen) {
-            console.log(isSideOpen)
+            // console.log(isSideOpen)
             document.body.style.overflowY = "hidden";
         }
         else {

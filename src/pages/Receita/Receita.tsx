@@ -18,7 +18,7 @@ export default function ReceitaDetalhe() {
       try {
 
         const res: any = await StrapiGet("sao-jose-receitas", `filters[slug][$eqi]=${slug}`);
-        console.log(slug)
+        // console.log(slug)
         // const receitaEncontrada = res.data.find(
         //   (item: any) => item.slug === slug
         // );
@@ -30,7 +30,7 @@ export default function ReceitaDetalhe() {
 
     buscarReceitas();
   }, [slug]);
-  console.log(receita)
+  // console.log(receita)
 
   if (!receita) {
     return <p>Receita não encontrada</p>;

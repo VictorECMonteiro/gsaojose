@@ -37,27 +37,27 @@ import Footer from '../../components/Footer/Footer'
 
 
 //Não excluir estas 2 linhas, elas garantem que nao de erro no build do VITE
-console.log(SaoJoseLogo)
-let mockData = [
-  {
-    slug: "omelete-tradicional",
-    Titulo: "RECEITA 1",
-    Descricao: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, placeat necessitatibus, sit ipsa quod, quia corporis atque inventore accusantium sed nesciunt laborum repellendus quae! Obcaecati nihil explicabo doloribus dolore quisquam."
-  },
-  {
-    slug: "torradas-com-ovo-poche",
-    Titulo: "RECEITA 2",
-    Descricao: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, placeat necessitatibus, sit ipsa quod, quia corporis atque inventore accusantium sed nesciunt laborum repellendus quae! Obcaecati nihil explicabo doloribus dolore quisquam."
-  },
-  {
-    slug: "shakshuka",
-    Titulo: "RECEITA 2",
-    Descricao: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, placeat necessitatibus, sit ipsa quod, quia corporis atque inventore accusantium sed nesciunt laborum repellendus quae! Obcaecati nihil explicabo doloribus dolore quisquam."
-  }
-]
+// console.log(SaoJoseLogo)
+// let mockData = [
+//   {
+//     slug: "omelete-tradicional",
+//     Titulo: "RECEITA 1",
+//     Descricao: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, placeat necessitatibus, sit ipsa quod, quia corporis atque inventore accusantium sed nesciunt laborum repellendus quae! Obcaecati nihil explicabo doloribus dolore quisquam."
+//   },
+//   {
+//     slug: "torradas-com-ovo-poche",
+//     Titulo: "RECEITA 2",
+//     Descricao: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, placeat necessitatibus, sit ipsa quod, quia corporis atque inventore accusantium sed nesciunt laborum repellendus quae! Obcaecati nihil explicabo doloribus dolore quisquam."
+//   },
+//   {
+//     slug: "shakshuka",
+//     Titulo: "RECEITA 2",
+//     Descricao: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, placeat necessitatibus, sit ipsa quod, quia corporis atque inventore accusantium sed nesciunt laborum repellendus quae! Obcaecati nihil explicabo doloribus dolore quisquam."
+//   }
+// ]
 
 export default function Landing() {
-  const [banners, setBanners] = useState<HomePageCarrossels[]>([])
+  const [banners, setBanners] = useState<any>()
   const [receitas, setReceitas] = useState<any[]>([{}])
   const [scrollStyles, setScrollStyles] = useState<Record<number, React.CSSProperties>>({});
 
@@ -75,6 +75,10 @@ export default function Landing() {
 
     // }
     // loadSvg();
+    StrapiGet("sao-jose-banner", "sort=createdAt:desc&pagination[limit]=1").then((res:any)=>{
+      // console.log(res.data.Banner.url)
+      setBanners(res.data.Banner);
+    })
     StrapiGet("sao-jose-receitas", "pagination[pageSize]=3").then((res: any) => {
       // console.log(res.data)
       setReceitas(res.data)
@@ -89,7 +93,7 @@ export default function Landing() {
     <div className='container'>
       <NavBar />
       <div className="imageNews" id='imageNews'>
-        <img src={Banner} alt="Banner Começando com um sorriso para chegar no seu" loading='lazy' width={"100%"} />
+        <img src={`${url}${banners.url}`}  alt="Banner Começando com um sorriso para chegar no seu" loading='lazy' width={"100%"} />
         {/* <div className="clippathImage"></div> */}
         {/* <div className="imageNewsContainer">
           <img src={homepage} alt="" width={"100%"} height={"100%"}/>

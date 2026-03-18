@@ -45,7 +45,7 @@ export default function Receitas() {
     // }
 
     useEffect(() => {
-        console.log(page)
+        // console.log(page)
         StrapiGet("sao-jose-receitas", `pagination[page]=${page}&pagination[pageSize]=5`).then((res) => {
             setReceitas(res.data);
             setMeta(res.meta);

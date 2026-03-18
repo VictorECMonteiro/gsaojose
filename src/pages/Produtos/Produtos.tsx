@@ -40,8 +40,8 @@ export default function Produtos() {
     useEffect(() => {
         StrapiGet("sao-jose-produtos").then((res: any) => {
             setProdutos(res.data)
-            console.log(res.data)
-            console.log(res.data)
+            // console.log(res.data)
+            // console.log(res.data)
         })
 
     }, [])

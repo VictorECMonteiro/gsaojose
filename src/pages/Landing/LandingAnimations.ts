@@ -12,7 +12,7 @@ export function LandingAnimations(selector: string) {
 
     // store timeout to avoid quick flickering
     const hideTimeouts = new Map<HTMLElement, number>();
-    console.log(hideTimeouts)
+    // console.log(hideTimeouts)
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -118,7 +118,7 @@ export function BannerAnimations(element: string) {
         start: "top top",
         end: "bottom bottom",
         scrub: true,
-        onEnter: () => console.log("ENTROU")
+        // onEnter: () => console.log("ENTROU")
       },
     });
 
