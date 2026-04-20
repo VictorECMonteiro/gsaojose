@@ -38,19 +38,22 @@
 .side>h1{
     font-family: fraunces;
     color: #a1653a;
-    font-size: 3em;
+    font-size: clamp(2rem, 1vw + 1rem, 3rem);
 }
 .side>h2{
     font-family: montserrat;
     font-weight: 400;
     color: #a1653a;
+    font-size: clamp(1rem,1vw + .5rem, 2rem);
 }
 .X{
     position: fixed;
     width: 5%;
     height: 10%;
-    font-size: 3em;
+    font-size: 2em;
     background-color: transparent;
+    color: #a1653a;
+    font-family: roboto;
     border: none;
     top: 0%;
     right: 0%;

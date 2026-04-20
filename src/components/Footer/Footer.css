@@ -140,7 +140,8 @@ footer {
 
 @media (max-width: 768px){
     footer{
-        min-height: 100vh;
+        min-height: 140vh;
+        /* max-height: 140vh; */
     }
 
     /* .sempre-com-voce{
@@ -172,11 +173,14 @@ footer {
         
     }
     .footerInfo img{
-        display: block;
-        width: 50%;
+        /* display: block; */
+        position: relative;
+        /* bottom: 70px; */
+        width: 60%;
         height: auto;
-        padding-bottom: 3vh;
-        margin: auto;
+        /* padding-bottom: 3vh; */
+        /* margin: auto; */
+        /* background-color: red; */
         
     }
     .privacidade{

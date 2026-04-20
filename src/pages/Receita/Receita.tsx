@@ -50,11 +50,20 @@ export default function ReceitaDetalhe() {
         </div>
 
         <div className="img-wrapper">
-          <img
-            src={`${url}${receita.ReceitaImagem.url}`}
-            alt={receita.ReceitaTitulo}
-          />
+          {
+            receita.ReceitaVideo === true ?
+              <video
+                src={`${url}${receita.ReceitaVideo?.url}`}
+                controls
+              />
+              :
+              <img
+                src={`${url}${receita.ReceitaImagem.url}`}
+                alt={receita.ReceitaTitulo}
+              />
+              
 
+          }
         </div>
 
         <div className="receita">
@@ -71,7 +80,7 @@ export default function ReceitaDetalhe() {
           <p>{receita.ReceitaTextoExtra}</p>
         </div>
       </section>
-        
+
       <Cookies />
       <Footer />
     </div>
